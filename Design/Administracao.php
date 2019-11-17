@@ -17,44 +17,11 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
 
-    <body>
-        <div class="navbar-fixed green darken-4">
-            <li><a href="#!">Teste</a></li>
-                <li><a href="#!">Teste II</a></li>
-            <ul id="slide-out" class="sidenav green darken-4">
-                
-                <li class="no-padding">
-                    <ul class="collapsible collapsible-accordion">
-                        <li>
-                            <div class="user-view">
-                                <div class="background">
-                                    <img src="images/office.jpg">
-                                </div>
-                                <a href="#user"><img class="circle" src="images/yuna.jpg"></a>
-                                <a href="#name"><span class="white-text name">John Doe</span></a>
-                                <a href="#email"><span class="white-text email">jdandturk@gmail.com</span></a>
-                            </div></li>
-                        <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
-                        <li><a href="#!">Second Link</a></li>
-                        <li><div class="divider"></div></li>
-                        <li><a class="subheader">Subheader</a></li>
-                        <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
-                    </ul>
-                </li>
-            </ul>
-            <ul class="right hide-on-med-and-down"> 
-                <ul id='dropdown1' class='dropdown-content'>
-                    <li><a href="#!">First</a></li>
-                    <li><a href="#!">Second</a></li>
-                    <li><a href="#!">Third</a></li>
-                    <li><a href="#!">Fourth</a></li>
-                </ul>
-            </ul>
-            <a href="#" data-target="slide-out" class="sidenav-trigger green darken-4 right"><i class="material-icons">menu</i></a>
-        </div>
+    <body class="background grey lighten-5">
+        
         <div class="background grey lighten-5">
             <div class="container background">
-                <!-- CADASTRO E TABELA DE ATIVIDADE -->.
+                <!-- CADASTRO E TABELA DE ATIVIDADE -->
                 <ul class="collapsible grey lighten-5">
                     <li>
                         <div class="collapsible-header grey lighten-4"><i class="material-icons">add</i>Cadastro de Tipo de Atividade</div>
@@ -119,7 +86,7 @@ and open the template in the editor.
                     </tbody>
                 </table>
                 </br>
-                <!-- CADASTRO E TABELA DE CIDADE -->.
+                <!-- CADASTRO E TABELA DE CIDADE -->
                 <ul class="collapsible grey lighten-5">
                     <li>
                         <div class="collapsible-header grey lighten-4"><i class="material-icons">add</i>Cadastro de Cidade</div>
@@ -148,7 +115,7 @@ and open the template in the editor.
 
                     </li> 
                 </ul>
-                <!-- TABELA DE CIDADE -->.
+                <!-- TABELA DE CIDADE -->
                 <table class="highlight">
                     <thead>
                         <tr>                                                    
@@ -169,7 +136,7 @@ and open the template in the editor.
                     </tbody>
                 </table>
                 </br>
-                <!-- CADASTRO E TABELA DE NÍVEL -->.
+                <!-- CADASTRO E TABELA DE NÍVEL -->
                 <ul class="collapsible grey lighten-5">
                     <li>
                         <div class="collapsible-header grey lighten-4"><i class="material-icons">add</i>Cadastro Nivel</div>
@@ -193,7 +160,7 @@ and open the template in the editor.
                         </div>
                     </li> 
                 </ul>
-                <!-- TABELA DE NIVEL -->.
+                <!-- TABELA DE NIVEL -->
                 <table class="grey lighten-5 highlight">
                     <thead>
                         <tr>                                                    
@@ -212,7 +179,7 @@ and open the template in the editor.
                     </tbody>
                 </table>
                 </br>
-                <!-- CADASTRO E TABELA DE MODALIDADE -->.
+                <!-- CADASTRO E TABELA DE MODALIDADE -->
                 <ul class="collapsible grey lighten-5">
                     <li>
                         <div class="collapsible-header grey lighten-4"><i class="material-icons">add</i>Cadastro Modalidade</div>
@@ -245,7 +212,7 @@ and open the template in the editor.
                         </div>
                     </li> 
                 </ul>
-                <!-- TABELA DE MODALIDADE -->.
+                <!-- TABELA DE MODALIDADE -->
                 <table class=" grey lighten-5 highlight" >
                     <thead>
                         <tr>                                                    
@@ -266,7 +233,7 @@ and open the template in the editor.
                     </tbody>
                 </table>
                 </br>
-                <!-- CADASTRO E TABELA DE CURSO -->.
+                <!-- CADASTRO E TABELA DE CURSO -->
                 <ul class="collapsible grey lighten-5">
                     <li>
                         <div class="collapsible-header grey lighten-4"><i class="material-icons">add</i>Cadastro Curso</div>
@@ -295,7 +262,7 @@ and open the template in the editor.
                         </div>
                     </li> 
                 </ul>
-                <!-- TABELA DE CURSO -->.
+                <!-- TABELA DE CURSO -->
                 <table class="grey lighten-5 highlight" >
                     <thead>
                         <tr>                                                    
@@ -318,7 +285,7 @@ and open the template in the editor.
             </div>
         </div>
         </br>
-        <!--JavaScript at end of body for optimized loading-->
+        <!--JavaScript at end of body for optimized loading-->        
         <script type="text/javascript" src="js/materialize.js"></script>
         <script>
             $(document).ready(function () {
