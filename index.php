@@ -7,6 +7,7 @@
         <h3>Projeto 3.0</h3>
         <a href="AreaAdministrativa.php">Área Administrativa</a>
         <a href="AcompanhamentosGerais.php">Acompanhamentos Gerais</a>
+        </br></br>
+        <a href="Design/Principal.php">AREA FRONT-END</a>
     </body>
-    
 </html>
