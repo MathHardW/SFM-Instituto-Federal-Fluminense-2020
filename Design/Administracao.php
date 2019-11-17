@@ -30,7 +30,7 @@ and open the template in the editor.
             </div>
         </nav>
 
-        <div class="container center">
+        <div class="container">
 
 
             <!-- CADASTRO E TABELA DE ATIVIDADE -->.
