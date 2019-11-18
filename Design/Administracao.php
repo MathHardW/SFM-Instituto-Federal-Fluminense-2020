@@ -17,11 +17,23 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
 
-    <body class="background grey lighten-5">
-        
+    <nav>
+        <div class="navbar-fixed green darken-4">
+            <a href="#" class="brand-logo left">Logo</a>
+            <ul id="nav-mobile" class="right">
+                <li><a href="sass.html">Sass</a></li>
+                <li><a href="badges.html">Components</a></li>
+                <li><a href="collapsible.html">JavaScript</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    </br>
+
+    <body class="background grey lighten-5">        
         <div class="background grey lighten-5">
             <div class="container background">
-                <!-- CADASTRO E TABELA DE ATIVIDADE -->
+                <!-- CADASTRO DE TIPO DE ATIVIDADE -->
                 <ul class="collapsible grey lighten-5">
                     <li>
                         <div class="collapsible-header grey lighten-4"><i class="material-icons">add</i>Cadastro de Tipo de Atividade</div>
@@ -86,7 +98,7 @@ and open the template in the editor.
                     </tbody>
                 </table>
                 </br>
-                <!-- CADASTRO E TABELA DE CIDADE -->
+                <!-- CADASTRO DE CIDADE -->
                 <ul class="collapsible grey lighten-5">
                     <li>
                         <div class="collapsible-header grey lighten-4"><i class="material-icons">add</i>Cadastro de Cidade</div>
@@ -136,7 +148,7 @@ and open the template in the editor.
                     </tbody>
                 </table>
                 </br>
-                <!-- CADASTRO E TABELA DE NÍVEL -->
+                <!-- CADASTRO DE NÍVEL -->
                 <ul class="collapsible grey lighten-5">
                     <li>
                         <div class="collapsible-header grey lighten-4"><i class="material-icons">add</i>Cadastro Nivel</div>
@@ -179,7 +191,7 @@ and open the template in the editor.
                     </tbody>
                 </table>
                 </br>
-                <!-- CADASTRO E TABELA DE MODALIDADE -->
+                <!-- CADASTRO DE MODALIDADE -->
                 <ul class="collapsible grey lighten-5">
                     <li>
                         <div class="collapsible-header grey lighten-4"><i class="material-icons">add</i>Cadastro Modalidade</div>
@@ -233,7 +245,7 @@ and open the template in the editor.
                     </tbody>
                 </table>
                 </br>
-                <!-- CADASTRO E TABELA DE CURSO -->
+                <!-- CADASTRO DE CURSO -->
                 <ul class="collapsible grey lighten-5">
                     <li>
                         <div class="collapsible-header grey lighten-4"><i class="material-icons">add</i>Cadastro Curso</div>
