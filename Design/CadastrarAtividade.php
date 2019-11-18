@@ -147,8 +147,8 @@
                             </form>
                         </div>
                     </li>
-                    <li>
-                        <div class="collapsible-header grey lighten-4"><i class="material-icons">filter_drama</i>Visualizar Acompanhamentos</div>
+                    <li>                       
+                        <div class="collapsible-header grey lighten-4"><i class="material-icons">filter_drama</i>Visualizar Atividades</div>
                         <div class="collapsible-body"><span>
                                 <table class="centered highlight">
                                     <thead>
