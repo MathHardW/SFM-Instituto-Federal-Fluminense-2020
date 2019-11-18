@@ -6106,19 +6106,19 @@ label {
    ========================================================================== */
 /* Style Placeholders */
 ::-webkit-input-placeholder {
-  color: #d1d1d1;
+  color: #1b5e20;
 }
 ::-moz-placeholder {
-  color: #d1d1d1;
+  color: #1b5e20;
 }
 :-ms-input-placeholder {
-  color: #d1d1d1;
+  color: #1b5e20;
 }
 ::-ms-input-placeholder {
-  color: #d1d1d1;
+  color: #1b5e20;
 }
 ::placeholder {
-  color: #d1d1d1;
+  color: #1b5e20;
 }
 
 /* Text inputs */

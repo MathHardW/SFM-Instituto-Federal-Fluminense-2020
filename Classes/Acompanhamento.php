@@ -11,7 +11,7 @@ class Acompanhamento {
     private $dataInicio;
     private $dataFim;
     
-    private $atividade;
+    private $curso;
     
     function getTitulo() {
         return $this->titulo;
@@ -41,8 +41,8 @@ class Acompanhamento {
         return $this->dataFim;
     }
 
-    function getAtividade() {
-        return $this->atividade;
+    function getCurso() {
+        return $this->curso;
     }
 
     function setTitulo($titulo) {
@@ -73,8 +73,8 @@ class Acompanhamento {
         $this->dataFim = $dataFim;
     }
 
-    function setAtividade($atividade) {
-        $this->atividade = $atividade;
+    function setCurso($curso) {
+        $this->curso = $curso;
     }
 
 }

@@ -19,7 +19,7 @@ class AcompanhamentoDAO {
                                                                         curso.nome,
                                                                         acompanhamento.dataInicio,
                                                                         acompanhamento.datafim
-                                                                FROM `acompanhamento` join curso
+                                                                FROM `dbmad3`.`acompanhamento` join `dbmad3`.curso
                                                                 on curso.id = acompanhamento.Curso_id;");
             $retornoDB->execute();
 
@@ -31,18 +31,37 @@ class AcompanhamentoDAO {
     
     public function queryInsert() {
         try {
-            $nome = $this->Cidade->getNome();
-            $estado = $this->Cidade->getEstado();
+            $titulo = $this->Acompanhamento->getTitulo();
+            $servidor = $this->Acompanhamento->getServidor();
+            $alunosIniciais = $this->Acompanhamento->getAlunosIniciais();
+            $alunosFinais = $this->Acompanhamento->getAlunosFinais();
+            $periodo = $this->Acompanhamento->getPeriodoDeIngresso();
+            $dataIni = $this->Acompanhamento->getDataInicio();
+            $dataFim = $this->Acompanhamento->getDataFim();
+            $curso = $this->Acompanhamento->getCurso();
 
-            $retornoDB = $this->Connection->Conectar()->prepare("INSERT INTO `cidade`(`nome`, `estado`) VALUES (?, ?);");           
+            $retornoDB = $this->Connection->Conectar()->prepare("INSERT INTO `dbmad3`.`acompanhamento` (`titulo`, `servidor`, `AlunosIniciais`,`AlunosFinais`,`dataInicio`,`dataFim`,`periodoIngresso`,`Curso_id`)
+                                                                                                VALUES (?, ?, ?, ?, ?, ?, ?, ?);");           
 
-            $retornoDB->bindParam(1, $nome   , PDO::PARAM_STR);
-            $retornoDB->bindParam(2, $estado , PDO::PARAM_STR);
+            $retornoDB->bindParam(1, $titulo   , PDO::PARAM_STR);
+            $retornoDB->bindParam(2, $servidor , PDO::PARAM_STR);
+            $retornoDB->bindParam(3, $alunosIniciais   , PDO::PARAM_INT);
+            $retornoDB->bindParam(4, $alunosFinais , PDO::PARAM_INT);
+            $retornoDB->bindParam(5, $periodo   , PDO::PARAM_STR);
+            $retornoDB->bindParam(6, $dataIni , PDO::PARAM_STR);
+            $retornoDB->bindParam(7, $dataFim   , PDO::PARAM_STR);
+            $retornoDB->bindParam(8, $curso , PDO::PARAM_STR);
 
             if ($retornoDB->execute()) {return 'ok';} else {return 'erro';}
         } catch (PDOException $ex) {
             return 'error ' . $ex->getMessage();
         }
     }
+    
+    function getAcompanhamento() {
+        return $this->Acompanhamento;
+    }
+
+
   
 }

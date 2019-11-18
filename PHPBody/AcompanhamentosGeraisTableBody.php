@@ -16,7 +16,11 @@
             <td><?= $result[3] ?></td>
             <td><?= $result[4] ?></td>
             <td><?= $result[5] ?></td>
-            <td><a href="">SELECIONAR</a></td>
+            <td>
+                <a href="">SELECIONAR</a>
+                <a href="">EDITAR</a>
+                <a href="">EXCLUIR</a>
+            </td>
         </tr>
     <?php } ?> 
 </table>
