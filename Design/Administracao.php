@@ -18,21 +18,27 @@ and open the template in the editor.
     </head>
 
     <nav>
-        <div class="navbar-fixed green darken-4">
-            <a href="#" class="brand-logo left">Logo</a>
-            <ul id="nav-mobile" class="right">
-                <li><a href="sass.html">Sass</a></li>
-                <li><a href="badges.html">Components</a></li>
-                <li><a href="collapsible.html">JavaScript</a></li>
+        <div class="nav-wrapper green darken-4">
+            <a href="#!" class="brand-logo center"><img src="img/logo.png" width="105px"></a>
+            <ul class="right">
+                <li><a href="home.php"><i class="material-icons prefix">home</i></a></li>
+                <!-- Dropdown Trigger -->
+                <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right">account_circle</i></a></li>
             </ul>
         </div>
     </nav>
-    
-    </br>
 
+    <!-- Dropdown Structure -->
+    <ul id="dropdown1" class="dropdown-content grey-text text-darken-4">
+        <li><a href="#!" class="grey-text text-darken-4">Dados</a></li>
+        <li><a href="Administracao.php" class="grey-text text-darken-4">Área Administrativa</a></li>
+        <li class="divider"></li>
+        <li><a href="?sair=sim" class="grey-text text-darken-4"></a></li>
+    </ul>
+    </br>
     <body class="background grey lighten-5">        
         <div class="background grey lighten-5">
-            <div class="container background">
+            <div class="container background">            
                 <!-- CADASTRO DE TIPO DE ATIVIDADE -->
                 <ul class="collapsible grey lighten-5">
                     <li>
@@ -296,15 +302,23 @@ and open the template in the editor.
                 </table>
             </div>
         </div>
+
+
         </br>
         <!--JavaScript at end of body for optimized loading-->        
         <script type="text/javascript" src="js/materialize.js"></script>
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="js/materialize.js"></script>
+        <script src="js/init.js"></script>
         <script>
             $(document).ready(function () {
                 $('.datepicker').datepicker();
                 $('.collapsible').collapsible();
                 $('select').formSelect();
                 $('.sidenav').sidenav();
+                $(".dropdown-trigger").dropdown({
+                    inDuration: 30
+                });
 
             });
         </script>

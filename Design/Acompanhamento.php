@@ -1,11 +1,15 @@
 <!DOCTYPE html>
 <html>
     <head>
-
+        <!--
         <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        -->
+        
+        <script src="jquery/jquery-3.4.1.js"></script>
 
         <!--Import Google Icon Font-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Import materialize.css-->
         <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
 
@@ -95,11 +99,7 @@
         <script>
             $(document).ready(function () {
                 $('.datepicker').datepicker();
-            });
-        </script>
-        <script>
-            $(document).ready(function () {
-                $('.collapsible').collapsible();
+                 $('.collapsible').collapsible();
             });
         </script>
     </body>
