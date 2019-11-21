@@ -19,7 +19,7 @@ and open the template in the editor.
 
     <nav>
         <div class="nav-wrapper green darken-4">
-            <a href="#!" class="brand-logo center"><img src="img/logo.png" width="105px"></a>
+            <a href="#!" class="brand-logo center"><img src="IMG/logo.png" width="105px"></a>
             <ul class="right">
                 <li><a href="home.php"><i class="material-icons prefix">home</i></a></li>
                 <!-- Dropdown Trigger -->
@@ -312,6 +312,9 @@ and open the template in the editor.
         <script src="js/init.js"></script>
         <script>
             $(document).ready(function () {
+                $('.datepicker').datepicker();
+                $('.collapsible').collapsible();
+                $('select').formSelect();
                 $('.datepicker').datepicker();
                 $('.collapsible').collapsible();
                 $('select').formSelect();
