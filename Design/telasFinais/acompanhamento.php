@@ -11,14 +11,14 @@
         <!--Let browser know website is optimized for mobile-->
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </head>
-    <body class="grey lighten-5">
+    <body>
         <nav>
             <div class="nav-wrapper green darken-4">
-                <a href="#" class="brand-logo center">Logo</a>
-                <ul id="nav-mobile" class="right">
-                    <li><a href="">Sass</a></li>
-                    <li><a href="">Components</a></li>
-                    <li><a href="">JavaScript</a></li>
+                <a href="#!" class="brand-logo center"><img src="img/logo.png" width="105px"></a>
+                <ul class="right">
+                    <li><a href="home.php"><i class="material-icons prefix">home</i></a></li>
+                    <!-- Dropdown Trigger -->
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right">account_circle</i></a></li>
                 </ul>
             </div>
         </nav>
@@ -27,15 +27,10 @@
             <div class="row">              
                 <form class="col s12 l6" id="formularioFicha" name="formularioFicha">
                     <div class="row">
-                        <div class="col s12 l12">                   
-                            <select>
-                                <option value="" disabled selected="">Trabalha</option>
-                                <option value="1">Sistemas de Informação</option>
-                                <option value="2">Quimica Licenciatura</option>
-                                <option value="3">Técnico em Informática</option>
-                            </select>
-
-                        </div>
+                        <h5 class="center">Ficha</h5>
+                        <div class="col s12 l12">
+                            <input placeholder="Codigo" type="text" class="validate" id="codigoText" name="codigoText">                            
+                        </div> 
                         <div class="col s12 l6">                   
                             <select>
                                 <option value="" disabled selected="">Trabalha</option>
@@ -43,7 +38,6 @@
                                 <option value="2">Quimica Licenciatura</option>
                                 <option value="3">Técnico em Informática</option>
                             </select>
-
                         </div>
                         <div class="col s12 l6">
                             <select>
@@ -94,6 +88,7 @@
 
                 <form  class="col l6" id="formularioAtividade" name="formularioAtividade">
                     <div class="row">
+                        <h5 class="center">Atividade</h5>
                         <div class=" col s6">
                             <input placeholder="Titulo" type="text" class="validate" id="tituloText" name="tituloText">
                         </div>
@@ -147,133 +142,14 @@
                                 <td>33</td>
                                 <td>
                                     <a href="" class="btn green darken-4">
-                                        <i class="material-icons">add</i>                                                                            
+                                        <i class="material-icons">edit</i>                                                                            
                                     </a>
-                                    
+
                                     <a href="" class="btn green darken-4">
                                         <i class="material-icons">delete</i>                                                                            
                                     </a>
                                 </td>
-                            </tr>
-                             <tr>
-                                <td>Axel</td>
-                                <td>Estes</td>
-                                <td>33</td>
-                                <td>Estes</td>
-                                <td>33</td>
-                                <td>33</td>
-                                <td>
-                                    <a href="" class="btn green darken-4">
-                                        <i class="material-icons">add</i>                                                                            
-                                    </a>
-                                    
-                                    <a href="" class="btn green darken-4">
-                                        <i class="material-icons">delete</i>                                                                            
-                                    </a>
-                                </td>
-                            </tr>
-                             <tr>
-                                <td>Axel</td>
-                                <td>Estes</td>
-                                <td>33</td>
-                                <td>Estes</td>
-                                <td>33</td>
-                                <td>33</td>
-                                <td>
-                                    <a href="" class="btn green darken-4">
-                                        <i class="material-icons">add</i>                                                                            
-                                    </a>
-                                    
-                                    <a href="" class="btn green darken-4">
-                                        <i class="material-icons">delete</i>                                                                            
-                                    </a>
-                                </td>
-                            </tr>
-                             <tr>
-                                <td>Axel</td>
-                                <td>Estes</td>
-                                <td>33</td>
-                                <td>Estes</td>
-                                <td>33</td>
-                                <td>33</td>
-                                <td>
-                                    <a href="" class="btn green darken-4">
-                                        <i class="material-icons">add</i>                                                                            
-                                    </a>
-                                    
-                                    <a href="" class="btn green darken-4">
-                                        <i class="material-icons">delete</i>                                                                            
-                                    </a>
-                                </td>
-                            </tr>
-                             <tr>
-                                <td>Axel</td>
-                                <td>Estes</td>
-                                <td>33</td>
-                                <td>Estes</td>
-                                <td>33</td>
-                                <td>33</td>
-                                <td>
-                                    <a href="" class="btn green darken-4">
-                                        <i class="material-icons">add</i>                                                                            
-                                    </a>
-                                    
-                                    <a href="" class="btn green darken-4">
-                                        <i class="material-icons">delete</i>                                                                            
-                                    </a>
-                                </td>
-                            </tr>
-                             <tr>
-                                <td>Axel</td>
-                                <td>Estes</td>
-                                <td>33</td>
-                                <td>Estes</td>
-                                <td>33</td>
-                                <td>33</td>
-                                <td>
-                                    <a href="" class="btn green darken-4">
-                                        <i class="material-icons">add</i>                                                                            
-                                    </a>
-                                    
-                                    <a href="" class="btn green darken-4">
-                                        <i class="material-icons">delete</i>                                                                            
-                                    </a>
-                                </td>
-                            </tr>
-                             <tr>
-                                <td>Axel</td>
-                                <td>Estes</td>
-                                <td>33</td>
-                                <td>Estes</td>
-                                <td>33</td>
-                                <td>33</td>
-                                <td>
-                                    <a href="" class="btn green darken-4">
-                                        <i class="material-icons">add</i>                                                                            
-                                    </a>
-                                    
-                                    <a href="" class="btn green darken-4">
-                                        <i class="material-icons">delete</i>                                                                            
-                                    </a>
-                                </td>
-                            </tr>
-                             <tr>
-                                <td>Axel</td>
-                                <td>Estes</td>
-                                <td>33</td>
-                                <td>Estes</td>
-                                <td>33</td>
-                                <td>33</td>
-                                <td>
-                                    <a href="" class="btn green darken-4">
-                                        <i class="material-icons">add</i>                                                                            
-                                    </a>
-                                    
-                                    <a href="" class="btn green darken-4">
-                                        <i class="material-icons">delete</i>                                                                            
-                                    </a>
-                                </td>
-                            </tr>
+                            </tr>                                 
                         </tbody>
                     </table>
                     <div class="col-md-12 center text-center">
@@ -297,7 +173,7 @@
                                 <th>Resultados Esperados</th>
                                 <th>Resultados Obtidos</th>
                                 <th>Ações</th>
-                                
+
                             </tr>
                         </thead>
                         <tbody>
@@ -311,9 +187,9 @@
                                 <td>33</td>
                                 <td>
                                     <a href="" class="btn green darken-4">
-                                        <i class="material-icons">add</i>                                                                            
+                                        <i class="material-icons">edit</i>                                                                            
                                     </a>
-                                    
+
                                     <a href="" class="btn green darken-4">
                                         <i class="material-icons">delete</i>                                                                            
                                     </a>
@@ -327,24 +203,13 @@
                     </div>
                 </div>
             </div>
-
         </div>
-
+        <script type="text/javascript" src="js/materialize.js"></script>
         <script>
             $(document).ready(function () {
-                $('.datepicker').datepicker();
-                $('.collapsible').collapsible();
-                $('select').formSelect();
-                $('.datepicker').datepicker();
-                $('.collapsible').collapsible();
-                $('select').formSelect();
-                $('.sidenav').sidenav();
-                $(".dropdown-trigger").dropdown({
-                    inDuration: 30
-                });
                 $('#tabelaAtividade').pageMe({
                     pagerSelector: '#paginaAtividade',
-                    activeColor: 'green',
+                    activeColor: 'green darken-4',
                     prevText: 'Anterior',
                     nextText: 'Siguiente',
                     showPrevNext: true,
@@ -353,13 +218,22 @@
                 });
                 $('#tabelaFicha').pageMe({
                     pagerSelector: '#paginaFicha',
-                    activeColor: 'green',
+                    activeColor: 'green darken-4',
                     prevText: 'Anterior',
                     nextText: 'Siguiente',
                     showPrevNext: true,
                     hidePageNumbers: false,
                     perPage: 5
                 });
+                $('select').formSelect();
+                $('.datepicker').datepicker();
+                $('.collapsible').collapsible();
+                $('select').formSelect();
+                $('.sidenav').sidenav();
+                $(".dropdown-trigger").dropdown({
+                    inDuration: 30
+                });
+
 
             });
         </script>
