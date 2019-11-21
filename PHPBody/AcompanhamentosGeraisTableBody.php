@@ -1,6 +1,5 @@
-<table border="1">
+<table border="1" class="centered">
     <tr>
-        <td>Id</td>
         <td>Título</td>
         <td>Servidor</td>
         <td>Curso</td>
@@ -10,16 +9,15 @@
     </tr>
     <?php foreach ($acompanhamentoDAO->querySelect() as $result) { ?>
         <tr>
-            <td><?= $result[0] ?></td>
             <td><?= $result[1] ?></td>
             <td><?= $result[2] ?></td>
             <td><?= $result[3] ?></td>
             <td><?= $result[4] ?></td>
             <td><?= $result[5] ?></td>
             <td>
-                <a href="">SELECIONAR</a>
-                <a href="">EDITAR</a>
-                <a href="">EXCLUIR</a>
+                <a href="?seleciona=<?=$result[0]?>">SELECIONAR</a>
+                <a href="?edita=<?=$result[0]?>">EDITAR</a>
+                <a href="?excluir=<?=$result[0]?>">EXCLUIR</a>
             </td>
         </tr>
     <?php } ?> 

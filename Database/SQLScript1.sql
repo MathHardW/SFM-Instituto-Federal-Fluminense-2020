@@ -75,18 +75,20 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 
 CREATE TABLE IF NOT EXISTS `dbmad3`.`Ficha` (
-  `codigo` VARCHAR(100) NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `codigo` VARCHAR(50) NULL,
+  `update` TINYINT(2) NULL,
   `trabalha` TINYINT NULL,
   `dependentes` TINYINT NULL,
   `atendimentoEspecial` TINYINT NULL,
   `moraSozinho` TINYINT NULL,
   `sexo` VARCHAR(1) NULL,
   `data` DATE NULL,
-  `Cidade_id` INT NOT NULL,
   `Acompanhamento_id` INT NOT NULL,
-  PRIMARY KEY (`codigo`),
-    FOREIGN KEY (`Cidade_id`)
-    REFERENCES `dbmad3`.`Cidade` (`id`),
+  `Cidade_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
     FOREIGN KEY (`Acompanhamento_id`)
-    REFERENCES `dbmad3`.`Acompanhamento` (`id`)
+    REFERENCES `dbmad3`.`Acompanhamento` (`id`),
+    FOREIGN KEY (`Cidade_id`)
+    REFERENCES `dbmad3`.`Cidade` (`id`)
 )ENGINE = InnoDB;

@@ -5,11 +5,12 @@ class Ficha {
     private $trabalha;
     private $dependentes;
     private $atendimentoEspecial;
-    private $moraSozinho;
+    private $moradia;
     private $sexo;
     private $data;
     
     private $cidade;
+    private $acompanhamento;
     
     function __construct() {
         
@@ -31,8 +32,8 @@ class Ficha {
         return $this->atendimentoEspecial;
     }
 
-    function getMoraSozinho() {
-        return $this->moraSozinho;
+    function getMoradia() {
+        return $this->moradia;
     }
 
     function getSexo() {
@@ -46,7 +47,11 @@ class Ficha {
     function getCidade() {
         return $this->cidade;
     }
-
+    
+    function getAcompanhamento() {
+        return $this->acompanhamento;
+    }
+    
     function setCodigo($codigo) {
         $this->codigo = $codigo;
     }
@@ -63,8 +68,8 @@ class Ficha {
         $this->atendimentoEspecial = $atendimentoEspecial;
     }
 
-    function setMoraSozinho($moraSozinho) {
-        $this->moraSozinho = $moraSozinho;
+    function setMoradia($moradia) {
+        $this->moradia = $moradia;
     }
 
     function setSexo($sexo) {
@@ -77,6 +82,10 @@ class Ficha {
 
     function setCidade($cidade) {
         $this->cidade = $cidade;
+    }
+    
+    function setAcompanhamento($acompanhamento) {
+        $this->acompanhamento = $acompanhamento;
     }
 
 }

@@ -2,7 +2,6 @@
 <!DOCTYPE HTML>
 <html>
     <head>
-        <?php require_once 'PHPHeader/Head.php'; ?>
         <title>Área Administrativa</title>
     </head>
     <body>

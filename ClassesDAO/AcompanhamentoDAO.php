@@ -29,6 +29,25 @@ class AcompanhamentoDAO {
         }
     }
     
+    public function querySelectiD($id) {
+        try {
+            $retornoDB = $this->Connection->Conectar()->prepare("SELECT acompanhamento.id,
+                                                                        acompanhamento.titulo,
+                                                                        acompanhamento.servidor,
+                                                                        curso.nome,
+                                                                        acompanhamento.dataInicio,
+                                                                        acompanhamento.datafim
+                                                                FROM `dbmad3`.`acompanhamento` join `dbmad3`.curso
+                                                                on curso.id = acompanhamento.Curso_id WHERE acompanhamento.id = ?;");
+            $retornoDB->bindParam(1, $id  , PDO::PARAM_INT);
+            $retornoDB->execute();
+
+            return $retornoDB->fetchAll();
+        } catch (PDOException $ex) {
+            return 'erro ' . $ex->getMessage();
+        }
+    }
+    
     public function queryInsert() {
         try {
             $titulo = $this->Acompanhamento->getTitulo();

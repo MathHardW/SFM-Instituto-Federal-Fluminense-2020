@@ -1,0 +1,106 @@
+<div class="row">
+    <div class="col s12 l6">
+        <select class="browser-default" name="trabalhaText">
+            <option value="" disabled selected>Situação Trabalhista</option>
+            <option value="0">Não-Trabalha</option> 
+            <option value="1">rabalha</option> 
+        </select>
+    </div>
+    <div class="col s12 l6">
+        <select class="browser-default" name="dependentesText">
+            <option value="" disabled selected>Situação Dependentes</option>
+            <option value="0">Não-Possui Dependentes</option> 
+            <option value="1">Possui Dependentes</option> 
+        </select>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col s12 l12">
+        <select class="browser-default" name="atendimentoEspecialText">
+            <option value="" disabled selected>Atendimento Especial</option>
+            <option value="0">Não-Precisa</option> 
+            <option value="1">Precisa</option> 
+        </select>
+    </div>
+</div>
+<div class="row">
+    <div class="col s12 l6">
+        <select class="browser-default" name="moradiaText">
+            <option value="" disabled selected>Situação Moradia</option>
+            <option value="0">Não-Mora Sozinho</option> 
+            <option value="1">Mora Sozinho</option> 
+        </select>
+    </div>
+    <div class="col s12 l6">
+        <select class="browser-default" name="sexoText">
+            <option value="" disabled selected>Sexo</option>
+            <option value="M">Masculino</option> 
+            <option value="F">Feminino</option> 
+        </select>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col s12 l6">
+        <select class="browser-default" name="cidadeText">
+            <option value="" disabled selected>Cidade</option>
+            <option value="0">Itaperuna</option> 
+            <option value="4">Aperibé</option> 
+        </select>
+    </div>
+    <div class="col s12 l6">
+        <select class="browser-default" name="dataText">
+            <option value="" disabled selected>Data</option>
+            <option value="0">0000/00/00</option> 
+        </select>
+    </div>
+</div>
+
+$fichaDAO->getFicha()->setTrabalha($_POST['trabalhaText']);
+$fichaDAO->getFicha()->setDependentes($_POST['dependentesText']);
+$fichaDAO->getFicha()->setAtendimentoEspecial($_POST['atendimentoEspecialText']);
+    $fichaDAO->getFicha()->setMoradia($_POST['moradiaText']);
+    $fichaDAO->getFicha()->setSexo($_POST['sexoText']);
+    $fichaDAO->getFicha()->setCidade($_POST['cidadeText']);
+    $fichaDAO->getFicha()->setData($_POST['dataText']);
+
+$codigo = "#" . $codigoTemp;
+            $update = 0;
+            $trabalha = $this->Ficha->getTrabalha();
+            $dependentes = $this->Ficha->getDependentes();
+            $especial = $this->Ficha->getAtendimentoEspecial();
+            $moradia = $this->Ficha->getMoradia();
+            $sexo = $this->Ficha->getSexo();
+            $cidadeId = $this->Ficha->getCidade();
+            $data = $this->Ficha->getData();
+            $acompanhamentoId = $this->Ficha->getAcompanhamento();
+
+
+        <td>id</td>
+        <td>Código</td>
+        <td>Update</td>
+        <td>Trabalha</td>
+        <td>Dependentes</td>
+        <td>Especial</td>
+        <td>Moradia</td>
+        <td>Sexo</td>
+        <td>Data</td>
+        <td>Acompanhamento</td>
+        <td>Cidade</td>
+        <td>Ações</td>
+
+ $retornoDB->bindParam(1, $codigo, PDO::PARAM_STR);
+            $retornoDB->bindParam(2, $update, PDO::PARAM_INT);
+            $retornoDB->bindParam(3, $trabalha, PDO::PARAM_INT);
+            $retornoDB->bindParam(4, $dependentes, PDO::PARAM_INT);
+            $retornoDB->bindParam(5, $especial, PDO::PARAM_INT);
+            $retornoDB->bindParam(6, $moradia, PDO::PARAM_INT);
+            $retornoDB->bindParam(7, $sexo, PDO::PARAM_STR);
+            $retornoDB->bindParam(8, $data, PDO::PARAM_STR);
+            $retornoDB->bindParam(9, $acompanhamentoId, PDO::PARAM_INT);
+            $retornoDB->bindParam(10, $cidadeId, PDO::PARAM_INT);
+
+$retornoDB = $this->Connection->Conectar()->prepare("INSERT INTO `dbmad3`.`ficha` 
+(`codigo`, `update`,`trabalha`,`dependentes`,`atendimentoEspecial`,`moraSozinho`,`sexo`,`data`,`Acompanhamento_id`,`Cidade_id`) VALUES (?,?,?,?,?,?,?,?,?,?);");
+

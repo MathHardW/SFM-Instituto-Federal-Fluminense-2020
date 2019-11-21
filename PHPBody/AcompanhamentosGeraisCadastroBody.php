@@ -1,16 +1,43 @@
 
-Titulo: <input type="text" name="tituloText"><br><br>
-Servidor: <input type="text" name="servidorText"><br><br>
-Alunos Iniciais: <input type="number" name="alunosIniciaisText"><br><br>
-Alunos Finais: <input type="number" name="alunosFinaisText"><br><br>
-Periodo de Ingresso: <input type="text" name="periodoText"><br><br>
-Data Inicio: <input type="date" name="dataInicioText"><br><br>
-Data Fim: <input type="date" name="dataFimText"><br><br>
+<div class="row">
+    <div class="col s12 l6">
+        <input type="text" name="tituloText" placeholder="Titulo" ><br><br>
+    </div>
+    <div class="col s12 l6">
+        <input type="text" name="servidorText" placeholder="Servidor"><br><br>
+    </div>
+</div>
+<div class="row">
+    <div class="col s12 l3">
+        <input type="number" name="alunosIniciaisText" placeholder="Alunos Iniciais"><br><br>
 
-Curso: <select name="cursoText">
-        <?php foreach ($cursoDAO->querySelect() as $result) { ?>
-            <option value="<?= $result[0] ?>"><?= $result[1] ?></option> 
-        <?php } ?> 
-    </select>
+    </div>
+    <div class="col s12 l3">
+        <input type="number" name="alunosFinaisText" placeholder="Alunos Finais"><br><br>
+    </div>
+    <div class="col s12 l3">
+        <input type="text" name="periodoText" placeholder="Periodo de Ingresso"><br><br>
+    </div>
+    <div class="col s12 l3">
+        <select class="browser-default" name="cursoText">
+            <option value="" disabled selected>Escolha um curso.</option>
+            <?php foreach ($cursoDAO->querySelect() as $result) { ?>
+                <option value="<?= $result[0] ?>"><?= $result[1] ?></option> 
+            <?php } ?>
+        </select>
+    </div>
+</div>
+<div class="row">
+    <div class="col s12 l6">
+        <input type="date" name="dataInicioText" placeholder="Data Inicio"><br><br>
+    </div>
+    <div class="col s12 l6">
+        <input type="date" name="dataFimText" placeholder="Data Fim"><br><br>
+    </div>
+    
+    <input type="submit" class="btn blue-grey darken-4 white-text" id="btnCad" name="cadastrarAcompanhamentoButton" value="Cadastrar Acompanhamento"/>
+</div>
 
-<input type="submit" id="btnCad" name="cadastrarAcompanhamentoButton" value="Cadastrar Acompanhamento"/><br><br>
+
+
+

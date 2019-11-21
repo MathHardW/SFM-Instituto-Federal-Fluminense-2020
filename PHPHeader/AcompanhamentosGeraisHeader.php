@@ -11,6 +11,14 @@ $cursoDAO = new CursoDAO();
 //------------------------------------------------------------------------------
 
 
+if (count($_GET) > 0) {
+    if (isset($_GET['seleciona'])) {
+        if($_GET['seleciona'] >= 0){
+            header("location: http://localhost/PROJETO_VERSAO_3.0/Acompanhamento.php?acompanhamento=".$_GET['seleciona']);
+        }
+    }
+}
+
 //CADASTRANDO MODALIDADE--------------------------------------------------------
 if (isset($_POST['cadastrarAcompanhamentoButton'])) {
     $acompanhamentoDAO->getAcompanhamento()->setTitulo($_POST['tituloText']);
