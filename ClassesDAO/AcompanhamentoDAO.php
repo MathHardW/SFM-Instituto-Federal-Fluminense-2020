@@ -80,7 +80,5 @@ class AcompanhamentoDAO {
     function getAcompanhamento() {
         return $this->Acompanhamento;
     }
-
-
-  
+    
 }

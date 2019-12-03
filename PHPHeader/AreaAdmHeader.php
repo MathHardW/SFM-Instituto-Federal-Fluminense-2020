@@ -1,4 +1,5 @@
 <?php
+
 //IMPORTANDO AS CLASSES---------------------------------------------------------
 require_once 'ClassesDAO/CidadeDAO.php';
 //------------------------------------------------------------------------------
@@ -6,6 +7,7 @@ require_once 'ClassesDAO/NivelDAO.php';
 require_once 'ClassesDAO/ModalidadeDAO.php';
 require_once 'ClassesDAO/CursoDAO.php';
 //------------------------------------------------------------------------------
+require_once 'ClassesDAO/TipoAtividadeDAO.php';
 
 //ESTANCIANDO A CLASSE----------------------------------------------------------
 $cidadeDAO = new CidadeDAO();
@@ -14,12 +16,18 @@ $nivelDAO = new NivelDAO();
 $modalidadeDAO = new ModalidadeDAO();
 $cursoDAO = new CursoDAO();
 //------------------------------------------------------------------------------
+$tipoAtividadeDAO = new TipoAtividadeDAO();
 
 //VALORES INICIAIS DOS INPUTS---------------------------------------------------
-$cidadeNome = ""; $cidadeEstado = "";
+$cidadeNome = "";
+$cidadeEstado = "";
 //------------------------------------------------------------------------------
-$nivelNome = ""; $modalidadeNome = ""; $cursoNome = "";
+$nivelNome = "";
+$modalidadeNome = "";
+$cursoNome = "";
 //------------------------------------------------------------------------------
+$nomeTipoAtividade = "";
+$descricaoTipoAtividade = "";
 
 //PESQUISAS, EXCLUSÕES E EDIÇÕES------------------------------------------------
 if (count($_GET) > 0) {
@@ -62,20 +70,33 @@ if (count($_GET) > 0) {
         } else {
             echo '<script type="text/javascript"> alert("Erro ao Excluir Modalidade!") </script>';
         }
-    } else 
+    } else
     //PESQUISAR O CURSO PELO ID -------------------------------------------
     if (isset($_GET['pesquisarIdCurso'])) {
         $curso = $cursoDAO->querySelectId($_GET['pesquisarIdCurso']);
         $cursoNome = $curso[0]['nome'];
-    } else 
+    } else
     //EXCLUIR O NIVEL PELO ID --------------------------------------------------    
-    if (isset($_GET['excluirIdCurso'])){
+    if (isset($_GET['excluirIdCurso'])) {
         if ($cursoDAO->queryDeleteId($_GET['excluirIdCurso']) == 'ok') {
             header("location: http://localhost/PROJETO_VERSAO_3.0/AreaAdministrativa.php");
         } else {
             echo '<script type="text/javascript"> alert("Erro ao Excluir Curso!") </script>';
-        }       
-    }else{
+        }
+    }//PESQUISAR O TIPO DE ATIVIDADE PELO ID -----------------------------------
+    if (isset($_GET['pesquisarIdTipoAtividade'])) {
+        $tipoatividade = $tipoAtividadeDAO->querySelectId($_GET['pesquisarIdTipoAtividade']);
+        $nomeTipoAtividade = $tipoatividade[0]['nome'];
+        $descricaoTipoAtividade = $tipoatividade[0]['descricao'];
+    } else
+    //EXCLUIR O NIVEL PELO ID --------------------------------------------------    
+    if (isset($_GET['excluirIdTipoAtividade'])) {
+        if ($tipoAtividadeDAO->queryDeleteId($_GET['excluirIdTipoAtividade']) == 'ok') {
+            header("location: http://localhost/PROJETO_VERSAO_3.0/AreaAdministrativa.php");
+        } else {
+            echo '<script type="text/javascript"> alert("Erro ao Excluir Tipo de Atividade!") </script>';
+        }
+    } else {
         echo '<script type="text/javascript"> alert("Ação Inválida!") </script>';
     }
 }
@@ -121,6 +142,18 @@ if (isset($_POST['cadastrarCursoButton'])) {
     $cursoDAO->getCurso()->setModalidade($_POST['modalidadeCursoText']);
 
     if ($cursoDAO->queryInsert() == 'ok') {
+        header("location: http://localhost/PROJETO_VERSAO_3.0/AreaAdministrativa.php");
+    } else {
+        echo '<script type="text/javascript"> alert("Erro ao cadastrar Curso!") </script>';
+    }
+}
+
+//CADASTRANDO TIPO DE ATIVIDADE-------------------------------------------------
+if (isset($_POST['cadastrarTipoAtividadeButton'])) {
+    $tipoAtividadeDAO->getTipoAtividade()->setNome($_POST['nomeTipoAtividadeText']);
+    $tipoAtividadeDAO->getTipoAtividade()->setDescricao($_POST['descricaoTipoAtividadeText']);
+
+    if ($tipoAtividadeDAO->queryInsert() == 'ok') {
         header("location: http://localhost/PROJETO_VERSAO_3.0/AreaAdministrativa.php");
     } else {
         echo '<script type="text/javascript"> alert("Erro ao cadastrar Curso!") </script>';
