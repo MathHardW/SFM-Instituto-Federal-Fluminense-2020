@@ -4,7 +4,7 @@
         <!--Import Google Icon Font-->
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <!--Import materialize.css-->
-        <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+        <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.js"></script>
         <script type="text/javascript" src="js/pagination.js"></script>
@@ -22,144 +22,195 @@
                 </ul>
             </div>
         </nav>
-        <div class="container">
-            <div class="card green darken-4 white-text"><div class="row"><h4 class="center">ACOMPANHAMENTO</h4></div></div>
-            <div class="row">              
-                <form class="col s12 l6" id="formularioFicha" name="formularioFicha">
-                    <div class="row">
-                        <h5 class="center">Ficha</h5>
-                        <div class="col s12 l12">
-                            <input placeholder="Codigo" type="text" class="validate" id="codigoText" name="codigoText">                            
-                        </div> 
-                        <div class="col s12 l6">                   
-                            <select>
-                                <option value="" disabled selected="">Trabalha</option>
-                                <option value="1">Sistemas de Informação</option>
-                                <option value="2">Quimica Licenciatura</option>
-                                <option value="3">Técnico em Informática</option>
-                            </select>
+        <div class="container">            
+            <div class="card">
+                <h4 class="center-align"></h4>
+                <div class="row">
+                    <form action="" method="POST">
+                        <div class="col s12 m6 l6">
+                            <label class="green-text" for="servidor">Data Inicio</label>
+                            <input class="green-text" disabled="" value="Teste" placeholder="Titulo" type="text" class="validate" id="titulo" name="tituloText">
                         </div>
-                        <div class="col s12 l6">
-                            <select>
-                                <option value="" disabled selected>Dependentes</option>
-                                <option value="1">Sistemas de Informação</option>
-                                <option value="2">Quimica Licenciatura</option>
-                                <option value="3">Técnico em Informática</option>
-                            </select>
-
+                        <div class="col s12 m6 l6">
+                            <label class="green-text" for="servidor">Data Inicio</label>
+                            <input class="green-text" disabled="" value="Teste" placeholder="Servidor" type="text" class="validate" id="servidor" name="servidorText">
+                        </div>              
+                        <div class="col s12 m6 l3">
+                            <label class="green-text" for="servidor">Data Inicio</label>
+                            <input class="green-text" disabled="" value="20" placeholder="Alunos Iniciais" type="number" class="validate" id="alunosIniciaisNumber" name="alunosIniciaisNumber">
                         </div>
-
-                        <div class="col s12 l6">
-                            <select>
-                                <option value="" disabled selected>Atendimento Especial</option>
-                                <option value="1">Sistemas de Informação</option>
-                                <option value="2">Quimica Licenciatura</option>
-                                <option value="3">Técnico em Informática</option>
-                            </select>
-
+                        <div class="col s12 m6 l3">
+                            <label class="green-text" for="servidor">Data Inicio</label>
+                            <input class="green-text" disabled="" value="20" placeholder="Alunos Finais" type="number" class="validate" id="alunosFinaisNumber" name="alunosFinaisNumber">
                         </div>
-                        <div class="col s12 l6">
-                            <select>
-                                <option value="" disabled selected>Mora Sozinho</option>
-                                <option value="1">Sistemas de Informação</option>
-                                <option value="2">Quimica Licenciatura</option>
-                                <option value="3">Técnico em Informática</option>
-                            </select>
-
+                        <div class="col s12 m4 l3">
+                            <label class="green-text" for="servidor">Data Inicio</label>
+                            <input class="green-text" disabled="" value="02/12/2019" placeholder="Data Inicio" type="text" class="datepicker" id="dataInicioText" name="dataInicioText">
                         </div>
-                        <div class="col s12 l6">
-                            <select>
-                                <option value="" disabled selected>Sexo</option>
-                                <option value="1">Sistemas de Informação</option>
-                                <option value="2">Quimica Licenciatura</option>
-                                <option value="3">Técnico em Informática</option>
-                            </select>
-
+                        <div class="col s12 m4 l3">
+                            <label class="green-text" for="servidor">Data Inicio</label>
+                            <input class="green-text" disabled="" value="02/12/2019" placeholder="Data Fim" type="text" class="datepicker" id="dataFimText" name="dataFimText">
+                        </div>           
+                        <div class="col s12 m3 l3">
+                            <label class="green-text" for="servidor">Data Inicio</label>
+                            <input class="green-text" disabled="" value="Teste" placeholder="Titulo" type="text" class="validate" id="titulo" name="tituloText">
                         </div>
-                        <div class="col s12 l6">
-
-                            <input placeholder="Data" type="text" class="datepicker" id="dataText" name="dataText">
+                        <div class="col s12 m3 l3">
+                            <label class="green-text" for="servidor">Data Inicio</label>
+                            <input class="green-text" disabled="" value="Teste" placeholder="Titulo" type="text" class="validate" id="titulo" name="tituloText">
                         </div>
-                    </div>
-                    <div class="center">
-                        <a class="btn green darken-4" name="btn-cadastrar"><!--<i class="material-icons prefix">add</i>-->Cadastrar</a>
-                    </div>
-                </form>
-
-                <form  class="col l6" id="formularioAtividade" name="formularioAtividade">
-                    <div class="row">
-                        <h5 class="center">Atividade</h5>
-                        <div class=" col s6">
-                            <input placeholder="Titulo" type="text" class="validate" id="tituloText" name="tituloText">
+                        <div class="col  s12 m3 l3">
+                            <label class="green-text" for="servidor">Data Inicio</label>
+                            <input class="green-text"disabled="" value="Teste" placeholder="Titulo" type="text" class="validate" id="titulo" name="tituloText">
                         </div>
-                        <div class="col s6">
-                            <input placeholder="Servidor" type="text" class="validate" id="servidorText" name="servidorText">
-                        </div>
-                        <div class="col s6">
-                            <input placeholder="Data Inicio" type="text" class="datepicker" id="dataInicioText" name="dataInicioText">
-                        </div>
-                        <div class="col s6">
-                            <input placeholder="Data Fim" type="text" class="datepicker" id="dataFimText" name="dataFimText">
-                        </div>
-                        <div class="col s6">
-                            <textarea placeholder="Descrição" class="materialize-textarea" id="descricaoText" name="descricaoText"></textarea>
-                        </div>
-                        <div class="col s6">
-                            <textarea data-length="120" placeholder="Resultados Esperados" class="materialize-textarea" id="resultadosEsperadosText" name="resultadosEsperadosText"></textarea>
-                        </div>
-                        <div class="col s12">
-                            <textarea data-length="120" placeholder="Resultados Obtidos" class="materialize-textarea" id="resultadosObtidosText" name="resultadosObtidosText"></textarea>
-                        </div>
-                    </div>
-                    <div class="center">
-                    <a class="btn green darken-4" name="btn-cadastrar"><!--<i class="material-icons prefix">add</i>-->Cadastrar</a>
-                    </div>                       
-                </form>
+                        <div class="col s12 m3 l3">
+                            <label class="green-text" for="servidor">Data Inicio</label>
+                            <input class="green-text" disabled="" value="Teste" placeholder="Titulo" type="text" class="validate" id="titulo" name="tituloText">
+                        </div>                   
+                    </form>
+                </div>
             </div>
+            <div class="card">
+                <div class="row">              
+                    <form class="col s12 l6" id="formularioFicha" name="formularioFicha">
+                        <div class="row">
+                            <h5 class="center">FICHA</h5>
+                            <div class="col s12 l12">
+                                <input placeholder="Codigo" type="text" class="validate" id="codigoText" name="codigoText">                            
+                            </div> 
+                            <div class="col s12 l6">                   
+                                <select>
+                                    <option value="" disabled selected="">Trabalha</option>
+                                    <option value="1">Sistemas de Informação</option>
+                                    <option value="2">Quimica Licenciatura</option>
+                                    <option value="3">Técnico em Informática</option>
+                                </select>
+                            </div>
+                            <div class="col s12 l6">
+                                <select>
+                                    <option value="" disabled selected>Dependentes</option>
+                                    <option value="1">Sistemas de Informação</option>
+                                    <option value="2">Quimica Licenciatura</option>
+                                    <option value="3">Técnico em Informática</option>
+                                </select>
 
-            <div class="row">
-                <div class="col s12 m12 l12">
-                  <!--<input type="text" id="search" placeholder="Type to search..." />-->
-                    <table cellpadding="1" cellspacing="1" class="table table-hover responsive-table centered " id="tabelaAtividade">
-                        <thead>
-                            <tr class="center-align">
-                                <th>Trabalha</th>
-                                <th>Dependentes</th>
-                                <th>Atendimento Especial</th>
-                                <th>Mora Sozinho</th>
-                                <th>Sexo</th>
-                                <th>Data</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Axel</td>
-                                <td>Estes</td>
-                                <td>33</td>
-                                <td>Estes</td>
-                                <td>33</td>
-                                <td>33</td>
-                                <td>
-                                    <a href="" class="btn green darken-4">
-                                        <i class="material-icons">edit</i>                                                                            
-                                    </a>
+                            </div>
 
-                                    <a href="" class="btn green darken-4">
-                                        <i class="material-icons">delete</i>                                                                            
-                                    </a>
-                                </td>
-                            </tr>                                 
-                        </tbody>
-                    </table>
-                    <div class="col-md-12 center text-center">
-                        <span class="left" id="total_reg"></span>
-                        <ul class="pagination pager" id="paginaAtividade"></ul>
+                            <div class="col s12 l6">
+                                <select>
+                                    <option value="" disabled selected>Atendimento Especial</option>
+                                    <option value="1">Sistemas de Informação</option>
+                                    <option value="2">Quimica Licenciatura</option>
+                                    <option value="3">Técnico em Informática</option>
+                                </select>
+
+                            </div>
+                            <div class="col s12 l6">
+                                <select>
+                                    <option value="" disabled selected>Mora Sozinho</option>
+                                    <option value="1">Sistemas de Informação</option>
+                                    <option value="2">Quimica Licenciatura</option>
+                                    <option value="3">Técnico em Informática</option>
+                                </select>
+
+                            </div>
+                            <div class="col s12 l6">
+                                <select>
+                                    <option value="" disabled selected>Sexo</option>
+                                    <option value="1">Sistemas de Informação</option>
+                                    <option value="2">Quimica Licenciatura</option>
+                                    <option value="3">Técnico em Informática</option>
+                                </select>
+
+                            </div>
+                            <div class="col s12 l6">
+
+                                <input placeholder="Data" type="text" class="datepicker" id="dataText" name="dataText">
+                            </div>
+                        </div>
+                        <div class="center">
+                            <a class="btn tooltipped" data-position="bottom" data-tooltip="I am a tooltip" name="btn-cadastrar">Incluir</a>
+                            <!--<a class="btn green darken-4" name="btn-cadastrar"><i class="material-icons prefix">add</i>Incluir</a>-->
+                        </div>
+                    </form>
+
+                    <form  class="col l6" id="formularioAtividade" name="formularioAtividade">
+                        <div class="row">
+                            <h5 class="center">ATIVIDADE</h5>
+                            <div class=" col s6">
+                                <input placeholder="Titulo" type="text" class="validate" id="tituloText" name="tituloText">
+                            </div>
+                            <div class="col s6">
+                                <input placeholder="Servidor" type="text" class="validate" id="servidorText" name="servidorText">
+                            </div>
+                            <div class="col s6">
+                                <input placeholder="Data Inicio" type="text" class="datepicker" id="dataInicioText" name="dataInicioText">
+                            </div>
+                            <div class="col s6">
+                                <input placeholder="Data Fim" type="text" class="datepicker" id="dataFimText" name="dataFimText">
+                            </div>
+                            <div class="col s6">
+                                <textarea placeholder="Descrição" class="materialize-textarea" id="descricaoText" name="descricaoText"></textarea>
+                            </div>
+                            <div class="col s6">
+                                <textarea data-length="120" placeholder="Resultados Esperados" class="materialize-textarea" id="resultadosEsperadosText" name="resultadosEsperadosText"></textarea>
+                            </div>
+                            <div class="col s12">
+                                <textarea data-length="120" placeholder="Resultados Obtidos" class="materialize-textarea" id="resultadosObtidosText" name="resultadosObtidosText"></textarea>
+                            </div>
+                        </div>
+                        <div class="center">
+                        <a class="btn green darken-4" name="btn-cadastrar"><!--<i class="material-icons prefix">add</i>-->Incluir</a>
+                        </div>                       
+                    </form>
+                </div>
+
+                <div class="row">
+                    <h5 class="center">FICHA</h5>
+                    <div class="col s12 m12 l12">
+                      <!--<input type="text" id="search" placeholder="Type to search..." />-->
+                        <table cellpadding="1" cellspacing="1" class="table table-hover responsive-table centered " id="tabelaAtividade">
+                            <thead>
+                                <tr class="center-align">
+                                    <th>Trabalha</th>
+                                    <th>Dependentes</th>
+                                    <th>Atendimento Especial</th>
+                                    <th>Mora Sozinho</th>
+                                    <th>Sexo</th>
+                                    <th>Data</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Axel</td>
+                                    <td>Estes</td>
+                                    <td>33</td>
+                                    <td>Estes</td>
+                                    <td>33</td>
+                                    <td>33</td>
+                                    <td>
+                                        <a href="" class="btn green darken-4">
+                                            <i class="material-icons">edit</i>                                                                            
+                                        </a>
+
+                                        <a href="" class="btn green darken-4">
+                                            <i class="material-icons">delete</i>                                                                            
+                                        </a>
+                                    </td>
+                                </tr>                                 
+                            </tbody>
+                        </table>
+                        <div class="col-md-12 center text-center">
+                            <span class="left" id="total_reg"></span>
+                            <ul class="pagination pager" id="paginaAtividade"></ul>
+                        </div>
                     </div>
                 </div>
             </div>
 
             <div class="row">
+                <h5 class="center">ATIVIDADE</h5>
                 <div class="col s12 m12 l12">
                   <!--<input type="text" id="search" placeholder="Type to search..." />-->
                     <table cellpadding="1" cellspacing="1" class="table table-hover responsive-table centered " id="tabelaFicha">
@@ -207,6 +258,7 @@
         <script type="text/javascript" src="js/materialize.js"></script>
         <script>
             $(document).ready(function () {
+                $('.tooltipped').tooltip();
                 $('#tabelaAtividade').pageMe({
                     pagerSelector: '#paginaAtividade',
                     activeColor: 'green darken-4',
