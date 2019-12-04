@@ -1,4 +1,18 @@
 <div class="row"></br>
+    <div class="col s12 l12">
+        <select class="browser-default js-example-basic-single" name="codigoFichaText">
+            <option value="" disabled selected>Adicionar Ficha Existente</option>
+            <optgroup label="Alaskan/Hawaiian Time Zone">
+
+                <option value="AL">Alabama</option>
+                ...
+                <option value="WY">Wyoming</option>
+            </optgroup>
+        </select>
+    </div>
+</div>
+
+<div class="row">
     <div class="col s12 l6">
         <select class="browser-default" name="trabalhaText">
             <option value="" disabled selected>Situação Trabalhista</option>
@@ -56,6 +70,6 @@
         </select>
     </div>
 </div>
-</br>
-<input type="submit" class="btn blue-grey darken-4 white-text" id="btnCad" name="cadastrarFichaButton" value="Cadastrar Ficha"/>
 
+</br>
+<input type="submit" class="btn blue-grey darken-4 white-text" id="btnCad" name="cadastrarFichaButton" value="Incluir Ficha"/>

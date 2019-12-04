@@ -8,7 +8,7 @@ $fichaDAO = new FichaDAO();
 $fichaDAO->getFicha()->setAcompanhamento($_GET['acompanhamento']);
 //------------------------------------------------------------------------------
 //
-//CADASTRANDO MODALIDADE--------------------------------------------------------
+//CADASTRANDO FICHA-------------------------------------------------------------
 if (isset($_POST['cadastrarFichaButton'])) {
     $fichaDAO->getFicha()->setTrabalha($_POST['trabalhaText']);
     $fichaDAO->getFicha()->setDependentes($_POST['dependentesText']);

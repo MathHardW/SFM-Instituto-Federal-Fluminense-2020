@@ -1,6 +1,7 @@
 <?php
 require_once 'PHPHeader/AcompanhamentosGeraisHeader.php';
 require_once 'PHPHeader/FichasHeader.php';
+require_once 'PHPHeader/AtividadesHeader.php';
 ?>
 
 <!DOCTYPE HTML>
@@ -19,7 +20,6 @@ require_once 'PHPHeader/FichasHeader.php';
             </div>
         </nav>
 
-        <!-- NESTA ÁREA SERÁ POSSIVEL CADASTRAR UM ACOMPANHAMENTO, PESQUISAR COM OS INDICES SIMPLES E SELECIONAR UM INDIVIDUAL-->
         <div class="row container center">
             <div class="col s12 l12">
                 </br>
@@ -32,45 +32,42 @@ require_once 'PHPHeader/FichasHeader.php';
                     </div>
                 </div>
             </div>
+            <div class="col l1">.</div>
+            <div class="col s12 l4  grey lighten-2" style="border-style: solid;border-width: 1px;border-color: black;">
+                <form action="" method="POST"><?php require_once 'PHPBody/FichasBody.php'; ?></form></br>
+            </div>
+            <div class="col l1">.</div>
+            <div class="col s12 l5  grey lighten-2" style="border-style: solid;border-width: 1px;border-color: black;">
+                <form action="" method="POST"><?php require_once 'PHPBody/AtividadesBody.php'; ?></form>
+            </div>
+            <div class="col l1">.</div>
         </div>
 
         <div class="row container center">
-            <div class="col s12 l6">
-                <form action="" method="POST"><?php require_once 'PHPBody/FichasBody.php'; ?></form>
-            </div>
-            <div class="col s12 l6">
-                <form action="" method="POST"><?php require_once 'PHPBody/AtividadesBody.php'; ?></form>
-            </div>
             <div class="col s12 l12">
                 </br></br><div class="divider"></div>
                 <table border="1" class="centered responsive-table">
                     <tr>
-                        <td>id</td>
                         <td>Código</td>
-                        <td>Update</td>
                         <td>Trabalha</td>
                         <td>Dependentes</td>
                         <td>Especial</td>
                         <td>Moradia</td>
                         <td>Sexo</td>
                         <td>Data</td>
-                        <td>Acompanhamento</td>
                         <td>Cidade</td>
                         <td>Ações</td>
                     </tr>
                     <?php foreach ($fichaDAO->querySelect() as $result) { ?>
                         <tr>
-                            <td><?= $result[0] ?></td>
                             <td><?= $result[1] ?></td>
-                            <td><?= $result[2] ?></td>
                             <td><?= $result[3] ?></td>
                             <td><?= $result[4] ?></td>
                             <td><?= $result[5] ?></td>
                             <td><?= $result[6] ?></td>
                             <td><?= $result[7] ?></td>
                             <td><?= $result[8] ?></td>
-                            <td><?= $result[9] ?></td>
-                            <td><?= $result[10] ?></td>
+                            <td><?= $result[12] ?></td>
                             <td>
                                 <a href="?edita=<?= $result[0] ?>">EDITAR</a>
                                 <a href="?excluir=<?= $result[0] ?>">EXCLUIR</a>
@@ -84,22 +81,19 @@ require_once 'PHPHeader/FichasHeader.php';
                 </br></br><div class="divider"></div>
                 <table border="1" class="centered responsive-table">
                     <tr>
-                        <td>id</td>
-                        <td>Código</td>
-                        <td>Update</td>
-                        <td>Trabalha</td>
-                        <td>Dependentes</td>
-                        <td>Especial</td>
-                        <td>Moradia</td>
-                        <td>Sexo</td>
-                        <td>Data</td>
-                        <td>Acompanhamento</td>
-                        <td>Cidade</td>
+                        <td>Título</td>
+                        <td>Servidor</td>
+                        <td>Descrição</td>
+                        <td>Publíco Alvo</td>
+                        <td>Resultados Esperados</td>
+                        <td>Resultados Obtidos</td>
+                        <td>Data Início</td>
+                        <td>Data Fim</td>
+                        <td>Tipo de Atividade</td>
                         <td>Ações</td>
                     </tr>
-                    <?php foreach ($fichaDAO->querySelect() as $result) { ?>
+                    <?php foreach ($atividadeDAO->querySelect() as $result) { ?>
                         <tr>
-                            <td><?= $result[0] ?></td>
                             <td><?= $result[1] ?></td>
                             <td><?= $result[2] ?></td>
                             <td><?= $result[3] ?></td>
@@ -108,8 +102,7 @@ require_once 'PHPHeader/FichasHeader.php';
                             <td><?= $result[6] ?></td>
                             <td><?= $result[7] ?></td>
                             <td><?= $result[8] ?></td>
-                            <td><?= $result[9] ?></td>
-                            <td><?= $result[10] ?></td>
+                            <td><?= $result[12] ?></td>
                             <td>
                                 <a href="?edita=<?= $result[0] ?>">EDITAR</a>
                                 <a href="?excluir=<?= $result[0] ?>">EXCLUIR</a>
@@ -120,12 +113,8 @@ require_once 'PHPHeader/FichasHeader.php';
             </div>
         </div>
 
-
         <script type="text/javascript" src="js/materialize.js"></script>
         <script>
-            $('.dropdown-button').dropdown({
-                container: document.body
-            });
             $(document).ready(function () {
                 $('select').formSelect();
                 $('.sidenav').sidenav();

@@ -1,6 +1,7 @@
 <?php
 //IMPORTANDO AS CLASSES---------------------------------------------------------
 require_once 'ClassesDAO/AcompanhamentoDAO.php';
+require_once 'ClassesDAO/TipoAtividadeDAO.php';
 require_once 'ClassesDAO/CursoDAO.php';
 
 //------------------------------------------------------------------------------    
@@ -8,6 +9,7 @@ require_once 'ClassesDAO/CursoDAO.php';
 //ESTANCIANDO A CLASSE----------------------------------------------------------
 $acompanhamentoDAO = new AcompanhamentoDAO();
 $cursoDAO = new CursoDAO();
+$tipoAtividadeDAO = new TipoAtividadeDAO();
 //------------------------------------------------------------------------------
 
 

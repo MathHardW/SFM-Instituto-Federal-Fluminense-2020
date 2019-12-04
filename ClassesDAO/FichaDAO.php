@@ -29,7 +29,7 @@ class FichaDAO {
     public function querySelect() {
         try {
             $acompanhamentoId = $this->Ficha->getAcompanhamento();
-            $retornoDB = $this->Connection->Conectar()->prepare("SELECT * FROM `ficha` WHERE Acompanhamento_id = ?;");
+            $retornoDB = $this->Connection->Conectar()->prepare("SELECT * FROM ficha, cidade WHERE Cidade_id = cidade.id and Acompanhamento_id = ?;");
             $retornoDB->bindParam(1, $acompanhamentoId, PDO::PARAM_INT);
 
             $retornoDB->execute();

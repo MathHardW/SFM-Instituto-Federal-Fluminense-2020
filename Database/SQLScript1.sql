@@ -92,3 +92,38 @@ CREATE TABLE IF NOT EXISTS `dbmad3`.`Ficha` (
     FOREIGN KEY (`Cidade_id`)
     REFERENCES `dbmad3`.`Cidade` (`id`)
 )ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `mydb`.`TipoAtividade`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `dbmad3`.`TipoAtividade` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `nome` VARCHAR(45) NULL,
+  `descricao` VARCHAR(100) NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
+-- -----------------------------------------------------
+-- Table `mydb`.`Atividade`
+-- -----------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS `dbmad3`.`Atividade` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `titulo` VARCHAR(50) NULL,
+  `servidor` VARCHAR(50) NULL,
+  `descricao` VARCHAR(200) NULL,
+  `publicoAlvo` VARCHAR(50) NULL,
+  `resultadosEsperados` VARCHAR(200) NULL,
+  `resultadosObtidos` VARCHAR(200) NULL,
+  `dataInicio` DATE NULL,
+  `dataFim` DATE NULL,
+  `Acompanhamento_id` INT NOT NULL,
+  `TipoAtividade_id` INT NOT NULL,
+  PRIMARY KEY (`id`),
+    FOREIGN KEY (`Acompanhamento_id`)
+    REFERENCES `dbmad3`.`Acompanhamento` (`id`),
+    FOREIGN KEY (`TipoAtividade_id`)
+    REFERENCES `dbmad3`.`TipoAtividade` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
