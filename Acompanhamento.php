@@ -20,7 +20,6 @@ require_once 'PHPHeader/AtividadesHeader.php';
             </div>
         </nav>
 
-        <!-- NESTA ÁREA SERÁ POSSIVEL CADASTRAR UM ACOMPANHAMENTO, PESQUISAR COM OS INDICES SIMPLES E SELECIONAR UM INDIVIDUAL-->
         <div class="row container center">
             <div class="col s12 l12">
                 </br>
@@ -33,15 +32,18 @@ require_once 'PHPHeader/AtividadesHeader.php';
                     </div>
                 </div>
             </div>
+            <div class="col l1">.</div>
+            <div class="col s12 l4  grey lighten-2" style="border-style: solid;border-width: 1px;border-color: black;">
+                <form action="" method="POST"><?php require_once 'PHPBody/FichasBody.php'; ?></form></br>
+            </div>
+            <div class="col l1">.</div>
+            <div class="col s12 l5  grey lighten-2" style="border-style: solid;border-width: 1px;border-color: black;">
+                <form action="" method="POST"><?php require_once 'PHPBody/AtividadesBody.php'; ?></form>
+            </div>
+            <div class="col l1">.</div>
         </div>
 
         <div class="row container center">
-            <div class="col s12 l6">
-                <form action="" method="POST"><?php require_once 'PHPBody/FichasBody.php'; ?></form>
-            </div>
-            <div class="col s12 l6">
-                <form action="" method="POST"><?php require_once 'PHPBody/AtividadesBody.php'; ?></form>
-            </div>
             <div class="col s12 l12">
                 </br></br><div class="divider"></div>
                 <table border="1" class="centered responsive-table">

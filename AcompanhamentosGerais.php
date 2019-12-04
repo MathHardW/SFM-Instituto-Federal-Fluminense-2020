@@ -7,10 +7,12 @@
     </head>
     <body class="blue lighten-4">
         <nav>
-            <div class="nav-wrapper blue-grey darken-4">
-                <a href="#" class="brand-logo center">Logo</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li><a href="AreaAdministrativa.php">Área Administrativa</a></li>
+            <div class="nav-wrapper green darken-4">
+                <a href="#!" class="brand-logo center"><img src="IMG/logo2.png" width="105px"></a>
+                <ul class="right">
+                    <li><a href="home.php"><i class="material-icons prefix">home</i></a></li>
+                    <!-- Dropdown Trigger -->
+                    <li><a class="dropdown-trigger" href="#!" data-target="dropdown1"><i class="material-icons right">account_circle</i></a></li>
                 </ul>
             </div>
         </nav>
