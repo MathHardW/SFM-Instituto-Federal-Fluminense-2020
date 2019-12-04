@@ -1,4 +1,3 @@
-
 <div class="row">
     <div class="col s12 l6">
         <input type="text" name="tituloText" placeholder="Titulo" ><br><br>
@@ -35,7 +34,7 @@
         <input type="date" name="dataFimText" placeholder="Data Fim"><br><br>
     </div>
     
-    <input type="submit" class="btn blue-grey darken-4 white-text" id="btnCad" name="cadastrarAcompanhamentoButton" value="Cadastrar Acompanhamento"/>
+    <input type="submit" class="btn green darken-4" id="btnCad" name="cadastrarAcompanhamentoButton" value="Cadastrar Acompanhamento"/>
 </div>
 
 
