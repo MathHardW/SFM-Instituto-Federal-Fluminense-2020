@@ -2,7 +2,7 @@
     <head>
         <script src="jquery/jquery-3.4.1.js"></script>
         <!--Import Google Icon Font-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="css/material-icons.css" rel="stylesheet">
         <!--Import materialize.css-->
         <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
         <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -13,64 +13,44 @@
     </head>
     <body class="background grey lighten-2">
         <header>
-            <nav>
-                <div class="nav-wrapper green darken-4">
-                    <a href="#!" class="brand-logo center"><img src="img/logo.png" width="105px"></a>
-                    <ul class="left">
-                        <!--<li><a href="home.php"><i class="material-icons prefix">home</i></a></li>-->
-                        <!-- Dropdown Trigger -->
-                       <!-- <li><a class="dropdown-trigger" href="#!" data-target="slide-out"><i class="material-icons right">account_circle</i></a></li>-->
-                        <!--<li> <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">account_circle</i></a></li>-->
-                        <li> <a class='dropdown-trigger' href='#' data-target='dropdown1'><i class="material-icons">account_circle</i></a></li>
-                    </ul>
-                    <ul class="left">
-                        <li><a href="home.php"><i class="material-icons prefix">home</i></a></li>                     
-                    </ul> 
-                </div>
+            <div class="navbar-fixed green darken-4">
+                <nav>
+                    <div class="nav-wrapper green darken-4">                            
+                        <div class="hide-on-small-only">
+                            <a href="acompanhamentos.php" class="brand-logo center"><img src="img/logo.png" width="105px"></a>
+                        </div>
+                        <div class="hide-on-med-and-up">
+                            <a href="acompanhamentos.php" class="brand-logo center"><img src="img/logo.png" width="80px"></a>
+                        </div>
+                        <ul class="right">
+                            <li> <a class="">Usuario</a></li>
+                            <li><a class='dropdown-trigger' href='#' data-target='dropdown1'><i class="material-icons">arrow_drop_down</i></a></li>
 
-            </nav>
+                        </ul>                                           
+                        <ul class="left">
+                            <li><a href=""><i class="material-icons prefix">reply</i></a></li>
+                            <li><a href="acompanhamentos.php"><i class="material-icons prefix">home</i></a></li>
+                        </ul>
 
-            <!-- Dropdown Trigger -->
-
-
+                    </div>
+                </nav>
+            </div>
             <!-- Dropdown Structure -->
-            <ul id='dropdown1' class='dropdown-content'>        
+
+
+            <ul id='dropdown1' class='dropdown-content'> 
                 </br>
-
-                <li><a href="#usuario"><span class=" name">Nome: Lucas Soares</span></a></li>
-                <li><a href="#email"><span class=" email">Email: lucassoaresgranja@yahoo.com.br</span></a></li>
-
-                <li class="divider" tabindex="-1"></li>
-                <li><a href="CadastrarAcompanhamento.php"><i class="material-icons center">people_outline</i>Acompanhamentos</a></li>
-                <li><a href="abas.php"><i class="material-icons center">view_compact</i>Administração</a></li>
-                <li><a href="#!"><i class="material-icons center">backspace</i>Sair</a></li>
-
-
+              
+                <li>
+                    <a href="#usuario"><span class=" name">Nome: Lucas Soares</span></a>
+                    <a href="#email"><span class=" email">Email: lucassoaresgranja@yahoo.com.br</span></a>
+                    <a href="CadastrarAcompanhamento.php"><i class="material-icons center">people_outline</i>Acompanhamentos</a>
+                    <a href="abas.php"><i class="material-icons center">view_compact</i>Administração</a>
+                    <a href="#!"><i class="material-icons center">backspace</i>Sair</a>
+                </li>
             </ul>
 
-            <ul id="slide-out" class="sidenav">
-                <li><div class="user-view">
-                        <!--<div class="background">
-                            <img src="images/office.jpg">
-                        </div>-->
-                        <a href="#user"><img class="circle" src="../IMG/logo.png"></a>
-                        <a href="#usuario"><span class=" name">Nome: Lucas Soares</span></a>
-                        <a href="#email"><span class=" email">Email: lucassoaresgranja@yahoo.com.br</span></a>
-                    </div></li>
-                <li><a href="#!" class="waves-effect"><i class="material-icons">home</i>Inicio</a></li>
-                <li><a href="#!" class="waves-effect"><i class="material-icons">home</i>Acompanhamentos</a></li>
-                <li><a href="#!" class="waves-effect"><i class="material-icons">home</i>Administração</a></li>
-
-                <li><div class="divider"></div></li>
-                <li><a class="subheader">Informações</a></li>
-                <li><a class="waves-effect" href="#!">Link</a></li>
-            </ul>
-          <!--  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">account_circle</i></a>-->
-
-        </header>    
-
-
-
+        </header>
         </br>
         </br>
 
@@ -84,7 +64,7 @@
                         <li class="tab col s2"><a class="active" href="#nivel">Nivel</a></li>
                         <li class="tab col s2"><a class="active" href="#modalidade">Modalidade</a></li>
                         <li class="tab col s2"><a class="active" href="#curso">Curso</a></li> 
-                        <li class="tab col s2"><a class="active" href="#matricula">Usuario</a></li> 
+                        <li class="tab col s2"><a class="active" href="#matricula">Usuarios</a></li> 
                     </ul>
                 </div>
 
@@ -342,38 +322,38 @@
                     </form>
 
                     <!-- TABELA DE CURSO -->
-                        <div class="col s12 m12 l12">
-                          <!--<input type="text" id="search" placeholder="Type to search..." />-->
-                            <table cellpadding="1" cellspacing="1" class="table table-hover responsive-table centered " id="tabelaCurso">
-                                <thead>
-                                    <tr class="center-align">
-                                        <th>Curso</th>
-                                        <th>Modalidade</th>                                    
-                                        <th>Ações</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Curso</td>
-                                        <td>Modalidade</td>                                    
-                                        <td>
-                                            <a href="" class="btn green darken-4">
-                                                <i class="material-icons">edit</i>                                                                            
-                                            </a>
+                    <div class="col s12 m12 l12">
+                      <!--<input type="text" id="search" placeholder="Type to search..." />-->
+                        <table cellpadding="1" cellspacing="1" class="table table-hover responsive-table centered " id="tabelaCurso">
+                            <thead>
+                                <tr class="center-align">
+                                    <th>Curso</th>
+                                    <th>Modalidade</th>                                    
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Curso</td>
+                                    <td>Modalidade</td>                                    
+                                    <td>
+                                        <a href="" class="btn green darken-4">
+                                            <i class="material-icons">edit</i>                                                                            
+                                        </a>
 
-                                            <a href="" class="btn green darken-4">
-                                                <i class="material-icons">delete</i>                                                                            
-                                            </a>
-                                        </td>
-                                    </tr>                                 
-                                </tbody>
-                            </table>
-                            <div class="col-md-12 center text-center">
-                                <span class="left" id="total_reg"></span>
-                                <ul class="pagination pager" id="paginaCurso"></ul>
-                            </div>
+                                        <a href="" class="btn green darken-4">
+                                            <i class="material-icons">delete</i>                                                                            
+                                        </a>
+                                    </td>
+                                </tr>                                 
+                            </tbody>
+                        </table>
+                        <div class="col-md-12 center text-center">
+                            <span class="left" id="total_reg"></span>
+                            <ul class="pagination pager" id="paginaCurso"></ul>
                         </div>
-                    
+                    </div>
+
 
                 </div>
 
