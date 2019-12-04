@@ -9,5 +9,8 @@
         <a href="AcompanhamentosGerais.php">Acompanhamentos Gerais</a>
         </br></br>
         <a href="Principal.php">AREA FRONT-END</a>
+        <a href="Design/telasFinais/acompanhamentos.php">ACOMPANHAMENTOS</a>
+        <a href="Design/telasFinais/acompanhamento.php">ACOMPANHAMENTO</a>
+        <a href="Design/telasFinais/administracao.php">ADMINISTRAÇÃO</a>
     </body>
 </html>
