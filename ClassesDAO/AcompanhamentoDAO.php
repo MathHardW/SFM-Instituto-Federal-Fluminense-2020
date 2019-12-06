@@ -17,8 +17,8 @@ class AcompanhamentoDAO {
                                                                         acompanhamento.titulo,
                                                                         acompanhamento.servidor,
                                                                         curso.nome,
-                                                                        acompanhamento.dataInicio,
-                                                                        acompanhamento.datafim
+                                                                        DATE_FORMAT(acompanhamento.datainicio, '%d/%m/%Y'),
+                                                                        DATE_FORMAT(acompanhamento.datafim, '%d/%m/%Y')                                                                       
                                                                 FROM `dbmad3`.`acompanhamento` join `dbmad3`.curso
                                                                 on curso.id = acompanhamento.Curso_id;");
             $retornoDB->execute();
@@ -66,9 +66,9 @@ class AcompanhamentoDAO {
             $retornoDB->bindParam(2, $servidor , PDO::PARAM_STR);
             $retornoDB->bindParam(3, $alunosIniciais   , PDO::PARAM_INT);
             $retornoDB->bindParam(4, $alunosFinais , PDO::PARAM_INT);
-            $retornoDB->bindParam(5, $periodo   , PDO::PARAM_STR);
-            $retornoDB->bindParam(6, $dataIni , PDO::PARAM_STR);
-            $retornoDB->bindParam(7, $dataFim   , PDO::PARAM_STR);
+            $retornoDB->bindParam(5, $dataIni , PDO::PARAM_STR);
+            $retornoDB->bindParam(6, $dataFim   , PDO::PARAM_STR);
+            $retornoDB->bindParam(7, $periodo   , PDO::PARAM_STR);
             $retornoDB->bindParam(8, $curso , PDO::PARAM_STR);
 
             if ($retornoDB->execute()) {return 'ok';} else {return 'erro';}

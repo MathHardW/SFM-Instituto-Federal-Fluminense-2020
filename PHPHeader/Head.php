@@ -1,7 +1,5 @@
 <meta charset="UTF-8">
-<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-<!--Import Google Icon Font-->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
 
 <!--Import materialize.css-->
 <link type="text/css" rel="stylesheet" href="CSS/materialize.css"  media="screen,projection"/>

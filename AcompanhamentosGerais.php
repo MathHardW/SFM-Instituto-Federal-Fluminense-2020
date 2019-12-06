@@ -56,17 +56,51 @@
         <!-- NESTA ÁREA SERÁ POSSIVEL CADASTRAR UM ACOMPANHAMENTO, PESQUISAR COM OS INDICES SIMPLES E SELECIONAR UM INDIVIDUAL-->
         <div class="row container center">
             <div class="col s12 l12">
-                <div class="row">
-                    <div class="col s12 l12  grey lighten-2" style="border-style: solid;border-width: 1px;border-color: black;"><h4>ACOMPANHAMENTOS GERAIS</h4></div></br>
-                </div>
-                <div class="row">
+                <br/>
+                <div class="row" >
                     <form action="" method="POST"><?php require_once 'PHPBody/AcompanhamentosGeraisCadastroBody.php'; ?></form>
                 </div>
+
+                <div class="row">
+                    <div class="col s12 l11">
+                        <input type="text" name="pesquisarAcompanhamentoText" placeholder="Pesquisar Acompanhamento" >
+                    </div>
+                    <div class="col s12 l1">
+                        <a class=" btn-large waves-effect waves-light"><i class="material-icons">search</i></a>
+                    </div>
+                </div>
+
                 <div class="row">
                     <form action="" method="POST"><?php require_once 'PHPBody/AcompanhamentosGeraisTableBody.php'; ?></form>    
                 </div>
             </div>
         </div>
+
+
+        <footer class="page-footer green darken-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Sistema MAD</h5>
+                        <p class=" center-block grey-text text-lighten-4">Sistema para acompanhamento de atividades e alunos do Instituto Federal Fluminense, Campus Itaperuna.
+                            Desenvolvido para o Núcleo de Atendimento Estudantil - NAE. </p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">Redes Sociais</h5>
+                        <ul>                           
+                            <a class="grey-text text-lighten-3" href="#!"><img href="#!" src="IMG/social_facebook_fb_35.png"></a>
+                            <a class="grey-text text-lighten-3" href="#!"><img href="#!" src="IMG/social_instagram_3.png"></a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2019 6º Periodo Sistemas de Informação IFF Itaperuna
+                </div>
+            </div>
+        </footer>
+
 
         <script type="text/javascript" src="js/materialize.js"></script>
         <script>
@@ -79,7 +113,9 @@
                 $('.collapsible').collapsible();
                 $('.tooltipped').tooltip();
                 $('.modal').modal();
-                $('.datepicker').datepicker();
+                $('.datepicker').datepicker({
+                    format: 'yyyy-mm-dd'
+                });
                 $('.dropdown-trigger').dropdown();
 
                 $('#tabelaAcompanhamento').pageMe({

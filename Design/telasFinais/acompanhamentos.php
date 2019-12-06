@@ -90,7 +90,6 @@
                                 <label for="icon_telephone">Alunos Finais</label>
                             </div>
                             <div class="input-field col s12 m4 l3">
-
                                 <input placeholder="Data Inicio" type="text" class="datepicker" id="dataInicioText" name="dataInicioText">
                                 <label for="servidor">Data Inicio</label>
                             </div>

@@ -28,10 +28,10 @@
 </div>
 <div class="row">
     <div class="col s12 l6">
-        <input type="date" name="dataInicioText" placeholder="Data Inicio"><br><br>
+        <input type="text" name="dataInicioText" placeholder="Data Inicio" class="datepicker"><br><br>
     </div>
     <div class="col s12 l6">
-        <input type="date" name="dataFimText" placeholder="Data Fim"><br><br>
+        <input type="text" name="dataFimText" placeholder="Data Fim" class="datepicker"><br><br>
     </div>
     
     <input type="submit" class="btn green darken-4" id="btnCad" name="cadastrarAcompanhamentoButton" value="Cadastrar Acompanhamento"/>
