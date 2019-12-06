@@ -18,7 +18,7 @@ require_once 'PHPHeader/AtividadesHeader.php';
                         <a class="brand-logo center" onclick="$('.tap-target').tapTarget('open')" id="menu"><img src="IMG/logo2.png" width="105px"></a>
 
                         <!-- Tap Target Structure -->
-                        <div class="tap-target green darken-4" data-target="menu">
+                        <div class="tap-target green darken-4 z-depth-5" data-target="menu" style="border-style: solid;border-width: 2px;border-color: white;">
                             <div class="tap-target-content">
                                 <?php foreach ($acompanhamentoDAO->querySelectId($_GET['acompanhamento']) as $result) { ?>
                                 <h6 class="center flow-text">
