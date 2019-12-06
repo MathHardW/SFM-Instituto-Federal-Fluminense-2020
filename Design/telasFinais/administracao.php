@@ -1,6 +1,6 @@
 <html>
     <head>
-        <script src="jquery/jquery-3.4.1.js"></script>
+        <!--<script src="jquery/jquery-3.4.1.js"></script>-->
         <!--Import Google Icon Font-->
         <link href="css/material-icons.css" rel="stylesheet">
         <!--Import materialize.css-->
@@ -433,12 +433,8 @@
                     <div class="col l4 offset-l2 s12">
                         <h5 class="white-text">Uteis</h5>
                         <ul>                           
-                            <a class="grey-text text-lighten-3" href="#!"><img href="#!" src="icons/social_facebook_fb_35.png"></a>
-                            <a class="grey-text text-lighten-3" href="#!"><img href="#!" src="icons/social_Twitter_38.png"></a>
-                            <a class="grey-text text-lighten-3" href="#!"><img href="#!" src="icons/social_googleplus_google_1.png"></a>
-                            <a class="grey-text text-lighten-3" href="#!"><img href="#!" src="icons/social_instagram_3.png"></a>
-                            <a class="grey-text text-lighten-3" href="#!"><img href="#!" src="icons/sociallinkedin_member_30.png"></a>
-
+                            <a class="grey-text text-lighten-3" href="https://www.facebook.com/IFFluminenseItaperuna/"><img href="#!" src="icons/social_facebook_fb_35.png"></a>
+                            <a class="grey-text text-lighten-3" href="https://instagram.com/iffitaperuna"><img href="#!" src="icons/social_instagram_3.png"></a>
                         </ul>
                     </div>
                 </div>
