@@ -21,14 +21,14 @@ require_once 'PHPHeader/AtividadesHeader.php';
                         <div class="tap-target green darken-4 z-depth-5" data-target="menu" style="border-style: solid;border-width: 2px;border-color: white;">
                             <div class="tap-target-content">
                                 <?php foreach ($acompanhamentoDAO->querySelectId($_GET['acompanhamento']) as $result) { ?>
-                                <h6 class="center flow-text">
-                                    Olá usuário MAD! <br/><br/>Acompanhamento: <b><?= $result[1] ?></b>.<br/>
-                                    Do curso de: <b><?= $result[3] ?></b>.<br/>
-                                    Administrado pelo servidor (a): <b><?= $result[2] ?></b>.<br/><br/>
-                                    
-                                    Início : <b><?= $result[4] ?></b>.<br/>
-                                    Término: <b><?= $result[5] ?></b>.
-                                </h6>
+                                    <h6 class="center flow-text">
+                                        Olá usuário MAD! <br/><br/>Acompanhamento: <b><?= $result[1] ?></b>.<br/>
+                                        Do curso de: <b><?= $result[3] ?></b>.<br/>
+                                        Administrado pelo servidor (a): <b><?= $result[2] ?></b>.<br/><br/>
+
+                                        Início : <b><?= $result[4] ?></b>.<br/>
+                                        Término: <b><?= $result[5] ?></b>.
+                                    </h6>
                                 <?php } ?> 
                             </div>
                         </div>
@@ -75,31 +75,29 @@ require_once 'PHPHeader/AtividadesHeader.php';
         </header>  
         </br>
         <div class="row container center">
-            <div class="col l1">.</div>
-            <div class="col s12 l4  grey lighten-2" style="border-style: solid;border-width: 1px;border-color: black;">
-                <form action="" method="POST"> <?php require_once 'PHPBody/FichasBody.php'; ?> </form></br>
-            </div>
-            <div class="col l1">.</div>
-            <div class="col s12 l5  grey lighten-2" style="border-style: solid;border-width: 1px;border-color: black;">
-                <form action="" method="POST"> <?php require_once 'PHPBody/AtividadesBody.php'; ?> </form>
-            </div>
-            <div class="col l1">.</div>
+            <form action="" method="POST"> 
+                <div class="col s12 l6">
+                    <?php require_once 'PHPBody/FichasBody.php'; ?>
+                </div>
+                <div class="col s12 l6">
+                    <?php require_once 'PHPBody/AtividadesBody.php'; ?>
+                </div>
+            </form>
         </div>
 
         <div class="row container center">
             <div class="col s12 l12">
-                </br></br><div class="divider"></div>
-                <table border="1" class="centered responsive-table">
+                <table cellpadding="1" cellspacing="1" class="table table-hover responsive-table centered highlight z-depth-3" id="tabelaFicha" style="border-style: solid;border-width: 1px;border-color: black;">
                     <tr>
-                        <td>Código</td>
-                        <td>Trabalha</td>
-                        <td>Dependentes</td>
-                        <td>Especial</td>
-                        <td>Moradia</td>
-                        <td>Sexo</td>
-                        <td>Data</td>
-                        <td>Cidade</td>
-                        <td>Ações</td>
+                        <td><b>Código</b></td>
+                        <td><b>Trabalha</b></td>
+                        <td><b>Dependentes</b></td>
+                        <td><b>Especial</b></td>
+                        <td><b>Moradia</b></td>
+                        <td><b>Sexo</b></td>
+                        <td><b>Data</b></td>
+                        <td><b>Cidade</b></td>
+                        <td><b>Ações</b></td>
                     </tr>
                     <?php foreach ($fichaDAO->querySelect() as $result) { ?>
                         <tr>
@@ -118,22 +116,27 @@ require_once 'PHPHeader/AtividadesHeader.php';
                         </tr>
                     <?php } ?> 
                 </table>
+                <br/>
+                <div class="col-md-12 center text-center">
+                    <span class="left" id="total_reg"></span>
+                    <ul class="pagination pager" id="paginaFicha"></ul>
+                </div>
             </div>
             <div class="divider"></div>
             <div class="col s12 l12">
                 </br></br><div class="divider"></div>
-                <table border="1" class="centered responsive-table">
+                <table cellpadding="1" cellspacing="1" class="table table-hover responsive-table centered highlight z-depth-3" id="tabelaAtividade" style="border-style: solid;border-width: 1px;border-color: black;">
                     <tr>
-                        <td>Título</td>
-                        <td>Servidor</td>
-                        <td>Descrição</td>
-                        <td>Publíco Alvo</td>
-                        <td>Resultados Esperados</td>
-                        <td>Resultados Obtidos</td>
-                        <td>Data Início</td>
-                        <td>Data Fim</td>
-                        <td>Tipo de Atividade</td>
-                        <td>Ações</td>
+                        <td><b>Título</b></td>
+                        <td><b>Servidor</b></td>
+                        <td><b>Descrição</b></td>
+                        <td><b>Publíco Alvo</b></td>
+                        <td><b>Resultados Esperados</b></td>
+                        <td><b>Resultados Obtidos</b></td>
+                        <td><b>Data Início</b></td>
+                        <td><b>Data Fim</b></td>
+                        <td><b>Tipo de Atividade</b></td>
+                        <td><b>Ações</b></td>
                     </tr>
                     <?php foreach ($atividadeDAO->querySelect() as $result) { ?>
                         <tr>
@@ -153,14 +156,37 @@ require_once 'PHPHeader/AtividadesHeader.php';
                         </tr>
                     <?php } ?> 
                 </table>
+                <br/>
+                <div class="col-md-12 center text-center">
+                    <span class="left" id="total_reg"></span>
+                    <ul class="pagination pager" id="paginaAtividade"></ul>
+                </div>
             </div>
-
         </div>
 
-        <div class="row container">
-
-        </div>
-
+        <footer class="page-footer green darken-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Sistema MAD</h5>
+                        <p class=" center-block grey-text text-lighten-4">Sistema para acompanhamento de atividades e alunos do Instituto Federal Fluminense, Campus Itaperuna.
+                            Desenvolvido para o Núcleo de Atendimento Estudantil - NAE. </p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">Redes Sociais</h5>
+                        <ul>                           
+                            <a class="grey-text text-lighten-3" href="#!"><img href="#!" src="IMG/social_facebook_fb_35.png"></a>
+                            <a class="grey-text text-lighten-3" href="#!"><img href="#!" src="IMG/social_instagram_3.png"></a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2019 6º Periodo Sistemas de Informação IFF Itaperuna
+                </div>
+            </div>
+        </footer>
 
         <script type="text/javascript" src="js/materialize.js"></script>
         <script>
@@ -179,8 +205,18 @@ require_once 'PHPHeader/AtividadesHeader.php';
                                 $('.dropdown-trigger').dropdown();
                                 $('.tap-target').tapTarget();
 
-                                $('#tabelaAcompanhamento').pageMe({
-                                    pagerSelector: '#paginaAcompanhamento',
+                                $('#tabelaFicha').pageMe({
+                                    pagerSelector: '#paginaFicha',
+                                    activeColor: 'green darken-4',
+                                    prevText: 'Anterior',
+                                    nextText: 'Siguiente',
+                                    showPrevNext: true,
+                                    hidePageNumbers: false,
+                                    perPage: 5
+                                });
+                                
+                                $('#tabelaAtividade').pageMe({
+                                    pagerSelector: '#paginaAtividade',
                                     activeColor: 'green darken-4',
                                     prevText: 'Anterior',
                                     nextText: 'Siguiente',

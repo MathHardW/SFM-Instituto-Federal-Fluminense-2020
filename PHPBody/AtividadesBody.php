@@ -27,13 +27,13 @@
     <textarea id="textarea2" class="materialize-textarea" data-length="120" placeholder="Resultados Obtidos" name="resultadosObtidosText"></textarea>
 </div>
 <div class="col s12 l6">
-    <textarea id="textarea2" class="materialize-textarea" data-length="120" placeholder="Data Início" name="dataInicioText"></textarea>
+    <textarea id="textarea2" class="materialize-textarea datepicker" data-length="120" placeholder="Data Início" name="dataInicioText"></textarea>
 </div>
 <div class="col s12 l6">
-    <textarea id="textarea2" class="materialize-textarea" data-length="120" placeholder="Data Fim" name="dataFimText"></textarea>
+    <textarea id="textarea2" class="materialize-textarea datepicker" data-length="120" placeholder="Data Fim" name="dataFimText"></textarea>
 </div>
 
 <div class="row"></br></div>
 <div class="row"></br>
-    <input type="submit" class="btn blue-grey darken-4 white-text" id="btnCad" name="cadastrarAtividadeButton" value="Incluir Atividade"/>
+    <input type="submit" class="btn green darken-4 white-text" id="btnCad" name="cadastrarAtividadeButton" value="Incluir Atividade"/>
 </div>

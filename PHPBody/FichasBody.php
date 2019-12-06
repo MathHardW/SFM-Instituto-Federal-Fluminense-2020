@@ -72,4 +72,4 @@
 </div>
 
 </br>
-<input type="submit" class="btn blue-grey darken-4 white-text" id="btnCad" name="cadastrarFichaButton" value="Incluir Ficha"/>
+<input type="submit" class="btn green darken-4 white-text" id="btnCad" name="cadastrarFichaButton" value="Incluir Ficha"/>
