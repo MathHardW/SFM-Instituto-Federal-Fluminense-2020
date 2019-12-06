@@ -17,15 +17,14 @@
                     <td><?= $result[4] ?></td>
                     <td><?= $result[5] ?></td>
                     <td>
-                        <a href="?seleciona=<?= $result[0] ?>" class="btn tooltipped" data-position="bottom" data-tooltip="Selecione para Editar Acompanhamento" name="btn-editarAcompanhamento">
-                            <i class="material-icons">edit</i>
-                        </a>
-
                         <a href="?edita=<?= $result[0] ?>" class="btn tooltipped" data-position="top" data-tooltip="Selecione para Apagar Acompanhamento" name="btn-deletarAcompanhamento">
                             <i class="material-icons">delete</i>
                         </a>
 
                         <a href="?excluir=<?= $result[0] ?>" class="btn tooltipped" data-position="bottom" data-tooltip="Selecione para Visualizar o Acompanhamento" name="btn-selecionarAcompanhamento">
+                            <i class="material-icons">edit</i>
+                        </a>
+                        <a href="?seleciona=<?= $result[0] ?>" class="btn tooltipped" data-position="bottom" data-tooltip="Selecione para Editar Acompanhamento" name="btn-editarAcompanhamento">
                             <i class="material-icons">send</i>
                         </a>
                     </td>

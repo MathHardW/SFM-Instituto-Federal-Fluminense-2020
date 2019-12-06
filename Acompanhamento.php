@@ -22,7 +22,7 @@ require_once 'PHPHeader/AtividadesHeader.php';
                             <div class="tap-target-content">
                                 <?php foreach ($acompanhamentoDAO->querySelectId($_GET['acompanhamento']) as $result) { ?>
                                 <h6 class="center flow-text">
-                                    Olá usuário MAD! <br/><br/>Você está no Acompanhamento: <b><?= $result[1] ?></b>.<br/>
+                                    Olá usuário MAD! <br/><br/>Acompanhamento: <b><?= $result[1] ?></b>.<br/>
                                     Do curso de: <b><?= $result[3] ?></b>.<br/>
                                     Administrado pelo servidor (a): <b><?= $result[2] ?></b>.<br/><br/>
                                     
