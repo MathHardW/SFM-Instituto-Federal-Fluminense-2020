@@ -87,8 +87,8 @@ require_once 'PHPHeader/AtividadesHeader.php';
 
         <div class="row container center">
             <div class="col s12 l12">
-                <table cellpadding="1" cellspacing="1" class="table table-hover responsive-table centered highlight z-depth-3" id="tabelaFicha" style="border-style: solid;border-width: 1px;border-color: black;">
-                    <tr>
+                <table cellpadding="1" cellspacing="1" class="table table-hover responsive-table centered highlight z-depth-3 white" id="tabelaFicha" style="border-style: solid;border-width: 1px;border-color: black;">
+                    <tr class="grey lighten-1">
                         <td><b>Código</b></td>
                         <td><b>Trabalha</b></td>
                         <td><b>Dependentes</b></td>
@@ -101,17 +101,22 @@ require_once 'PHPHeader/AtividadesHeader.php';
                     </tr>
                     <?php foreach ($fichaDAO->querySelect() as $result) { ?>
                         <tr>
-                            <td><?= $result[1] ?></td>
-                            <td><?= $result[3] ?></td>
-                            <td><?= $result[4] ?></td>
-                            <td><?= $result[5] ?></td>
-                            <td><?= $result[6] ?></td>
-                            <td><?= $result[7] ?></td>
+                            <td><h6><b><?= $result[1] ?></b></h6></td>
+                            <td><?php if ($result[3] == 1) { ?> <img src="IMG/true.png" height="50px" width="40px"> <?php } else { ?> <img src="IMG/false.png" height="35px" width="35px"> <?php } ?></td>
+                            <td><?php if ($result[4] == 1) { ?> <img src="IMG/true.png" height="50px" width="40px"> <?php } else { ?> <img src="IMG/false.png" height="35px" width="35px"> <?php } ?></td>
+                            <td><?php if ($result[5] == 1) { ?> <img src="IMG/true.png" height="50px" width="40px"> <?php } else { ?> <img src="IMG/false.png" height="35px" width="35px"> <?php } ?></td>
+                            <td><?php if ($result[6] == 1) { ?> <img src="IMG/true.png" height="50px" width="40px"> <?php } else { ?> <img src="IMG/false.png" height="35px" width="35px"> <?php } ?></td>
+                            <td><?php if ($result[7] == "M") { ?> <img src="IMG/boy.png" height="40px" width="40px"> <?php } else { ?> <img src="IMG/woman.png" height="40px" width="40px"> <?php } ?></td>
                             <td><?= $result[8] ?></td>
                             <td><?= $result[12] ?></td>
                             <td>
-                                <a href="?edita=<?= $result[0] ?>">EDITAR</a>
-                                <a href="?excluir=<?= $result[0] ?>">EXCLUIR</a>
+                                <a href="?edita=<?= $result[0] ?>" class="btn tooltipped" data-position="top" data-tooltip="Selecione para Apagar Acompanhamento" name="btn-deletarAcompanhamento">
+                                    <i class="material-icons">delete</i>
+                                </a>
+
+                                <a href="?excluir=<?= $result[0] ?>" class="btn tooltipped" data-position="bottom" data-tooltip="Selecione para Visualizar o Acompanhamento" name="btn-selecionarAcompanhamento">
+                                    <i class="material-icons">edit</i>
+                                </a>
                             </td>
                         </tr>
                     <?php } ?> 
@@ -125,16 +130,16 @@ require_once 'PHPHeader/AtividadesHeader.php';
             <div class="divider"></div>
             <div class="col s12 l12">
                 </br></br><div class="divider"></div>
-                <table cellpadding="1" cellspacing="1" class="table table-hover responsive-table centered highlight z-depth-3" id="tabelaAtividade" style="border-style: solid;border-width: 1px;border-color: black;">
-                    <tr>
+                <table cellpadding="1" cellspacing="1" class="table table-hover responsive-table centered highlight z-depth-3 white" id="tabelaAtividade" style="border-style: solid;border-width: 1px;border-color: black;">
+                    <tr class="grey lighten-1">
                         <td><b>Título</b></td>
                         <td><b>Servidor</b></td>
+                        <td><b>Publíco<br/>Alvo</b></td>
                         <td><b>Descrição</b></td>
-                        <td><b>Publíco Alvo</b></td>
-                        <td><b>Resultados Esperados</b></td>
-                        <td><b>Resultados Obtidos</b></td>
-                        <td><b>Data Início</b></td>
-                        <td><b>Data Fim</b></td>
+                        <td><b>Resultados<br/>Esperados</b></td>
+                        <td><b>Resultados<br/>Obtidos</b></td>
+                        <td><b>Início</b></td>
+                        <td><b>Fim</b></td>
                         <td><b>Tipo de Atividade</b></td>
                         <td><b>Ações</b></td>
                     </tr>
@@ -142,18 +147,56 @@ require_once 'PHPHeader/AtividadesHeader.php';
                         <tr>
                             <td><?= $result[1] ?></td>
                             <td><?= $result[2] ?></td>
-                            <td><?= $result[3] ?></td>
                             <td><?= $result[4] ?></td>
-                            <td><?= $result[5] ?></td>
-                            <td><?= $result[6] ?></td>
+                            <td><a class="waves-effect waves-light btn modal-trigger" href="#modalD<?= $result[0] ?>"><i class="material-icons">description</i></a></td>
+                            <td><a class="waves-effect waves-light btn modal-trigger" href="#modalRE<?= $result[0] ?>"><i class="material-icons">dvr</i></a></td>
+                            <td><a class="waves-effect waves-light btn modal-trigger" href="#modalRO<?= $result[0] ?>"><i class="material-icons">flag</i></a></td>
                             <td><?= $result[7] ?></td>
                             <td><?= $result[8] ?></td>
                             <td><?= $result[12] ?></td>
                             <td>
-                                <a href="?edita=<?= $result[0] ?>">EDITAR</a>
-                                <a href="?excluir=<?= $result[0] ?>">EXCLUIR</a>
+                                <a href="?edita=<?= $result[0] ?>" class="btn tooltipped" data-position="top" data-tooltip="Selecione para Apagar Acompanhamento" name="btn-deletarAcompanhamento">
+                                    <i class="material-icons">delete</i>
+                                </a>
+
+                                <a href="?excluir=<?= $result[0] ?>" class="btn tooltipped" data-position="bottom" data-tooltip="Selecione para Visualizar o Acompanhamento" name="btn-selecionarAcompanhamento">
+                                    <i class="material-icons">edit</i>
+                                </a>
                             </td>
                         </tr>
+
+                        <!-- Modal Structure -->
+                        <div id="modalD<?= $result[0] ?>" class="modal">
+                            <div class="modal-content">
+                                <h4>Descrição da Atividade</h4>
+                                <p><?= $result[3] ?></p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                            </div>
+                        </div>
+
+                        <!-- Modal Structure -->
+                        <div id="modalRE<?= $result[0] ?>" class="modal">
+                            <div class="modal-content">
+                                <h4>Resultados Esperados</h4>
+                                <p><?= $result[5] ?></p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                            </div>
+                        </div>
+
+                        <!-- Modal Structure -->
+                        <div id="modalRO<?= $result[0] ?>" class="modal">
+                            <div class="modal-content">
+                                <h4>Resultados Obtidos</h4>
+                                <p><?= $result[6] ?></p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                            </div>
+                        </div>
                     <?php } ?> 
                 </table>
                 <br/>
@@ -214,7 +257,7 @@ require_once 'PHPHeader/AtividadesHeader.php';
                                     hidePageNumbers: false,
                                     perPage: 5
                                 });
-                                
+
                                 $('#tabelaAtividade').pageMe({
                                     pagerSelector: '#paginaAtividade',
                                     activeColor: 'green darken-4',
@@ -224,6 +267,11 @@ require_once 'PHPHeader/AtividadesHeader.php';
                                     hidePageNumbers: false,
                                     perPage: 5
                                 });
+                            });
+
+                            $('#SelectFicha').on('change', function () {
+                                var value = $(this).val();
+                                alert(value);
                             });
         </script>
     </body>
