@@ -12,6 +12,20 @@ class FichaDAO {
         $this->Connection = new Conexao();
         $this->Ficha = new Ficha();
     }
+    
+    public function querySelectCode() {
+        try {
+            $acompanhamentoId = $this->Ficha->getAcompanhamento();
+            $retornoDB = $this->Connection->Conectar()->prepare("SELECT ficha.codigo FROM ficha WHERE Acompanhamento_id != ?;");
+            $retornoDB->bindParam(1, $acompanhamentoId, PDO::PARAM_INT);
+
+            $retornoDB->execute();
+
+            return $retornoDB->fetchAll();
+        } catch (PDOException $ex) {
+            return 'erro ' . $ex->getMessage();
+        }
+    }
 
     public function querySelectCodigo($codigo) {
         try {

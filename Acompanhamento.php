@@ -21,14 +21,14 @@ require_once 'PHPHeader/AtividadesHeader.php';
                         <div class="tap-target green darken-4 z-depth-5" data-target="menu" style="border-style: solid;border-width: 2px;border-color: white;">
                             <div class="tap-target-content">
                                 <?php foreach ($acompanhamentoDAO->querySelectId($_GET['acompanhamento']) as $result) { ?>
-                                <h6 class="center flow-text">
-                                    Olá usuário MAD! <br/><br/>Acompanhamento: <b><?= $result[1] ?></b>.<br/>
-                                    Do curso de: <b><?= $result[3] ?></b>.<br/>
-                                    Administrado pelo servidor (a): <b><?= $result[2] ?></b>.<br/><br/>
-                                    
-                                    Início : <b><?= $result[4] ?></b>.<br/>
-                                    Término: <b><?= $result[5] ?></b>.
-                                </h6>
+                                    <h6 class="center flow-text">
+                                        Olá usuário MAD! <br/><br/>Acompanhamento: <b><?= $result[1] ?></b>.<br/>
+                                        Do curso de: <b><?= $result[3] ?></b>.<br/>
+                                        Administrado pelo servidor (a): <b><?= $result[2] ?></b>.<br/><br/>
+
+                                        Início : <b><?= $result[4] ?></b>.<br/>
+                                        Término: <b><?= $result[5] ?></b>.
+                                    </h6>
                                 <?php } ?> 
                             </div>
                         </div>
@@ -75,92 +75,161 @@ require_once 'PHPHeader/AtividadesHeader.php';
         </header>  
         </br>
         <div class="row container center">
-            <div class="col l1">.</div>
-            <div class="col s12 l4  grey lighten-2" style="border-style: solid;border-width: 1px;border-color: black;">
-                <form action="" method="POST"> <?php require_once 'PHPBody/FichasBody.php'; ?> </form></br>
-            </div>
-            <div class="col l1">.</div>
-            <div class="col s12 l5  grey lighten-2" style="border-style: solid;border-width: 1px;border-color: black;">
-                <form action="" method="POST"> <?php require_once 'PHPBody/AtividadesBody.php'; ?> </form>
-            </div>
-            <div class="col l1">.</div>
+            <form action="" method="POST"> 
+                <div class="col s12 l6">
+                    <?php require_once 'PHPBody/FichasBody.php'; ?>
+                </div>
+                <div class="col s12 l6">
+                    <?php require_once 'PHPBody/AtividadesBody.php'; ?>
+                </div>
+            </form>
         </div>
 
         <div class="row container center">
             <div class="col s12 l12">
-                </br></br><div class="divider"></div>
-                <table border="1" class="centered responsive-table">
-                    <tr>
-                        <td>Código</td>
-                        <td>Trabalha</td>
-                        <td>Dependentes</td>
-                        <td>Especial</td>
-                        <td>Moradia</td>
-                        <td>Sexo</td>
-                        <td>Data</td>
-                        <td>Cidade</td>
-                        <td>Ações</td>
+                <table cellpadding="1" cellspacing="1" class="table table-hover responsive-table centered highlight z-depth-3 white" id="tabelaFicha" style="border-style: solid;border-width: 1px;border-color: black;">
+                    <tr class="grey lighten-1">
+                        <td><b>Código</b></td>
+                        <td><b>Trabalha</b></td>
+                        <td><b>Dependentes</b></td>
+                        <td><b>Especial</b></td>
+                        <td><b>Moradia</b></td>
+                        <td><b>Sexo</b></td>
+                        <td><b>Data</b></td>
+                        <td><b>Cidade</b></td>
+                        <td><b>Ações</b></td>
                     </tr>
                     <?php foreach ($fichaDAO->querySelect() as $result) { ?>
                         <tr>
-                            <td><?= $result[1] ?></td>
-                            <td><?= $result[3] ?></td>
-                            <td><?= $result[4] ?></td>
-                            <td><?= $result[5] ?></td>
-                            <td><?= $result[6] ?></td>
-                            <td><?= $result[7] ?></td>
+                            <td><h6><b><?= $result[1] ?></b></h6></td>
+                            <td><?php if ($result[3] == 1) { ?> <img src="IMG/true.png" height="50px" width="40px"> <?php } else { ?> <img src="IMG/false.png" height="35px" width="35px"> <?php } ?></td>
+                            <td><?php if ($result[4] == 1) { ?> <img src="IMG/true.png" height="50px" width="40px"> <?php } else { ?> <img src="IMG/false.png" height="35px" width="35px"> <?php } ?></td>
+                            <td><?php if ($result[5] == 1) { ?> <img src="IMG/true.png" height="50px" width="40px"> <?php } else { ?> <img src="IMG/false.png" height="35px" width="35px"> <?php } ?></td>
+                            <td><?php if ($result[6] == 1) { ?> <img src="IMG/true.png" height="50px" width="40px"> <?php } else { ?> <img src="IMG/false.png" height="35px" width="35px"> <?php } ?></td>
+                            <td><?php if ($result[7] == "M") { ?> <img src="IMG/boy.png" height="40px" width="40px"> <?php } else { ?> <img src="IMG/woman.png" height="40px" width="40px"> <?php } ?></td>
                             <td><?= $result[8] ?></td>
                             <td><?= $result[12] ?></td>
                             <td>
-                                <a href="?edita=<?= $result[0] ?>">EDITAR</a>
-                                <a href="?excluir=<?= $result[0] ?>">EXCLUIR</a>
+                                <a href="?edita=<?= $result[0] ?>" class="btn tooltipped" data-position="top" data-tooltip="Selecione para Apagar Acompanhamento" name="btn-deletarAcompanhamento">
+                                    <i class="material-icons">delete</i>
+                                </a>
+
+                                <a href="?excluir=<?= $result[0] ?>" class="btn tooltipped" data-position="bottom" data-tooltip="Selecione para Visualizar o Acompanhamento" name="btn-selecionarAcompanhamento">
+                                    <i class="material-icons">edit</i>
+                                </a>
                             </td>
                         </tr>
                     <?php } ?> 
                 </table>
+                <br/>
+                <div class="col-md-12 center text-center">
+                    <span class="left" id="total_reg"></span>
+                    <ul class="pagination pager" id="paginaFicha"></ul>
+                </div>
             </div>
             <div class="divider"></div>
             <div class="col s12 l12">
                 </br></br><div class="divider"></div>
-                <table border="1" class="centered responsive-table">
-                    <tr>
-                        <td>Título</td>
-                        <td>Servidor</td>
-                        <td>Descrição</td>
-                        <td>Publíco Alvo</td>
-                        <td>Resultados Esperados</td>
-                        <td>Resultados Obtidos</td>
-                        <td>Data Início</td>
-                        <td>Data Fim</td>
-                        <td>Tipo de Atividade</td>
-                        <td>Ações</td>
+                <table cellpadding="1" cellspacing="1" class="table table-hover responsive-table centered highlight z-depth-3 white" id="tabelaAtividade" style="border-style: solid;border-width: 1px;border-color: black;">
+                    <tr class="grey lighten-1">
+                        <td><b>Título</b></td>
+                        <td><b>Servidor</b></td>
+                        <td><b>Publíco<br/>Alvo</b></td>
+                        <td><b>Descrição</b></td>
+                        <td><b>Resultados<br/>Esperados</b></td>
+                        <td><b>Resultados<br/>Obtidos</b></td>
+                        <td><b>Início</b></td>
+                        <td><b>Fim</b></td>
+                        <td><b>Tipo de Atividade</b></td>
+                        <td><b>Ações</b></td>
                     </tr>
                     <?php foreach ($atividadeDAO->querySelect() as $result) { ?>
                         <tr>
                             <td><?= $result[1] ?></td>
                             <td><?= $result[2] ?></td>
-                            <td><?= $result[3] ?></td>
                             <td><?= $result[4] ?></td>
-                            <td><?= $result[5] ?></td>
-                            <td><?= $result[6] ?></td>
+                            <td><a class="waves-effect waves-light btn modal-trigger" href="#modalD<?= $result[0] ?>"><i class="material-icons">description</i></a></td>
+                            <td><a class="waves-effect waves-light btn modal-trigger" href="#modalRE<?= $result[0] ?>"><i class="material-icons">dvr</i></a></td>
+                            <td><a class="waves-effect waves-light btn modal-trigger" href="#modalRO<?= $result[0] ?>"><i class="material-icons">flag</i></a></td>
                             <td><?= $result[7] ?></td>
                             <td><?= $result[8] ?></td>
                             <td><?= $result[12] ?></td>
                             <td>
-                                <a href="?edita=<?= $result[0] ?>">EDITAR</a>
-                                <a href="?excluir=<?= $result[0] ?>">EXCLUIR</a>
+                                <a href="?edita=<?= $result[0] ?>" class="btn tooltipped" data-position="top" data-tooltip="Selecione para Apagar Acompanhamento" name="btn-deletarAcompanhamento">
+                                    <i class="material-icons">delete</i>
+                                </a>
+
+                                <a href="?excluir=<?= $result[0] ?>" class="btn tooltipped" data-position="bottom" data-tooltip="Selecione para Visualizar o Acompanhamento" name="btn-selecionarAcompanhamento">
+                                    <i class="material-icons">edit</i>
+                                </a>
                             </td>
                         </tr>
+
+                        <!-- Modal Structure -->
+                        <div id="modalD<?= $result[0] ?>" class="modal">
+                            <div class="modal-content">
+                                <h4>Descrição da Atividade</h4>
+                                <p><?= $result[3] ?></p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                            </div>
+                        </div>
+
+                        <!-- Modal Structure -->
+                        <div id="modalRE<?= $result[0] ?>" class="modal">
+                            <div class="modal-content">
+                                <h4>Resultados Esperados</h4>
+                                <p><?= $result[5] ?></p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                            </div>
+                        </div>
+
+                        <!-- Modal Structure -->
+                        <div id="modalRO<?= $result[0] ?>" class="modal">
+                            <div class="modal-content">
+                                <h4>Resultados Obtidos</h4>
+                                <p><?= $result[6] ?></p>
+                            </div>
+                            <div class="modal-footer">
+                                <a href="#!" class="modal-close waves-effect waves-green btn-flat">Agree</a>
+                            </div>
+                        </div>
                     <?php } ?> 
                 </table>
+                <br/>
+                <div class="col-md-12 center text-center">
+                    <span class="left" id="total_reg"></span>
+                    <ul class="pagination pager" id="paginaAtividade"></ul>
+                </div>
             </div>
-
         </div>
 
-        <div class="row container">
-
-        </div>
-
+        <footer class="page-footer green darken-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Sistema MAD</h5>
+                        <p class=" center-block grey-text text-lighten-4">Sistema para acompanhamento de atividades e alunos do Instituto Federal Fluminense, Campus Itaperuna.
+                            Desenvolvido para o Núcleo de Atendimento Estudantil - NAE. </p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">Redes Sociais</h5>
+                        <ul>                           
+                            <a class="grey-text text-lighten-3" href="#!"><img href="#!" src="IMG/social_facebook_fb_35.png"></a>
+                            <a class="grey-text text-lighten-3" href="#!"><img href="#!" src="IMG/social_instagram_3.png"></a>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2019 6º Periodo Sistemas de Informação IFF Itaperuna
+                </div>
+            </div>
+        </footer>
 
         <script type="text/javascript" src="js/materialize.js"></script>
         <script>
@@ -179,8 +248,8 @@ require_once 'PHPHeader/AtividadesHeader.php';
                                 $('.dropdown-trigger').dropdown();
                                 $('.tap-target').tapTarget();
 
-                                $('#tabelaAcompanhamento').pageMe({
-                                    pagerSelector: '#paginaAcompanhamento',
+                                $('#tabelaFicha').pageMe({
+                                    pagerSelector: '#paginaFicha',
                                     activeColor: 'green darken-4',
                                     prevText: 'Anterior',
                                     nextText: 'Siguiente',
@@ -188,6 +257,21 @@ require_once 'PHPHeader/AtividadesHeader.php';
                                     hidePageNumbers: false,
                                     perPage: 5
                                 });
+
+                                $('#tabelaAtividade').pageMe({
+                                    pagerSelector: '#paginaAtividade',
+                                    activeColor: 'green darken-4',
+                                    prevText: 'Anterior',
+                                    nextText: 'Siguiente',
+                                    showPrevNext: true,
+                                    hidePageNumbers: false,
+                                    perPage: 5
+                                });
+                            });
+
+                            $('#SelectFicha').on('change', function () {
+                                var value = $(this).val();
+                                alert(value);
                             });
         </script>
     </body>

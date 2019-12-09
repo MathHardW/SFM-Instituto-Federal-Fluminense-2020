@@ -7,7 +7,9 @@ require_once 'ClassesDAO/FichaDAO.php';
 $fichaDAO = new FichaDAO();
 $fichaDAO->getFicha()->setAcompanhamento($_GET['acompanhamento']);
 //------------------------------------------------------------------------------
-//
+
+$select = "selected";
+
 //CADASTRANDO FICHA-------------------------------------------------------------
 if (isset($_POST['cadastrarFichaButton'])) {
     $fichaDAO->getFicha()->setTrabalha($_POST['trabalhaText']);
