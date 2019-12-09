@@ -26,7 +26,7 @@ class FichaDAO {
             return 'erro ' . $ex->getMessage();
         }
     }
-
+    
     public function querySelectCodigo($codigo) {
         try {
             $retornoDB = $this->Connection->Conectar()->prepare("SELECT * FROM `ficha` WHERE codigo=?;");
@@ -117,5 +117,8 @@ class FichaDAO {
     function getFicha() {
         return $this->Ficha;
     }
-
+    
+    function getConnection() {
+        return $this->Connection;
+    }
 }
