@@ -5,7 +5,7 @@
         <link href="css/material-icons.css" rel="stylesheet">
         <!--Import materialize.css-->
         <link type="text/css" rel="stylesheet" href="css/materialize.css"  media="screen,projection"/>
-        <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="jquery/jquery-2.1.1.min.js"></script>
         <script type="text/javascript" src="js/materialize.js"></script>
         <script type="text/javascript" src="js/pagination.js"></script>
         <!--Let browser know website is optimized for mobile-->
@@ -40,7 +40,7 @@
 
             <ul id='dropdown1' class='dropdown-content'> 
                 </br>
-              
+
                 <li>
                     <a href="#usuario"><span class=" name">Nome: Lucas Soares</span></a>
                     <a href="#email"><span class=" email">Email: lucassoaresgranja@yahoo.com.br</span></a>
@@ -58,13 +58,14 @@
         <div class="container grey lighten-2">
             <div class="row">
                 <div class="col s12">
-                    <ul class="tabs grey lighten-2">                       
-                        <li class="tab col s2"><a class="active" href="#tipoAtividade">Tipo Atividade</a></li>
-                        <li class="tab col s2"><a class="active" href="#cidade">Cidade</a></li>
-                        <li class="tab col s2"><a class="active" href="#nivel">Nivel</a></li>
-                        <li class="tab col s2"><a class="active" href="#modalidade">Modalidade</a></li>
-                        <li class="tab col s2"><a class="active" href="#curso">Curso</a></li> 
-                        <li class="tab col s2"><a class="active" href="#matricula">Usuarios</a></li> 
+                    <ul class="tabs grey lighten-2 center">                       
+                        <li class="tab"><a class="active" href="#tipoAtividade">Tipo Atividade</a></li>
+                        <li class="tab"><a class="active" href="#cidade">Cidade</a></li>
+                        <li class="tab"><a class="active" href="#nivel">Nivel</a></li>
+                        <li class="tab"><a class="active" href="#modalidade">Modalidade</a></li>
+                        <li class="tab"><a class="active" href="#curso">Curso</a></li> 
+                        <li class="tab"><a class="active" href="#matricula">Usuarios</a></li>
+                        <li class="tab"><a class="active" href="#matricula">Fichas</a></li>
                     </ul>
                 </div>
 
@@ -345,7 +346,85 @@
                                             <i class="material-icons">delete</i>                                                                            
                                         </a>
                                     </td>
-                                </tr>                                 
+                                </tr>
+                                <tr>
+                                    <td>Curso</td>
+                                    <td>Modalidade</td>                                    
+                                    <td>
+                                        <a href="" class="btn green darken-4">
+                                            <i class="material-icons">edit</i>                                                                            
+                                        </a>
+
+                                        <a href="" class="btn green darken-4">
+                                            <i class="material-icons">delete</i>                                                                            
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Curso</td>
+                                    <td>Modalidade</td>                                    
+                                    <td>
+                                        <a href="" class="btn green darken-4">
+                                            <i class="material-icons">edit</i>                                                                            
+                                        </a>
+
+                                        <a href="" class="btn green darken-4">
+                                            <i class="material-icons">delete</i>                                                                            
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Curso</td>
+                                    <td>Modalidade</td>                                    
+                                    <td>
+                                        <a href="" class="btn green darken-4">
+                                            <i class="material-icons">edit</i>                                                                            
+                                        </a>
+
+                                        <a href="" class="btn green darken-4">
+                                            <i class="material-icons">delete</i>                                                                            
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Curso</td>
+                                    <td>Modalidade</td>                                    
+                                    <td>
+                                        <a href="" class="btn green darken-4">
+                                            <i class="material-icons">edit</i>                                                                            
+                                        </a>
+
+                                        <a href="" class="btn green darken-4">
+                                            <i class="material-icons">delete</i>                                                                            
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Curso</td>
+                                    <td>Modalidade</td>                                    
+                                    <td>
+                                        <a href="" class="btn green darken-4">
+                                            <i class="material-icons">edit</i>                                                                            
+                                        </a>
+
+                                        <a href="" class="btn green darken-4">
+                                            <i class="material-icons">delete</i>                                                                            
+                                        </a>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Curso</td>
+                                    <td>Modalidade</td>                                    
+                                    <td>
+                                        <a href="" class="btn green darken-4">
+                                            <i class="material-icons">edit</i>                                                                            
+                                        </a>
+
+                                        <a href="" class="btn green darken-4">
+                                            <i class="material-icons">delete</i>                                                                            
+                                        </a>
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                         <div class="col-md-12 center text-center">
@@ -359,7 +438,7 @@
 
 
 
-                <!-- CADASTRO DE TIPO DE ATIVIDADE -->
+                <!-- CADASTRO USUARIO -->
                 <div id="matricula" class="col s12">
                     <form class="col s12">
                         </br>
@@ -380,12 +459,16 @@
                         </div>
                     </form>
 
-
-
                     <!-- TABELA DE USUARIO -->
                     <div class="row">
                         <div class="col s12 m12 l12">
-                          <!--<input type="text" id="search" placeholder="Type to search..." />-->
+                            <!-- CAMPO DE PESQUISA-->
+                            <!--
+                            <div class="col l12 ">
+                                <input class="col l10"type="text" id="search" placeholder="Digite para pesquisar" />
+                                <a class=" col l2 btn green darken-4" name="btn-pesquisar"><i class="material-icons prefix">search</i></a>
+                            </div>
+                            -->
                             <table cellpadding="1" cellspacing="1" class="table table-hover responsive-table centered " id="tabelaTipoAtividade">
                                 <thead>
                                     <tr class="center-align">

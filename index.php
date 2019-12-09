@@ -11,7 +11,5 @@
         <a href="Design/telasFinais/acompanhamentos.php">ACOMPANHAMENTOS</a>
         <a href="Design/telasFinais/acompanhamento.php">ACOMPANHAMENTO</a>
         <a href="Design/telasFinais/administracao.php">ADMINISTRAÇÃO</a>
-        
-        heeey
     </body>
 </html>
