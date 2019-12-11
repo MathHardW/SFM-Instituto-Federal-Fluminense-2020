@@ -1,7 +1,6 @@
 <?php
-
-require_once 'Classes/Conexao.php';
-require_once 'Classes/Ficha.php';
+require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/Classes/Conexao.php';
+require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/Classes/Ficha.php';
 
 class FichaDAO {
 
@@ -29,7 +28,7 @@ class FichaDAO {
     
     public function querySelectCodigo($codigo) {
         try {
-            $retornoDB = $this->Connection->Conectar()->prepare("SELECT * FROM `ficha` WHERE codigo=?;");
+            $retornoDB = $this->Connection->Conectar()->prepare("SELECT * FROM `ficha` WHERE codigo=? LIMIT 1;");
             $retornoDB->bindParam(1, $codigo, PDO::PARAM_STR);
 
             $retornoDB->execute();
@@ -43,7 +42,7 @@ class FichaDAO {
     public function querySelect() {
         try {
             $acompanhamentoId = $this->Ficha->getAcompanhamento();
-            $retornoDB = $this->Connection->Conectar()->prepare("SELECT * FROM ficha, cidade WHERE Cidade_id = cidade.id and Acompanhamento_id = ?;");
+            $retornoDB = $this->Connection->Conectar()->prepare("SELECT * FROM ficha, cidade WHERE Cidade_id = cidade.id and Acompanhamento_id = ? ORDER BY ficha.id ASC;");
             $retornoDB->bindParam(1, $acompanhamentoId, PDO::PARAM_INT);
 
             $retornoDB->execute();
@@ -68,6 +67,7 @@ class FichaDAO {
             //==================================================================
 
             $update = 0;
+            
             $trabalha = $this->Ficha->getTrabalha();
             $dependentes = $this->Ficha->getDependentes();
             $especial = $this->Ficha->getAtendimentoEspecial();
@@ -76,7 +76,7 @@ class FichaDAO {
             $data = $this->Ficha->getData();
             $acompanhamentoId = $this->Ficha->getAcompanhamento();
             $cidadeId = $this->Ficha->getCidade();
-
+            
             $retornoDB = $this->Connection->Conectar()->prepare("
                     INSERT INTO `dbmad3`.`ficha` 
                                         (`codigo`, 
@@ -105,7 +105,7 @@ class FichaDAO {
             $retornoDB->bindParam(10, $cidadeId, PDO::PARAM_INT);
 
             if ($retornoDB->execute()) {
-                return 'ok';
+                return $fichaDAO->querySelectCodigo($codigo);
             } else {
                 return 'erro';
             }

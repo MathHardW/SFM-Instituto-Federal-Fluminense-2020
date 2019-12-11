@@ -37,6 +37,8 @@ require_once 'PHPHeader/AtividadesHeader.php';
 
         <!-- JAVASCRIPT DA PAGÍNA ACOMPANHAMENTOS------------------------------>
         <script type="text/javascript" src="js/materialize.js"></script>
+        <script type="text/javascript" src="js/ajaxFicha.js"></script>
+
         <script>
             $('.dropdown-button').dropdown({
                 container: document.body

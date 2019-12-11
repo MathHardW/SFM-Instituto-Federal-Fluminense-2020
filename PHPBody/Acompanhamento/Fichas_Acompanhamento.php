@@ -1,5 +1,7 @@
 <div class="col s12 l6">
     <form id="form-ficha" action="" method="post">
+        <input type="text" value="<?= $_GET['acompanhamento'] ?>" hidden name="acompanhamentoFicha" id="acompanhamentoFicha"> 
+        
         <div class="row"></br>
             <div class="col s12 l12">
                 <select class="browser-default js-example-basic-single" name="codigoFichaText" id="SelectFicha">
@@ -15,15 +17,15 @@
             <div class="col s12 l6">
                 <select class="browser-default z-depth-2" name="trabalhaText" id="SelectTrabalha">
                     <option value="" disabled selected>Situação Trabalhista</option>  
-                    <option value="0" <?php if ($trabalha == 0) echo 'selected'; ?> >Não-Trabalha</option>
-                    <option value="1" <?php if ($trabalha == 1) echo 'selected'; ?>>Trabalha</option> 
+                    <option value="0" >Não-Trabalha</option>
+                    <option value="1" >Trabalha</option> 
                 </select>
             </div>
             <div class="col s12 l6">
                 <select class="browser-default z-depth-2" name="dependentesText" id="SelectDependentes">
                     <option value="" disabled selected>Situação Dependentes</option>
-                    <option value="0" <?php if ($trabalha == 0) echo 'selected'; ?>>Não-Possui Dependentes</option> 
-                    <option value="1" <?php if ($trabalha == 1) echo 'selected'; ?>>Possui Dependentes</option> 
+                    <option value="0" >Não-Possui Dependentes</option> 
+                    <option value="1" >Possui Dependentes</option> 
                 </select>
             </div>
         </div>
@@ -32,8 +34,8 @@
             <div class="col s12 l12">
                 <select class="browser-default z-depth-2" name="atendimentoEspecialText" id="SelectAtendimento">
                     <option value="" disabled selected>Atendimento Especial</option>
-                    <option value="0" <?php if ($trabalha == 0) echo 'selected'; ?>>Não-Precisa</option> 
-                    <option value="1" <?php if ($trabalha == 1) echo 'selected'; ?>>Precisa</option> 
+                    <option value="0">Não-Precisa</option> 
+                    <option value="1">Precisa</option> 
                 </select>
             </div>
         </div>
@@ -42,15 +44,15 @@
             <div class="col s12 l6">
                 <select class="browser-default z-depth-2" name="moradiaText" id="SelectMoradia">
                     <option value="" disabled selected>Situação Moradia</option>
-                    <option value="0" <?php if ($trabalha == 0) echo 'selected'; ?>>Não-Mora Sozinho</option> 
-                    <option value="1" <?php if ($trabalha == 1) echo 'selected'; ?>>Mora Sozinho</option> 
+                    <option value="0">Não-Mora Sozinho</option> 
+                    <option value="1">Mora Sozinho</option> 
                 </select>
             </div>
             <div class="col s12 l6">
                 <select class="browser-default z-depth-2" name="sexoText" id="SelectSexo">
                     <option value="" disabled selected>Sexo</option>
-                    <option value="M" <?php if ($trabalha == 0) echo 'selected'; ?>>Masculino</option> 
-                    <option value="F" <?php if ($trabalha == 1) echo 'selected'; ?>>Feminino</option> 
+                    <option value="M">Masculino</option> 
+                    <option value="F">Feminino</option> 
                 </select>
             </div>
         </div>
@@ -70,6 +72,6 @@
         </div>
 
         </br>
-        <input type="submit" class="btn green darken-4 white-text" id="btnCad" name="cadastrarFichaButton" value="Incluir Ficha"/>
+        <input type="submit" class="btn green darken-4 white-text" value="Incluir Ficha"/>
     </form>
 </div>
