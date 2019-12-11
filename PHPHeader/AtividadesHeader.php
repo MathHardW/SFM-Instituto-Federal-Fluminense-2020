@@ -9,7 +9,6 @@ $atividadeDAO->getAtividade()->setAcompanhamento($_GET['acompanhamento']);
 //
 //CADASTRANDO FICHA-------------------------------------------------------------
 if (isset($_POST['cadastrarAtividadeButton'])) {
-    
     $atividadeDAO->getAtividade()->setTitulo($_POST['tituloText']);
     $atividadeDAO->getAtividade()->setServidor($_POST['servidorText']);
     $atividadeDAO->getAtividade()->setDescricao($_POST['descricaoText']);
@@ -22,7 +21,7 @@ if (isset($_POST['cadastrarAtividadeButton'])) {
 
     if ($atividadeDAO->queryInsert() == 'ok') {
         header("location: http://localhost/PROJETO_VERSAO_3.0/Acompanhamento.php?acompanhamento=" . $_GET['acompanhamento']);
-    } else {
+    }else {
         echo '<script type="text/javascript"> alert("Erro ao cadastrar Atividade!") </script>';
     }
 }

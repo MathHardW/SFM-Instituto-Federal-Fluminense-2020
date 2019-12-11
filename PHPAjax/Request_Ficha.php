@@ -47,6 +47,7 @@ switch ($acao) {
             $data['moradia'] = $row[0][6];
             $data['sexo'] = $row[0][7];
             $data['date'] = $row[0][8];
+            $data['acompanhamento'] = $row[0][9];
             $data['cidade'] = $row[0][10];
 
             echo json_encode($data);
