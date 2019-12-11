@@ -23,24 +23,22 @@
                 <ul class="left">                            
                     <li> <a class='dropdown-trigger' href='#' data-target='dropdown1'><i class="material-icons">account_circle</i></a></li>
                 </ul>
-                <ul class="left">
-                    <li><a href="acompanhamentos.php"><i class="material-icons prefix">home</i></a></li>                     
+                <ul class="right">
+                    <li><a href="AcompanhamentosGerais.php"><i class="material-icons prefix">arrow_back</i></a></li>                     
                 </ul> 
             </div>
         </nav>
     </div>
+
     <!-- Dropdown Structure -->
     <ul id='dropdown1' class='dropdown-content'>        
         </br>
-        <li><a href="#usuario"><span class=" name">Nome: Lucas Soares</span></a></li>
-        <li><a href="#email"><span class=" email">Email: lucassoaresgranja@yahoo.com.br</span></a></li>
-
+        <li><a href="#usuario"><i class="material-icons">account_circle</i><span class=" name"><b>Lucas Soares</b></span></a></li>
         <li class="divider" tabindex="-1"></li>
-        <li><a href="CadastrarAcompanhamento.php"><i class="material-icons center">people_outline</i>Acompanhamentos</a></li>
-        <li><a href="abas.php"><i class="material-icons center">view_compact</i>Administração</a></li>
+        <li><a href="AreaAdministrativa.php"><i class="material-icons center">view_compact</i>Administração</a></li>
         <li><a href="#!"><i class="material-icons center">backspace</i>Sair</a></li>
     </ul>
-
+    
     <ul id="slide-out" class="sidenav">
         <li><div class="user-view">
                 <!--<div class="background">
