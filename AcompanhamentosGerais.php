@@ -60,7 +60,7 @@
 
                 <div class="row">
                     <div class="col s12 l11">
-                        <input type="text" name="pesquisarAcompanhamentoText" placeholder="Pesquisar Acompanhamento" >
+                        <input type="text" name="pesquisarAcompanhamento"  id="pesquisarAcompanhamento" placeholder="Pesquisar Acompanhamento" >
                     </div>
                     <div class="col s12 l1">
                         <a class=" btn-large waves-effect waves-light"><i class="material-icons">search</i></a>
@@ -100,6 +100,8 @@
 
 
         <script type="text/javascript" src="js/materialize.js"></script>
+        <script type="text/javascript" src="js/ajaxAcompanhamentosGerais.js"></script>
+
         <script>
             $('.dropdown-button').dropdown({
                 container: document.body

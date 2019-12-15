@@ -1,4 +1,5 @@
 $(function () {
+    //PLOTAR OS VALORES DAS FICHA EXISTENTE
     $('#SelectFicha').on('change', function () {
         var codigo = $(this).val();
 
@@ -18,46 +19,111 @@ $(function () {
             $('#SelectCidade').val(data.cidade);
         });
     });
-
-    $('form#form-ficha').submit(function () {
-        var formFicha = $(this);
+    //PLOTAR OS VALORES DAS FICHAS A SEREM EDITADAS
+    $(".editarFicha").on("click", function () {
+        var codigo = $(this).attr('id');
 
         $.ajax({
             url: 'PHPAjax/Request_Ficha.php',
             type: 'POST',
             dataType: "JSON",
-            data: "acao=incluirFicha&" + formFicha.serialize()
-        }).done(function (dados) {
+            data: "acao=plotarValores&" + "codigoFicha=" + codigo
+        }).done(function (data) {
+            $('#idFicha').val(data.id);
+            $('#SelectTrabalha').val(data.trabalha);
+            $('#SelectDependentes').val(data.dependentes);
+            $('#SelectAtendimento').val(data.atendimento);
+            $('#SelectMoradia').val(data.moradia);
+            $('#SelectSexo').val(data.sexo);
+            $('#TextData').val(data.date);
+            $('#SelectCidade').val(data.cidade);
 
-            /**
-             var newRow = $("<tr>");
-             var cols = "";
-             
-             cols += '<td>' + dados.codigo + '</td>';
-             cols += '<td>' + dados.trabalha + '</td>';
-             cols += '<td>' + dados.dependentes + '</td>';
-             cols += '<td>' + dados.atendimento + '</td>';
-             cols += '<td>' + dados.moradia + '</td>';
-             cols += '<td>' + dados.sexo + '</td>';
-             cols += '<td>' + dados.date + '</td>';
-             cols += '<td>' + dados.cidade + '</td>';
-             
-             cols += '<td>';
-             cols += '<a href="?acompanhamento=' + dados.acompanhamento + '?excluir=' + dados.id;
-             cols += '" class="btn tooltipped" data-position="bottom" data-tooltip="Selecione para Excluir o Acompanhamento" name="btn-excluirAcompanhamento"><i class="material-icons">delete</i></a>';
-             cols += '<a href="?acompanhamento=' + dados.acompanhamento + '?editar=' + dados.id;
-             cols += '" class="btn tooltipped" data-position="top" data-tooltip="Selecione para Editar Acompanhamento" name="btn-editarAcompanhamento"><i class="material-icons">edit</i></a>';
-             cols += '</td>';
-             
-             newRow.append(cols);
-             
-             $("#tabelaFicha").append(newRow);
-             */
-
-            alert("Ficha Incluída com sucesso!");
+            $("#SelectFicha").prop("disabled", true);
+            $("#incluirFicha").val("Salvar Ficha");
         });
 
-        $("#tabela").load("tabelas.php");
+        return false;
+    });
+
+
+    //ADICIONAR OU EDITAR NOVA FICHA
+    $('form#form-ficha').submit(function () {
+        var formFicha = $(this);
+
+        if ($("#incluirFicha").val() === "Salvar Ficha") {
+            $acao = "salvarFichaComMesmoID";
+        } else if ($("#SelectFicha :selected").val() !== "") {
+            $acao = "adicionarFichaExistente";
+        } else if ($("#incluirFicha").val() === "Incluir Ficha") {
+            $acao = "adicionarNovaFicha";
+        }
+
+        switch ($acao) {
+            case "salvarFichaComMesmoID":
+                $.ajax({
+                    url: 'PHPAjax/Request_Ficha.php',
+                    type: 'POST',
+                    data: "acao=salvarFicha&" + formFicha.serialize()
+                }).done(function (retorno) {
+
+                    if (retorno === "ok") {
+                        M.toast({html: 'Ficha Editada!', classes: 'rounded', displayLength: 3000});
+                        $(".contFichaTable").load("PHPBody/Refresh_Tabelas/Table_Ficha.php");
+                    }
+
+                    //$(".contFichaTable").html(retorno);
+                    //location.reload(true);
+                    //$(".contFichaTable").load(" .contFichaTable");
+                    return false;
+                });
+
+                break;
+            case "adicionarNovaFicha":
+                alert("nova");
+                $.ajax({
+                    url: 'PHPAjax/Request_Ficha.php',
+                    type: 'POST',
+                    data: "acao=incluirFicha&" + formFicha.serialize()
+                }).done(function () {
+                    alert("Ficha Incluída com sucesso!");
+                    location.reload();
+
+                    return false;
+                    //$('#tabelaFichaCont').load(" #tabelaFichaCont");
+                });
+                break;
+            case "adicionarFichaExistente":
+                alert("existe");
+                $.ajax({
+                    url: 'PHPAjax/Request_Ficha.php',
+                    type: 'POST',
+                    data: "acao=incluirFicha&" + formFicha.serialize()
+                }).done(function () {
+                    alert("Ficha Incluída com sucesso!");
+                    location.reload();
+
+                    return false;
+                    //$('#tabelaFichaCont').load(" #tabelaFichaCont");
+                });
+                break;
+        }
+
+        return false;
+    });
+
+    //DELETAR FICHA FICHA EXISTENTE
+    $(".deletarFicha").on("click", function () {
+        var id = $(this).attr('id');
+
+        $.ajax({
+            url: 'PHPAjax/Request_Ficha.php',
+            type: 'POST',
+            data: "acao=deletarFicha&" + "id=" + id
+        }).done(function () {
+            alert("Ficha excluida com sucesso!");
+            //location.reload();
+            //$('#tabelaFichaCont').load(" #tabelaFichaCont");
+        });
 
         return false;
     });

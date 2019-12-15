@@ -1,12 +1,13 @@
 <div class="col s12 l6">
     <form id="form-ficha" action="" method="post">
         <input type="text" value="<?= $_GET['acompanhamento'] ?>" hidden name="acompanhamentoFicha" id="acompanhamentoFicha"> 
-        
+        <input type="text" value="" hidden name="idFicha" id="idFicha"> 
+
         <div class="row"></br>
             <div class="col s12 l12">
                 <select class="browser-default js-example-basic-single" name="codigoFichaText" id="SelectFicha">
                     <option value="" disabled selected>Adicionar Ficha Existente</option>
-                    <?php foreach ($fichaDAO->querySelectCode() as $result) { ?>
+                    <?php foreach ($fichaDAO->querySelectCodigoExistente() as $result) { ?>
                         <option value="<?= $result[0] ?>"><?= $result[0] ?></option>
                     <?php } ?>
                 </select>
@@ -72,6 +73,6 @@
         </div>
 
         </br>
-        <input type="submit" class="btn green darken-4 white-text" value="Incluir Ficha"/>
+        <input type="submit" class="btn green darken-4 white-text" value="Incluir Ficha" id="incluirFicha"/>
     </form>
 </div>

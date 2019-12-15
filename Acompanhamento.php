@@ -13,7 +13,7 @@ require_once 'PHPHeader/AtividadesHeader.php';
     <body class="grey lighten-5">
 
         <!-- BARRA DE MENU PRINCIPAL DA PAGÍNA ACOMPANHAMENTOS----------------->
-        <?php require_once 'PHPBody/Acompanhamento/Menu_Acompanhamento.php';?>
+        <?php require_once 'PHPBody/Acompanhamento/Menu_Acompanhamento.php'; ?>
 
         <!-- GRÁFICOS DA PAGÍNA ACOMPANHAMENTOS-------------------------------->
         <div class="row container center">
@@ -25,11 +25,9 @@ require_once 'PHPHeader/AtividadesHeader.php';
             <?php require_once 'PHPBody/Acompanhamento/Fichas_Acompanhamento.php'; ?>
             <?php require_once 'PHPBody/Acompanhamento/Atividades_Acompanhamento.php'; ?>
         </div>
-        
-        <div id="tabela"></div>
-        
+
         <!-- TABELAS DE FICHA E DE ATIVIDADE DA PAGÍNA ACOMPANHAMENTOS--------->
-        <div class="row container center" id="tabelas">
+        <div class="row container center">
             <?php require_once 'PHPBody/Acompanhamento/Tabela_Ficha_Acompanhamento.php'; ?>
             <?php require_once 'PHPBody/Acompanhamento/Tabela_Atividade_Acompanhamento.php'; ?>
         </div>
@@ -45,6 +43,27 @@ require_once 'PHPHeader/AtividadesHeader.php';
             $('.dropdown-button').dropdown({
                 container: document.body
             });
+
+            $('#tabelaAtividade').pageMe({
+                pagerSelector: '#paginaAtividade',
+                activeColor: 'green darken-4',
+                prevText: 'Anterior',
+                nextText: 'Siguiente',
+                showPrevNext: true,
+                hidePageNumbers: false,
+                perPage: 5
+            });
+
+            $('#tabelaFicha').pageMe({
+                pagerSelector: '#paginaFicha',
+                activeColor: 'green darken-4',
+                prevText: 'Anterior',
+                nextText: 'Siguiente',
+                showPrevNext: true,
+                hidePageNumbers: false,
+                perPage: 5
+            });
+
             $(document).ready(function () {
                 $('select').formSelect();
                 $('.sidenav').sidenav();
@@ -56,26 +75,6 @@ require_once 'PHPHeader/AtividadesHeader.php';
                 });
                 $('.dropdown-trigger').dropdown();
                 $('.tap-target').tapTarget();
-
-                $('#tabelaFicha').pageMe({
-                    pagerSelector: '#paginaFicha',
-                    activeColor: 'green darken-4',
-                    prevText: 'Anterior',
-                    nextText: 'Siguiente',
-                    showPrevNext: true,
-                    hidePageNumbers: false,
-                    perPage: 5
-                });
-
-                $('#tabelaAtividade').pageMe({
-                    pagerSelector: '#paginaAtividade',
-                    activeColor: 'green darken-4',
-                    prevText: 'Anterior',
-                    nextText: 'Siguiente',
-                    showPrevNext: true,
-                    hidePageNumbers: false,
-                    perPage: 5
-                });
             });
 
             // Load the Visualization API and the corechart package.
