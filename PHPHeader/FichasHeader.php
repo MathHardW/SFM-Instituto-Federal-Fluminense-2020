@@ -7,4 +7,6 @@ require_once 'ClassesDAO/CidadeDAO.php';
 $fichaDAO = new FichaDAO();
 $cidadeDAO = new CidadeDAO();
 $fichaDAO->getFicha()->setAcompanhamento($_GET['acompanhamento']);
+
+FichaDAO::setAcompanhamentoTemp($_GET['acompanhamento']);
 //------------------------------------------------------------------------------

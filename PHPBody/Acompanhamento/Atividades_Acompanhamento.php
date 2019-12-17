@@ -1,5 +1,5 @@
 <form action="" method="post">
-    <div class="col s12 l6">
+    <div class="col s12 l12">
         </br>
         <div class="row">
             <div class="col s12 l12">
@@ -48,7 +48,8 @@
         </div>
 
         <div class="row"></br>
-            <input type="submit" class="btn green darken-4 white-text" id="btnCad" name="cadastrarAtividadeButton" value="Incluir Atividade"/>
+            <input type="submit" class="btn green darken-4 white-text" value="Incluir Atividade" id="incluirAtividade"/>
+            <!--<input type="submit" class="btn green darken-4 white-text" value="Incluir Atividade" id="btnCad" name="cadastrarAtividadeButton" />-->
         </div>
     </div>
 </form>

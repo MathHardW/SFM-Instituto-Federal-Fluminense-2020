@@ -10,7 +10,7 @@ class Ficha {
     private $data;
     
     private $cidade;
-    private static $acompanhamento;
+    private $acompanhamento;
     
     function __construct() {
         
@@ -48,8 +48,8 @@ class Ficha {
         return $this->cidade;
     }
     
-    static function getAcompanhamento() {
-        return self::$acompanhamento;
+    function getAcompanhamento() {
+        return $this->acompanhamento;
     }
     
     function setCodigo($codigo) {
@@ -84,7 +84,8 @@ class Ficha {
         $this->cidade = $cidade;
     }
     
-    static function setAcompanhamento($acompanhamento) {
-        self::$acompanhamento = $acompanhamento;
+    function setAcompanhamento($acompanhamento) {
+        $this->acompanhamento = $acompanhamento;
     }
+
 }

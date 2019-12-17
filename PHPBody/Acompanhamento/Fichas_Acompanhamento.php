@@ -1,4 +1,4 @@
-<div class="col s12 l6">
+<div class="col s12 l12">
     <form id="form-ficha" action="" method="post">
         <input type="text" value="<?= $_GET['acompanhamento'] ?>" hidden name="acompanhamentoFicha" id="acompanhamentoFicha"> 
         <input type="text" value="" hidden name="idFicha" id="idFicha"> 

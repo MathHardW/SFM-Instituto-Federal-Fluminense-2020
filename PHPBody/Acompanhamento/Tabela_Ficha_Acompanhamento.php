@@ -1,4 +1,4 @@
-<div class="col s12 l12"><br/>
+<div class="col s12 l12 contFichaTable"><br/>
     <form id="form-TableFicha" action="" method="post">
         <table cellpadding="1" cellspacing="1" class="table table-hover responsive-table centered highlight z-depth-3 white" id="tabelaFicha" style="border-style: solid;border-width: 1px;border-color: black;">
             <tr class="grey lighten-1">
@@ -12,7 +12,7 @@
                 <td><b>Cidade</b></td>
                 <td><b>Ações</b></td>
             </tr>
-            <tbody class="contFichaTable">
+            <tbody>
                 <?php foreach ($fichaDAO->querySelect() as $result) { ?>
                     <tr>
                         <td><h6><b><?= $result[1] ?></b></h6></td>
@@ -26,9 +26,9 @@
 
 
                         <td>
-                            <button class="btn tooltipped deletarFicha" id="<?= $result[0] ?>" data-tooltip="Deletar Acompanhamento" data-position="top"> <i class="material-icons">delete</i> </button>
+                            <button class="btn tooltipped deletarFicha" id="<?= $result[0] ?>" data-tooltip="Deletar Ficha" data-position="top"> <i class="material-icons">delete</i> </button>
 
-                            <button class="btn tooltipped editarFicha" id="<?= $result[1] ?>" data-tooltip="Deletar Acompanhamento" data-position="top"> <i class="material-icons">edit</i> </button>
+                            <button class="btn tooltipped editarFicha" id="<?= $result[1] ?>" data-tooltip="Editar Ficha" data-position="top"> <i class="material-icons">edit</i> </button>
                         </td>
                     </tr>
                 <?php } ?>
