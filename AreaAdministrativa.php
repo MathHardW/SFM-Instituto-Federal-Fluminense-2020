@@ -50,12 +50,35 @@
         </header>  
         </br>
         <div class="row container center">
-            <form action="" method="POST">     
-                <?php require_once 'PHPBody/AreaAdministrativa/Cidade_AreaAdministrativa.php'; ?>   
-                <?php require_once 'PHPBody/AreaAdministrativa/CMN_AreaAdministrativa.php'; ?>   
-                <?php require_once 'PHPBody/AreaAdministrativa/TipoAtividade_AreaAdministrativa.php'; ?> 
+            <div class="col s12">
+                <ul class="tabs grey lighten-2">                       
+                    <li class="tab"><a class="active" href="#tipoAtividade">Tipo Atividade</a></li>
+                    <li class="tab"><a class="active" href="#cidade">Cidade</a></li>
+                    <li class="tab"><a class="active" href="#nivel">Nivel</a></li>
+                    <li class="tab"><a class="active" href="#modalidade">Modalidade</a></li>
+                    <li class="tab"><a class="active" href="#curso">Curso</a></li>
+                </ul>
+            </div>
+            <form action="" method="POST"> 
+                <div id="tipoAtividade" class="col s12">
+                    <?php require_once 'PHPBody/AreaAdministrativa/TipoAtividade_AreaAdministrativa.php'; ?> 
+                </div>
+                <div id="cidade" class="col s12">
+                    <?php require_once 'PHPBody/AreaAdministrativa/Cidade_AreaAdministrativa.php'; ?>  
+                </div>
+                <div id="nivel" class="col s12">
+                    <?php require_once 'PHPBody/AreaAdministrativa/Nivel_AreaAdministrativa.php' ?>   
+                </div>
+                <div id="modalidade" class="col s12">
+                    <?php require_once 'PHPBody/AreaAdministrativa/Modalidade_AreaAdministrativa.php' ?>   
+                </div>
+                <div id="curso" class="col s12">
+                    <?php require_once 'PHPBody/AreaAdministrativa/Curso_AreaAdministrativa.php' ?>   
+                </div>
             </form>    
         </div>
+
+        <?php require_once 'PHPBody/Acompanhamento/Rodape_Acompanhamento.php'; ?>
 
         <script type="text/javascript" src="js/materialize.js"></script>
         <script>
@@ -63,6 +86,7 @@
                 container: document.body
             });
             $(document).ready(function () {
+                $('.tabs').tabs();
                 $('select').formSelect();
                 $('.sidenav').sidenav();
                 $('.collapsible').collapsible();

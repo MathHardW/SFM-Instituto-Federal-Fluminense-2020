@@ -24,11 +24,11 @@
                 <td><?= $result[8] ?></td>
                 <td><?= $result[12] ?></td>
                 <td>
-                    <a href="?edita=<?= $result[0] ?>" class="btn tooltipped" data-position="top" data-tooltip="Selecione para Apagar Acompanhamento" name="btn-deletarAcompanhamento">
+                    <a href="?excluir=<?= $result[0] ?>" class="btn tooltipped" data-position="top" data-tooltip="Deletar Atividade" name="btn-deletarAcompanhamento">
                         <i class="material-icons">delete</i>
                     </a>
 
-                    <a href="?excluir=<?= $result[0] ?>" class="btn tooltipped" data-position="bottom" data-tooltip="Selecione para Visualizar o Acompanhamento" name="btn-selecionarAcompanhamento">
+                    <a href="?edita=<?= $result[0] ?>" class="btn tooltipped" data-position="bottom" data-tooltip="Editar Atividade" name="btn-selecionarAcompanhamento">
                         <i class="material-icons">edit</i>
                     </a>
                 </td>
