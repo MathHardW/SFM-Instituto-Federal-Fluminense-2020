@@ -50,4 +50,3 @@ $fichaDAO->getFicha()->setAcompanhamento(filter_input(INPUT_POST, 'acompanhament
     </div>
 </form>
 
-<script>location.reload();</script>    

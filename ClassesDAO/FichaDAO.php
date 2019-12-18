@@ -7,8 +7,6 @@ class FichaDAO {
 
     private $Connection;
     private $Ficha;
-
-    private static $acompanhamentoTemp = 1;
     
     function __construct() {
         $this->Connection = new Conexao();
@@ -176,13 +174,5 @@ class FichaDAO {
 
     function getConnection() {
         return $this->Connection;
-    }
-
-    static function getAcompanhamentoTemp() {
-        return self::$acompanhamentoTemp;
-    }
-
-    static function setAcompanhamentoTemp($acompanhamentoTemp) {
-        self::$acompanhamentoTemp = $acompanhamentoTemp;
     }
 }

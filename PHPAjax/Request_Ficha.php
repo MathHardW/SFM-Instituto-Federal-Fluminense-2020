@@ -13,7 +13,7 @@ switch ($acao) {
         $codigo = filter_input(INPUT_POST, 'codigoFicha', FILTER_SANITIZE_STRING);
 
         $row = $fichaDAO->querySelectCodigo($codigo);
-
+        
         $data['id'] = $row[0][0];
         $data['trabalha'] = $row[0][3];
         $data['dependentes'] = $row[0][4];

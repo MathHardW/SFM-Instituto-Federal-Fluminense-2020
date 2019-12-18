@@ -1,4 +1,14 @@
-<div class="col s12 l12 contAtividadeTable"><br/><br/>
+<?php
+//IMPORTANDO AS CLASSES---------------------------------------------------------
+require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/ClassesDAO/AtividadeDAO.php';
+//------------------------------------------------------------------------------    
+//ESTANCIANDO A CLASSE----------------------------------------------------------
+$atividadeDAO = new AtividadeDAO();
+//------------------------------------------------------------------------------
+$atividadeDAO->getAtividade()->setAcompanhamento(filter_input(INPUT_POST, 'acompanhamento'));
+?>
+
+    <br/><br/>
     <form id="form-TableAtividade" action="" method="post">
         <table cellpadding="1" cellspacing="1" class="table table-hover responsive-table centered highlight z-depth-3 white" id="tabelaAtividade" style="border-style: solid;border-width: 1px;border-color: black;">
             <tr class="grey lighten-1">
@@ -80,4 +90,3 @@
             <ul class="pagination pager" id="paginaAtividade"></ul>
         </div>
     </form>
-</div>

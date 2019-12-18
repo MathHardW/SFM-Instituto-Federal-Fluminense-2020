@@ -49,7 +49,8 @@ require_once 'PHPHeader/AtividadesHeader.php';
 
         <!-- JAVASCRIPT DA PAGÍNA ACOMPANHAMENTOS------------------------------>
         <script type="text/javascript" src="js/materialize.js"></script>
-        <script type="text/javascript" src="js/ajaxFicha.js"></script>
-        <script type="text/javascript" src="js/standartAjax.js"></script>
+        <script type="text/javascript" src="js/standart.js"></script>
+        <script type="text/javascript" src="JSAjax/ajaxAtividade.js"></script>
+        <script type="text/javascript" src="JSAjax/ajaxFicha.js"></script>
     </body>
 </html>

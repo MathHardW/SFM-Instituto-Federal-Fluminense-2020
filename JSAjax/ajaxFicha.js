@@ -20,7 +20,6 @@ $(function () {
         });
 
         M.toast({html: 'Ficha Selecionada!', classes: 'rounded', displayLength: 3000});
-
     });
     //PLOTAR OS VALORES DAS FICHAS A SEREM EDITADAS
     $(".editarFicha").on("click", function () {
@@ -45,7 +44,6 @@ $(function () {
             $("#incluirFicha").val("Salvar Ficha");
 
             M.toast({html: 'Editando Ficha ...', classes: 'rounded', displayLength: 3000});
-            $(".contFichaTable").load("PHPBody/Refresh_Tabelas/Table_Ficha.php", {acompanhamento: acompanhamento});
         });
 
         return false;

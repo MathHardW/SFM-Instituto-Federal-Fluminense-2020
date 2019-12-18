@@ -1,6 +1,6 @@
 <?php
 //IMPORTANDO AS CLASSES---------------------------------------------------------
-require_once 'ClassesDAO/AtividadeDAO.php';
+require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/ClassesDAO/AtividadeDAO.php';
 //------------------------------------------------------------------------------    
 //ESTANCIANDO A CLASSE----------------------------------------------------------
 $atividadeDAO = new AtividadeDAO();
