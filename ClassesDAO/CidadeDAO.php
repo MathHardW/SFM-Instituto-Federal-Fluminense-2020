@@ -1,6 +1,6 @@
 <?php
-require_once 'Classes/Conexao.php';
-require_once 'Classes/Cidade.php';
+require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/Classes/Conexao.php';
+require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/Classes/Cidade.php';
 
 class CidadeDAO {
     private $Connection;

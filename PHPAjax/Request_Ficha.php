@@ -5,15 +5,19 @@ require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/ClassesDAO/FichaDAO.php';
 
 //ESTANCIANDO A CLASSE
 $fichaDAO = new FichaDAO();
+$fichaDAO->getFicha()->setAcompanhamento(filter_input(INPUT_POST, 'acompanhamento'));
 
 $acao = filter_input(INPUT_POST, 'acao');
 
 switch ($acao) {
+    case 'renderizarTodos':
+        echo json_encode($fichaDAO->querySelect());
+        break;
     case 'plotarValores':
-        $codigo = filter_input(INPUT_POST, 'codigoFicha', FILTER_SANITIZE_STRING);
+        $codigo = filter_input(INPUT_POST, 'codigo', FILTER_SANITIZE_STRING);
 
         $row = $fichaDAO->querySelectCodigo($codigo);
-        
+
         $data['id'] = $row[0][0];
         $data['trabalha'] = $row[0][3];
         $data['dependentes'] = $row[0][4];
@@ -41,7 +45,9 @@ switch ($acao) {
         $fichaDAO->getFicha()->setCidade(filter_input(INPUT_POST, 'cidadeText'));
         $fichaDAO->getFicha()->setData(filter_input(INPUT_POST, 'dataText'));
 
-        $row = $fichaDAO->queryInsert($id);
+        $row = $fichaDAO->queryInsert();
+        
+        echo $row;
         break;
     case 'deletarFicha':
         $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
@@ -50,11 +56,9 @@ switch ($acao) {
 
         echo $row;
         break;
-
     case 'salvarFicha':
         $id = filter_input(INPUT_POST, 'idFicha');
 
-        $fichaDAO->getFicha()->setAcompanhamento(filter_input(INPUT_POST, 'acompanhamentoFicha'));
         $fichaDAO->getFicha()->setTrabalha(filter_input(INPUT_POST, 'trabalhaText'));
         $fichaDAO->getFicha()->setDependentes(filter_input(INPUT_POST, 'dependentesText'));
         $fichaDAO->getFicha()->setAtendimentoEspecial(filter_input(INPUT_POST, 'atendimentoEspecialText'));

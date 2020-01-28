@@ -13,14 +13,21 @@ class AtividadeDAO {
         $this->Atividade = new Atividade();
     }
 
-    public function querySelect() {
+    public function querySelect($texto) {
         try {
-            $id = $this->getAtividade()->getAcompanhamento();
-            $retornoDB = $this->Connection->Conectar()->prepare("SELECT * FROM atividade, tipoatividade WHERE atividade.TipoAtividade_id = tipoatividade.id and Acompanhamento_id = ?;");
-            $retornoDB->bindParam(1, $id, PDO::PARAM_INT);
-            $retornoDB->execute();
+            $acompanhamentoId = $this->getAtividade()->getAcompanhamento();
 
-            return $retornoDB->fetchAll();
+            if ($texto == null) {
+                $retornoDB = $this->Connection->Conectar()->prepare("SELECT * FROM atividade, tipoatividade WHERE atividade.TipoAtividade_id = tipoatividade.id and Acompanhamento_id = ?;");
+                $retornoDB->bindParam(1, $acompanhamentoId, PDO::PARAM_INT);
+                $retornoDB->execute();
+
+                if ($retornoDB->execute()) {
+                    return $retornoDB->fetchAll();
+                } else {
+                    return 'erro';
+                }
+            }
         } catch (PDOException $ex) {
             return 'erro ' . $ex->getMessage();
         }
@@ -28,8 +35,7 @@ class AtividadeDAO {
 
     public function querySelectCodigo($id) {
         try {
-            $idAcompanhamento = $this->getAtividade()->getAcompanhamento();
-            $retornoDB = $this->Connection->Conectar()->prepare("SELECT * FROM atividade WHERE atividade.id = ?");
+            $retornoDB = $this->Connection->Conectar()->prepare("SELECT * FROM atividade WHERE atividade.id = ? ORDER BY id DESC LIMIT 1;");
             $retornoDB->bindParam(1, $id, PDO::PARAM_INT);
 
             $retornoDB->execute();
@@ -46,7 +52,6 @@ class AtividadeDAO {
 
     public function queryInsert() {
         try {
-
             $titulo = $this->Atividade->getTitulo();
             $servidor = $this->Atividade->getServidor();
             $descricao = $this->Atividade->getDescricao();
@@ -60,8 +65,8 @@ class AtividadeDAO {
 
 
             $retornoDB = $this->Connection->Conectar()->prepare("INSERT INTO `dbmad3`.`atividade` 
-            (`titulo`, `servidor`, `descricao`, `publicoAlvo`, `resultadosEsperados`, `resultadosObtidos`, `dataInicio`, `dataFim`, `Acompanhamento_id`,`TipoAtividade_id`) 
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?);");
+            (`titulo`,`servidor`,`descricao`,`publicoAlvo`,`resultadosEsperados`,`resultadosObtidos`,`dataInicio`,`dataFim`,`Acompanhamento_id`,`TipoAtividade_id`) 
+            VALUES (?,?,?,?,?,?,?,?,?,?);");
 
             $retornoDB->bindParam(1, $titulo, PDO::PARAM_STR);
             $retornoDB->bindParam(2, $servidor, PDO::PARAM_STR);
@@ -114,6 +119,17 @@ class AtividadeDAO {
         $retornoDB->bindParam(7, $dataInicio, PDO::PARAM_STR);
         $retornoDB->bindParam(8, $dataFim, PDO::PARAM_STR);
         $retornoDB->bindParam(9, $id, PDO::PARAM_INT);
+
+        if ($retornoDB->execute()) {
+            return "ok";
+        } else {
+            return 'erro'.' '.$titulo.' '.$servidor.' '.$descricao.' '.$publicoAlvo.' '.$resultadosEsperados.' '.$resultadosObtidos.' '.$dataInicio.' '.$dataFim.' '.$id.' ';
+        }
+    }
+
+    public function queryDelete($id) {
+        $retornoDB = $this->Connection->Conectar()->prepare("DELETE FROM `dbmad3`.`atividade` WHERE id= ?;");
+        $retornoDB->bindParam(1, $id, PDO::PARAM_INT);
 
         if ($retornoDB->execute()) {
             return "ok";

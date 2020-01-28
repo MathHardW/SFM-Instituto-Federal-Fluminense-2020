@@ -1,5 +1,6 @@
 <?php
-require_once 'Classes/Curso.php';
+require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/Classes/Conexao.php';
+require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/Classes/Curso.php';
 
 class CursoDAO {
     private $Connection;

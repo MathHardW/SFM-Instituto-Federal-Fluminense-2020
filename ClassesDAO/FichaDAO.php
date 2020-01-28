@@ -7,7 +7,7 @@ class FichaDAO {
 
     private $Connection;
     private $Ficha;
-    
+
     function __construct() {
         $this->Connection = new Conexao();
         $this->Ficha = new Ficha();
@@ -16,11 +16,11 @@ class FichaDAO {
     public function querySelectCodigoExistente() {
         try {
             $acompanhamentoId = $this->Ficha->getAcompanhamento();
-            $retornoDB = $this->Connection->Conectar()->prepare("SELECT ficha.codigo FROM ficha WHERE Acompanhamento_id != ?;");
+            $retornoDB = $this->Connection->Conectar()->prepare("SELECT ficha.id, ficha.codigo FROM ficha WHERE Acompanhamento_id != ? ;");
             $retornoDB->bindParam(1, $acompanhamentoId, PDO::PARAM_INT);
 
             $retornoDB->execute();
-            
+
             return $retornoDB->fetchAll();
         } catch (PDOException $ex) {
             return 'erro ' . $ex->getMessage();
@@ -40,15 +40,32 @@ class FichaDAO {
         }
     }
 
-    public function querySelect() {
+    public function querySelect($texto) {
         try {
             $acompanhamentoId = $this->Ficha->getAcompanhamento();
-            $retornoDB = $this->Connection->Conectar()->prepare("SELECT * FROM ficha, cidade WHERE Cidade_id = cidade.id and Acompanhamento_id = ? ORDER BY ficha.id ASC;");
-            $retornoDB->bindParam(1, $acompanhamentoId, PDO::PARAM_INT);
 
-            $retornoDB->execute();
+            if ($texto == null) {
+                $retornoDB = $this->Connection->Conectar()->prepare("SELECT * FROM ficha, cidade WHERE Cidade_id = cidade.id AND Acompanhamento_id = ? ORDER BY ficha.id DESC;");
+                $retornoDB->bindParam(1, $acompanhamentoId, PDO::PARAM_INT);
 
-            return $retornoDB->fetchAll();
+                if ($retornoDB->execute()) {
+                    return $retornoDB->fetchAll();
+                } else {
+                    return 'erro';
+                }
+            } else {
+
+                $sqlLike = "SELECT * FROM ficha, cidade WHERE Cidade_id = cidade.id AND Acompanhamento_id = ? AND (ficha.codigo LIKE '%".$texto."%')";
+
+                $retornoDB = $this->Connection->Conectar()->prepare($sqlLike);
+                $retornoDB->bindParam(1, $acompanhamentoId, PDO::PARAM_INT);
+
+                if ($retornoDB->execute()) {
+                    return $retornoDB->fetchAll();
+                } else {
+                    return 'erro';
+                }
+            }
         } catch (PDOException $ex) {
             return 'erro ' . $ex->getMessage();
         }
@@ -113,7 +130,7 @@ class FichaDAO {
             $retornoDB->bindParam(10, $cidadeId, PDO::PARAM_INT);
 
             if ($retornoDB->execute()) {
-                return $fichaDAO->querySelectCodigo($codigo);
+                return 'ok';
             } else {
                 return 'erro';
             }
@@ -175,4 +192,5 @@ class FichaDAO {
     function getConnection() {
         return $this->Connection;
     }
+
 }

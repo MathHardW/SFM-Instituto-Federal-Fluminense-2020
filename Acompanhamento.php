@@ -1,7 +1,6 @@
 <?php
 require_once 'PHPHeader/AcompanhamentosGeraisHeader.php';
 require_once 'PHPHeader/FichasHeader.php';
-require_once 'PHPHeader/AtividadesHeader.php';
 ?>
 
 <!DOCTYPE HTML>
@@ -11,6 +10,7 @@ require_once 'PHPHeader/AtividadesHeader.php';
         <title>Acompanhamento</title>
     </head>
     <body class="grey lighten-5">
+        <input type="text" value="<?= $_GET['acompanhamento'] ?>" hidden name="acompanhamento" id="acompanhamento">
 
         <!-- BARRA DE MENU PRINCIPAL DA PAGÍNA ACOMPANHAMENTOS----------------->
         <?php require_once 'PHPBody/Acompanhamento/Menu_Acompanhamento.php'; ?>
@@ -20,36 +20,29 @@ require_once 'PHPHeader/AtividadesHeader.php';
             <?php require_once 'PHPBody/Acompanhamento/Graficos_Acompanhamento.php'; ?>
         </div>
 
-        <!-- FORMULÁRIOS DE FICHA E DE ATIVIDADE DA PAGÍNA ACOMPANHAMENTOS----->
-        <div class="row container center">
-            <div class="col s12">
-                <ul class="tabs grey lighten-2">                       
-                    <li class="tab left"><a class="active" href="#ficha">Incluir Ficha</a></li>
-                    <li class="tab right"><a class="active" href="#atividade">Incluir Atividade</a></li>
-                </ul>
-            </div>
-            <!-- CADASTRO DE TIPO DE ATIVIDADE -->
-            <div id="ficha" class="col s12">
-                <?php require_once 'PHPBody/Acompanhamento/Fichas_Acompanhamento.php'; ?>
-            </div>
-            <!-- CADASTRO DE TIPO DE ATIVIDADE -->
-            <div id="atividade" class="col s12">
-                <?php require_once 'PHPBody/Acompanhamento/Atividades_Acompanhamento.php'; ?>
-            </div>
-        </div>
+        <main>
+            <!-- FORMULÁRIOS DE FICHA E DE ATIVIDADE DA PAGÍNA ACOMPANHAMENTOS----->
+            <div class="row container center">
+                <div class="col s12">
+                    <ul class="tabs grey lighten-2">                      
+                        <li class="tab left green-text text-darken-4"><a class="active green-text text-darken-4" href="#fichas" onclick="renderizarAtividades();">Incluir Ficha</a></li>
+                        <li class="tab right green-text text-darken-4"><a class="active green-text text-darken-4" href="#atividades" onclick="renderizarAtividades();">Incluir Atividade</a></li>
+                    </ul>
+                </div>
 
-        <!-- TABELAS DE FICHA E DE ATIVIDADE DA PAGÍNA ACOMPANHAMENTOS--------->
-        <div class="row container center">
-            <?php require_once 'PHPBody/Acompanhamento/Tabela_Ficha_Acompanhamento.php'; ?>
-            <?php require_once 'PHPBody/Acompanhamento/Tabela_Atividade_Acompanhamento.php'; ?>
-        </div>
+                <!--TABELA E FORMULARIO DE FICHAS-->
+                <div id="fichas"></div>
 
+                <!--TABELA E FORMULARIO DE ATIVIDADES-->
+                <div id="atividades"></div>
+            </div>
+        </main>
         <!-- RODAPÉ DA PAGÍNA ACOMPANHAMENTOS---------------------------------->
         <?php require_once 'PHPBody/Acompanhamento/Rodape_Acompanhamento.php'; ?>
 
         <!-- JAVASCRIPT DA PAGÍNA ACOMPANHAMENTOS------------------------------>
-        <script type="text/javascript" src="js/materialize.js"></script>
-        <script type="text/javascript" src="js/standart.js"></script>
+        <script type="text/javascript" src="JS/materialize.js"></script>
+        <script type="text/javascript" src="JS/standart.js"></script>
         <script type="text/javascript" src="JSAjax/ajaxAtividade.js"></script>
         <script type="text/javascript" src="JSAjax/ajaxFicha.js"></script>
     </body>

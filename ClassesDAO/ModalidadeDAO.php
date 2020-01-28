@@ -1,6 +1,7 @@
 <?php
-require_once 'Classes/Modalidade.php';
-require_once 'Classes/Curso.php';
+require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/Classes/Conexao.php';
+require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/Classes/Modalidade.php';
+require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/Classes/Nivel.php';
 
 class ModalidadeDAO {
     private $Connection;
@@ -8,7 +9,7 @@ class ModalidadeDAO {
 
     function __construct() {
         $this->Connection = new Conexao();
-        $this->Modalidade = new Modalidade("", new Curso());
+        $this->Modalidade = new Modalidade("", new Nivel());
     }
 
     public function querySelect() {
@@ -18,7 +19,7 @@ class ModalidadeDAO {
                                                                       modalidade.nome,
                                                                       nivel.nome
                                                                 FROM `modalidade` join nivel
-                                                                on nivel.id = modalidade.Nivel_id;");
+                                                                on nivel.id = modalidade.Nivel_id ORDER BY id DESC;");
             $retornoDB->execute();
 
             return $retornoDB->fetchAll();
@@ -45,9 +46,33 @@ class ModalidadeDAO {
             $nome = $this->Modalidade->getNome();
             $nivel = $this->Modalidade->getNivel();
 
-            $retornoDB = $this->Connection->Conectar()->prepare("INSERT INTO `modalidade`(`nome`,`Nivel_id`) VALUES (?, ?);");
+            $retornoDB = $this->Connection->Conectar()->prepare("INSERT INTO `dbmad3`.`modalidade`(`nome`,`Nivel_id`) VALUES (?, ?);");
             $retornoDB->bindParam(1, $nome, PDO::PARAM_STR);
             $retornoDB->bindParam(2, $nivel, PDO::PARAM_INT);
+
+            if ($retornoDB->execute()) {
+                return 'ok';
+            } else {
+                return 'erro';
+            }
+        } catch (PDOException $ex) {
+            return 'error ' . $ex->getMessage();
+        }
+    }
+    
+    public function queryUpdate($id) {
+        try {
+            $nome = $this->getModalidade()->getNome();
+            $nivel = $this->getModalidade()->getNivel();
+
+            $retornoDB = $this->Connection->Conectar()->prepare("UPDATE `dbmad3`.`modalidade` 
+                                                                SET 
+                                                                `nome` = ?, 
+                                                                `Nivel_id` = ? 
+                                                                WHERE `id` = ?; ");
+            $retornoDB->bindParam(1, $nome, PDO::PARAM_STR);
+            $retornoDB->bindParam(2, $nivel, PDO::PARAM_INT);
+            $retornoDB->bindParam(3, $id, PDO::PARAM_INT);
 
             if ($retornoDB->execute()) {
                 return 'ok';

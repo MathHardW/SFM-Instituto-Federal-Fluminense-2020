@@ -1,7 +1,7 @@
 <?php
 
-require_once 'Classes/Conexao.php';
-require_once 'Classes/TipoAtividade.php';
+require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/Classes/Conexao.php';
+require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/Classes/TipoAtividade.php';
 
 class TipoAtividadeDAO {
 
@@ -12,12 +12,12 @@ class TipoAtividadeDAO {
         $this->Connection = new Conexao();
         $this->TipoAtividade = new TipoAtividade();
     }
-    
+
     public function querySelectId($id) {
         try {
             $retornoDB = $this->Connection->Conectar()->prepare("SELECT * FROM `tipoatividade` WHERE id=?;");
             $retornoDB->bindParam(1, $id, PDO::PARAM_INT);
-            
+
             $retornoDB->execute();
 
             return $retornoDB->fetchAll();
@@ -28,7 +28,7 @@ class TipoAtividadeDAO {
 
     public function querySelect() {
         try {
-            $retornoDB = $this->Connection->Conectar()->prepare("SELECT * FROM `tipoatividade`;");
+            $retornoDB = $this->Connection->Conectar()->prepare("SELECT * FROM `tipoatividade` ORDER BY id DESC;");
             $retornoDB->execute();
 
             return $retornoDB->fetchAll();
@@ -46,6 +46,27 @@ class TipoAtividadeDAO {
 
             $retornoDB->bindParam(1, $nome, PDO::PARAM_STR);
             $retornoDB->bindParam(2, $descricao, PDO::PARAM_STR);
+
+            if ($retornoDB->execute()) {
+                return 'ok';
+            } else {
+                return 'erro';
+            }
+        } catch (PDOException $ex) {
+            return 'error ' . $ex->getMessage();
+        }
+    }
+
+    public function queryUpdate($id) {
+        try {
+            $nome = $this->TipoAtividade->getNome();
+            $descricao = $this->TipoAtividade->getDescricao();
+
+            $retornoDB = $this->Connection->Conectar()->prepare("UPDATE `tipoatividade` SET `nome` = ?, `descricao` = ? WHERE `id` = ?;");
+
+            $retornoDB->bindParam(1, $nome, PDO::PARAM_STR);
+            $retornoDB->bindParam(2, $descricao, PDO::PARAM_STR);
+            $retornoDB->bindParam(3, $id, PDO::PARAM_INT);
 
             if ($retornoDB->execute()) {
                 return 'ok';

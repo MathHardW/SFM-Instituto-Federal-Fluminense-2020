@@ -10,10 +10,10 @@ $acao = filter_input(INPUT_POST, 'acao');
 
 switch ($acao) {
     case 'plotarValores':
-        $id = filter_input(INPUT_POST, 'idAtividade');
+        $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
 
         $row = $atividadeDAO->querySelectCodigo($id);
-        
+
         $data['id'] = $row[0][0];
         $data['titulo'] = $row[0][1];
         $data['servidor'] = $row[0][2];
@@ -28,18 +28,38 @@ switch ($acao) {
         echo json_encode($data);
         break;
     case 'salvarAtividade':
-        $id = filter_input(INPUT_POST, 'idAtividade');
+        $id = filter_input(INPUT_POST, 'id');
 
-        $atividadeDAO->getAtividade()->setTitulo(filter_input(INPUT_POST, 'tituloText'));
-        $atividadeDAO->getAtividade()->setServidor(filter_input(INPUT_POST, 'servidorText'));
-        $atividadeDAO->getAtividade()->setDescricao(filter_input(INPUT_POST, 'descricaoText'));
-        $atividadeDAO->getAtividade()->setPublicoAlvo(filter_input(INPUT_POST, 'publicoAlvoText'));
-        $atividadeDAO->getAtividade()->setResultadosEsperados(filter_input(INPUT_POST, 'resultadosEsperadosText'));
-        $atividadeDAO->getAtividade()->setResultadosObtidos(filter_input(INPUT_POST, 'resultadosObtidosText'));
-        $atividadeDAO->getAtividade()->setDataInicio(filter_input(INPUT_POST, 'dataInicioText'));
-        $atividadeDAO->getAtividade()->setDataFim(filter_input(INPUT_POST, 'dataFimText'));
+        $atividadeDAO->getAtividade()->setTitulo(filter_input(INPUT_POST, 'titulo'));
+        $atividadeDAO->getAtividade()->setServidor(filter_input(INPUT_POST, 'servidor'));
+        $atividadeDAO->getAtividade()->setDescricao(filter_input(INPUT_POST, 'descricao'));
+        $atividadeDAO->getAtividade()->setPublicoAlvo(filter_input(INPUT_POST, 'publicoAlvo'));
+        $atividadeDAO->getAtividade()->setResultadosEsperados(filter_input(INPUT_POST, 'resultadosEsperados'));
+        $atividadeDAO->getAtividade()->setResultadosObtidos(filter_input(INPUT_POST, 'resultadosObtidos'));
+        $atividadeDAO->getAtividade()->setDataInicio(filter_input(INPUT_POST, 'dataInicio'));
+        $atividadeDAO->getAtividade()->setDataFim(filter_input(INPUT_POST, 'dataFim'));
 
         echo $atividadeDAO->queryUpdate($id);
+        break;
+    case 'deletarAtividade':
+        $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+        $row = $atividadeDAO->queryDelete($id);
+        break;
+    case 'incluirAtividade':
+        $atividadeDAO->getAtividade()->setAcompanhamento(filter_input(INPUT_POST, 'acompanhamento'));
+        
+        $atividadeDAO->getAtividade()->setTipoAtividade(filter_input(INPUT_POST, 'tipoAtividade', FILTER_SANITIZE_NUMBER_INT));
+        $atividadeDAO->getAtividade()->setTitulo(filter_input(INPUT_POST, 'titulo', FILTER_SANITIZE_STRING));
+        $atividadeDAO->getAtividade()->setServidor(filter_input(INPUT_POST, 'servidor', FILTER_SANITIZE_STRING));
+        $atividadeDAO->getAtividade()->setDescricao(filter_input(INPUT_POST, 'descricao', FILTER_SANITIZE_STRING));
+        $atividadeDAO->getAtividade()->setPublicoAlvo(filter_input(INPUT_POST, 'publicoAlvo', FILTER_SANITIZE_STRING));
+        $atividadeDAO->getAtividade()->setResultadosEsperados(filter_input(INPUT_POST, 'resultadosEsperados', FILTER_SANITIZE_STRING));
+        $atividadeDAO->getAtividade()->setResultadosObtidos(filter_input(INPUT_POST, 'resultadosObtidos', FILTER_SANITIZE_STRING));
+        $atividadeDAO->getAtividade()->setDataInicio(filter_input(INPUT_POST, 'dataInicio'));
+        $atividadeDAO->getAtividade()->setDataFim(filter_input(INPUT_POST, 'dataFim'));
+        
+        $row = $atividadeDAO->queryInsert();
+        echo $row;
         break;
     default:
         echo $acao;

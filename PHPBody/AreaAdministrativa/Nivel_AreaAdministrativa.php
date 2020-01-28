@@ -1,10 +1,26 @@
+<?php
+//IMPORTANDO A CLASSE
+require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/ClassesDAO/NivelDAO.php';
+
+//ESTANCIANDO A CLASSE
+$nivelDAO = new NivelDAO();
+$niveis = $nivelDAO->querySelect();
+
+$nomeNivelText = "";
+?>
+
+<br/>
 <!-- CADASTRO E APRESENTAÇÃO DOS NIVEIS --------------------------------------->
-<input type="text" name="nomeNivelText" value="<?= $nivelNome ?>" placeholder="Nível"/>
-<p><input class="btn right" type="submit" id="btnCad" name="cadastrarNivelButton" value="Cadastrar Nível"/></p>
+<form action="" id="nivelForm" method="post">
+    <input type="text" id="nivelID" value="" hidden/>
+    <input type="text" id="nomeNivelText" value="<?= $nomeNivelText ?>" placeholder="Nível" required=""/>
+    <p><input class="btn right green darken-4" type="submit" id="cadastrarNivelButton" value="Cadastrar Nível"/></p>
+
+</form>
 
 <div><p></br></br></p></div>
 
-<table cellpadding="1" cellspacing="1" class="table table-hover responsive-table centered highlight z-depth-3 white" id="tabelaFicha" style="border-style: solid;border-width: 1px;border-color: black;">
+<table cellpadding="1" cellspacing="1" class="responsive-table bordered striped centered highlight flow-text z-depth-3" id="tabelaNivel" style="border-style: solid;border-width: 1px;border-color: black;">
     <thead>
         <tr class="grey lighten-1 center-align">
             <th>Nome</th>
@@ -12,23 +28,87 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach ($nivelDAO->querySelect() as $result) { ?>
+        <?php foreach ($niveis as $result) { ?>
 
             <tr>
                 <td><?= $result['nome'] ?></td>
 
                 <td>
-                    <a href="?pesquisarIdNivel=<?= $result[0] ?>" class="btn tooltipped" data-position="top" data-tooltip="Deletar Nível" name="btn-deletarAcompanhamento">
-                        <i class="material-icons">delete</i>
-                    </a>
-
-                    <a href="?excluirIdNivel=<?= $result[0] ?>" class="btn tooltipped" data-position="bottom" data-tooltip="Editar Nível" name="btn-selecionarAcompanhamento">
-                        <i class="material-icons">edit</i>
-                    </a>
+                    <button class="btn tooltipped green modal-trigger darken-4" href="#modalExcluir<?= $result[0] ?>"  data-tooltip="Excluir Nível" data-position="bottom"> <i class="material-icons">delete</i> </button>
+                    <button class="btn tooltipped green darken-4" onclick="plotarNivel('<?= $result[0] ?>')"  data-tooltip="Editar Nível" data-position="bottom"> <i class="material-icons">edit</i> </button>
                 </td>
             </tr>
-        <?php } ?>
-    </tbody>
+
+
+            <!-- Modal Structure -->
+        <div id="modalExcluir<?= $result[0] ?>" class="modal bottom-sheet">
+            <div class="modal-content">
+                <h4>Deseja excluir o Nível <u><?= $result['nome'] ?></u>?
+                    <b><a onclick="excluirNivel(<?= $result['id'] ?>);" class="modal-close black-text">Sim</a></b> ou
+                    <b><a href="#!" class="modal-close black-text">Não</a></b>
+                </h4>
+                <p></p>
+            </div>
+        </div>
+    <?php } ?>
+</tbody>
 
 </table>
 </br></br>
+<div class="col-md-12 center text-center">
+    <span class="left" id="total_reg"></span>
+    <ul class="pagination pager" id="paginaNivel"></ul>
+</div>
+
+<script>
+    $('.tooltipped').tooltip();
+    $('.modal').modal();
+
+    $('#tabelaNivel').pageMe({
+        pagerSelector: '#paginaNivel',
+        activeColor: 'green darken-4',
+        prevText: 'Retroceder',
+        nextText: 'Avançar',
+        showPrevNext: true,
+        hidePageNumbers: false,
+        perPage: 3
+    });
+
+    $('form#nivelForm').submit(function () {
+        var id = $("#nivelID").val();
+        var nome = $("#nomeNivelText").val();
+
+        if ($("#cadastrarNivelButton").val() === "Cadastrar Nível") {
+            $.ajax({
+                url: 'PHPAjax/Request_AreaAdm.php',
+                type: 'POST',
+                data: "acao=Cadastrar&" + "CRUD=Nivel&" + "nome=" + nome
+            }).done(function (data) {
+                if (data === "ok") {
+                    renderizarTudo();
+                    M.toast({html: "Nível Cadastrado", classes: 'rounded', displayLength: 3000});
+                } else {
+                    renderizarTudo();
+                    M.toast({html: "Erro ao cadastrar Nível", classes: 'rounded', displayLength: 3000});
+                }
+            });
+        } else {
+            $.ajax({
+                url: 'PHPAjax/Request_AreaAdm.php',
+                type: 'POST',
+                data: "acao=Salvar&" + "CRUD=Nivel&" + "id=" + id + "&nome=" + nome
+            }).done(function (data) {
+                if (data === "ok") {
+                    renderizarTudo();
+                    M.toast({html: "Nível Atualizado", classes: 'rounded', displayLength: 3000});
+                } else {
+                    renderizarTudo();
+                    M.toast({html: "Erro ao atualizar Nível", classes: 'rounded', displayLength: 3000});
+                }
+            });
+
+        }
+
+        return false;
+    });
+</script>

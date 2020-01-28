@@ -48,30 +48,23 @@
             </ul>
           <!--  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">account_circle</i></a>-->
         </header>  
-        </br>
 
-        <!-- NESTA ÁREA SERÁ POSSIVEL CADASTRAR UM ACOMPANHAMENTO, PESQUISAR COM OS INDICES SIMPLES E SELECIONAR UM INDIVIDUAL-->
-        <div class="row container center">
-            <div class="col s12 l12">
-                <br/>
-                <div class="row" >
-                    <form action="" method="POST"><?php require_once 'PHPBody/AcompanhamentosGeraisCadastroBody.php'; ?></form>
-                </div>
+        <main>
+            <!-- NESTA ÁREA SERÁ POSSIVEL CADASTRAR UM ACOMPANHAMENTO, PESQUISAR COM OS INDICES SIMPLES E SELECIONAR UM INDIVIDUAL-->
+            <div class="row container center">
 
-                <div class="row">
-                    <div class="col s12 l11">
-                        <input type="text" name="pesquisarAcompanhamento"  id="pesquisarAcompanhamento" placeholder="Pesquisar Acompanhamento" >
+                <div class="col s12 l12">
+                    <br/>
+                    <div class="row" >
+                        <form action="" method="POST"><?php require_once 'PHPBody/AcompanhamentosGeraisCadastroBody.php'; ?></form>
                     </div>
-                    <div class="col s12 l1">
-                        <a class=" btn-large waves-effect waves-light"><i class="material-icons">search</i></a>
-                    </div>
-                </div>
 
-                <div class="row">
-                    <form action="" method="POST"><?php require_once 'PHPBody/AcompanhamentosGeraisTableBody.php'; ?></form>    
+                    <div class="row">
+                        <form action="" method="POST"><?php require_once 'PHPBody/AcompanhamentosGeraisTableBody.php'; ?></form>    
+                    </div>
                 </div>
             </div>
-        </div>
+        </main>
 
 
         <footer class="page-footer green darken-4">
