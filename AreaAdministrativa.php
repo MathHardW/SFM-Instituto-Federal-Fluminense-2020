@@ -88,6 +88,9 @@ if (!empty($_GET['sair']) == "sim") {
             </div>
         </div>
 
+        <?php require_once 'PHPBody/Acompanhamento/Rodape_Acompanhamento.php'; ?>
+
+
 
         <script type="text/javascript" src="JS/materialize.js"></script>
         <script type="text/javascript" src="JSAjax/ajaxAreaAdm.js"></script>
