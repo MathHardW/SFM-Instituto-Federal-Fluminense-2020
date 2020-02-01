@@ -34,20 +34,6 @@ $estadoCidadeText = "";
 
                     <td>
                         <button class="btn tooltipped green darken-4" onclick="plotarCidade('<?= $result[0] ?>')"  data-tooltip="Editar Cidade" data-position="bottom"> <i class="material-icons">edit</i> </button>
-            <?php foreach ($cidadeDAO->querySelect() as $result) { ?>
-
-                <tr>
-                    <td><?= $result['nome'] ?></td>
-                    <td><?= $result['estado'] ?></td>
-
-                    <td>
-                        <a href="?edita=<?= $result[0] ?>" class="btn tooltipped" data-position="top" data-tooltip="Deletar Cidade" name="btn-deletarAcompanhamento">
-                            <i class="material-icons">delete</i>
-                        </a>
-
-                        <a href="?excluir=<?= $result[0] ?>" class="btn tooltipped" data-position="bottom" data-tooltip="Editar Cidade" name="btn-selecionarAcompanhamento">
-                            <i class="material-icons">edit</i>
-                        </a>
                     </td>
                 </tr>
             <?php } ?>
