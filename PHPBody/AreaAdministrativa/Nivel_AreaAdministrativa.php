@@ -9,56 +9,58 @@ $niveis = $nivelDAO->querySelect();
 $nomeNivelText = "";
 ?>
 
-<br/>
-<!-- CADASTRO E APRESENTAÇÃO DOS NIVEIS --------------------------------------->
-<form action="" id="nivelForm" method="post">
-    <input type="text" id="nivelID" value="" hidden/>
-    <input type="text" id="nomeNivelText" value="<?= $nomeNivelText ?>" placeholder="Nível" required=""/>
-    <p><input class="btn right green darken-4" type="submit" id="cadastrarNivelButton" value="Cadastrar Nível"/></p>
+<div class="col s12 l12 container"><br/>
+    <!-- CADASTRO E APRESENTAÇÃO DOS NIVEIS --------------------------------------->
+    <form action="" id="nivelForm" method="post">
+        <input type="text" id="nivelID" value="" hidden/>
+        <input type="text" id="nomeNivelText" value="<?= $nomeNivelText ?>" placeholder="Nível" required=""/>
+        <p><input class="btn right grey darken-3" type="submit" id="cadastrarNivelButton" value="Cadastrar Nível"/></p>
 
-</form>
+    </form>
 
-<div><p></br></br></p></div>
+    <div><p></br></br></br></br></br></p></div>
 
-<table cellpadding="1" cellspacing="1" class="responsive-table bordered striped centered highlight flow-text z-depth-3" id="tabelaNivel" style="border-style: solid;border-width: 1px;border-color: black;">
-    <thead>
-        <tr class="grey lighten-1 center-align">
-            <th>Nome</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($niveis as $result) { ?>
-
-            <tr>
-                <td><?= $result['nome'] ?></td>
-
-                <td>
-                    <button class="btn tooltipped green modal-trigger darken-4" href="#modalExcluir<?= $result[0] ?>"  data-tooltip="Excluir Nível" data-position="bottom"> <i class="material-icons">delete</i> </button>
-                    <button class="btn tooltipped green darken-4" onclick="plotarNivel('<?= $result[0] ?>')"  data-tooltip="Editar Nível" data-position="bottom"> <i class="material-icons">edit</i> </button>
-                </td>
+    <table cellpadding="1" cellspacing="1" class="responsive-table bordered centered highlight z-depth-3 grey darken-1" id="tabelaNivel" style="border-style: solid;border-width: 1px;border-color: black;">
+        <thead>
+            <tr class="grey center-align">
+                <th>Nome</th>
+                <th>Ações</th>
             </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($niveis as $result) { ?>
+
+                <tr>
+                    <td><?= $result['nome'] ?></td>
+
+                    <td>
+                        <button class="btn tooltipped modal-trigger grey darken-3" href="#modalExcluir<?= $result[0] ?>"  data-tooltip="Excluir Nível" data-position="top"> <i class="material-icons">delete</i> </button>
+                        <button class="btn tooltipped grey darken-3" onclick="plotarNivel('<?= $result[0] ?>')"  data-tooltip="Editar Nível" data-position="bottom"> <i class="material-icons">edit</i> </button>
+                    </td>
+                </tr>
 
 
-            <!-- Modal Structure -->
-        <div id="modalExcluir<?= $result[0] ?>" class="modal bottom-sheet">
-            <div class="modal-content">
-                <h4>Deseja excluir o Nível <u><?= $result['nome'] ?></u>?
-                    <b><a onclick="excluirNivel(<?= $result['id'] ?>);" class="modal-close black-text">Sim</a></b> ou
-                    <b><a href="#!" class="modal-close black-text">Não</a></b>
-                </h4>
-                <p></p>
+                <!-- Modal Structure -->
+            <div id="modalExcluir<?= $result[0] ?>" class="modal bottom-sheet">
+                <div class="modal-content">
+                    <h4>Deseja excluir o Nível <u><?= $result['nome'] ?></u>?
+                        <b><a onclick="excluirNivel(<?= $result['id'] ?>);" class="modal-close black-text">Sim</a></b> ou
+                        <b><a href="#!" class="modal-close black-text">Não</a></b>
+                    </h4>
+                    <p></p>
+                </div>
             </div>
-        </div>
-    <?php } ?>
-</tbody>
+        <?php } ?>
+        </tbody>
 
-</table>
-</br></br>
-<div class="col-md-12 center text-center">
-    <span class="left" id="total_reg"></span>
-    <ul class="pagination pager" id="paginaNivel"></ul>
+    </table>
+
+    <div class="col-md-12 center text-center">
+        <span class="left" id="total_reg"></span>
+        <ul class="pagination pager" id="paginaNivel"></ul>
+    </div>
 </div>
+
 
 <script>
     $('.tooltipped').tooltip();

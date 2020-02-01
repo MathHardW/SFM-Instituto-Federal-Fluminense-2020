@@ -122,6 +122,16 @@ switch ($acao) {
 
                 echo $row;
                 break;
+            case 'Cidade':
+                $cidadeDAO = new CidadeDAO();
+
+                $cidadeDAO->getCidade()->setNome(filter_input(INPUT_POST, 'nome'));
+                $cidadeDAO->getCidade()->setEstado(filter_input(INPUT_POST, 'estado'));
+
+                $row = $cidadeDAO->queryInsert();
+
+                echo $row;
+                break;
         }
         break;
     case 'Salvar':
@@ -158,6 +168,16 @@ switch ($acao) {
 
                 echo $row;
                 break;
+            case 'Cidade':
+                $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+
+                $cidadeDAO = new CidadeDAO();
+                $cidadeDAO->getCidade()->setNome(filter_input(INPUT_POST, 'nome'));
+                $cidadeDAO->getCidade()->setEstado(filter_input(INPUT_POST, 'estado'));
+
+                $row = $cidadeDAO->queryUpdate($id);
+                echo $row;
+                break;
         }
         break;
     case 'Excluir':
@@ -180,6 +200,20 @@ switch ($acao) {
                 $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
                 $modalidadeDAO = new ModalidadeDAO();
                 $row = $modalidadeDAO->queryDeleteId($id);
+
+                echo $row;
+                break;
+            case 'Cidade':
+                $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+                $cidadeDAO = new CidadeDAO();
+                $row = $cidadeDAO->queryDeleteId($id);
+
+                echo $row;
+                break;
+            case 'Curso':
+                $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+                $cursoDAO = new CursoDAO();
+                $row = $cursoDAO->queryDeleteId($id);
 
                 echo $row;
                 break;

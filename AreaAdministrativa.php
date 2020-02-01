@@ -21,7 +21,6 @@ if ($_SESSION['permissao'] == 0) {
 if (!empty($_GET['sair']) == "sim") {
     $usuarioDAO->querySair();
 }
-
 ?>
 
 <!DOCTYPE HTML>
@@ -54,17 +53,25 @@ if (!empty($_GET['sair']) == "sim") {
             </ul>
 
         </header>  
+
+        <div class="row container center">
+            <div class="col s12 l12 green darken-2 z-depth-3" style="height: 100px;border-radius: 0px 0px 20px 20px; border-style: solid; border-width: 0px 1px 2px 1px;">
+                <img src="IMG/AREAADM.png" class="hide-on-small-only"> 
+                <img src="IMG/AREAADM.png" class="hide-on-med-and-up"> 
+            </div>
+        </div>
+
         </br>
         <main>
-            <div class="row container center">
-                <div class="col s12">
-                    <ul class="tabs tabs-fixed-width grey lighten-2">                       
-                        <li class="tab"><a class="active green-text text-darken-4" href="#tipoAtividade">Tipo de Atividade</a></li>
-                        <li class="tab"><a class="green-text text-darken-4" href="#nivel">Nivel</a></li>
-                        <li class="tab"><a class="green-text text-darken-4" href="#modalidade">Modalidade</a></li>
-                        <li class="tab"><a class="green-text text-darken-4" href="#curso">Curso</a></li>
-                        <li class="tab"><a class="green-text text-darken-4" href="#cidade">Cidade</a></li>
-                        <li class="tab"><a class="green-text text-darken-4" href="#usuario">Usuário</a></li>
+            <div class="row container center green darken-2 z-depth-3" style="border-radius: 0px 0px 20px 20px;border-style: solid; border-width: 1px 1px 2px 1px;">
+                <div class="col s12 grey">
+                    <ul class="tabs tabs-fixed-width grey">                       
+                        <li class="tab"><a class="active white-text" href="#tipoAtividade">Tipo de Atividade</a></li>
+                        <li class="tab"><a class="white-text text-darken-4" href="#nivel">Nivel</a></li>
+                        <li class="tab"><a class="white-text text-darken-4" href="#modalidade">Modalidade</a></li>
+                        <li class="tab"><a class="white-text text-darken-4" href="#curso">Curso</a></li>
+                        <li class="tab"><a class="white-text text-darken-4" href="#cidade">Cidade</a></li>
+                        <li class="tab"><a class="white-text text-darken-4" href="#usuario">Usuário</a></li>
                     </ul>
                 </div>
                 <div id="tipoAtividade" class="col s12"></div>
@@ -76,7 +83,8 @@ if (!empty($_GET['sair']) == "sim") {
             </div>
         </main>
 
-        <div><?php require_once 'PHPBody/Acompanhamento/Rodape_Acompanhamento.php'; ?></div>
+        <div class="col s12 l12 green darken-4 left" style="border-width: 2px 0px 0px 0px; border-style: solid; height: 50px;"></div>
+
 
         <!-- Tap Target Structure -->
         <div class="tap-target green darken-4 white-text flow-text" data-target="tap">
@@ -88,17 +96,12 @@ if (!empty($_GET['sair']) == "sim") {
             </div>
         </div>
 
-        <?php require_once 'PHPBody/Acompanhamento/Rodape_Acompanhamento.php'; ?>
-
-
 
         <script type="text/javascript" src="JS/materialize.js"></script>
         <script type="text/javascript" src="JSAjax/ajaxAreaAdm.js"></script>
         <script>
                             $('.dropdown-trigger').dropdown();
-
                             $('.tap-target').tapTarget('open');
-
         </script>
     </body>
 </html>

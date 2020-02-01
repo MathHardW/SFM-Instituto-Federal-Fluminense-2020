@@ -66,6 +66,7 @@ function plotarCidade(id) {
         dataType: "JSON",
         data: "acao=plotarValores&" + "CRUD=Cidade&" + "id=" + id
     }).done(function (data) {
+        $("#cidadeID").val(data.id);
         $("#nomeCidadeText").val(data.nome);
         $("#estadoCidadeText").val(data.estado);
         $("#cadastrarCidadeButton").val("Salvar Cidade");
@@ -172,6 +173,43 @@ function excluirModalidade(id) {
         } else {
             renderizarTudo();
             M.toast({html: "Esta Modalidade está sendo utilizado. Impossível excluir!", classes: 'rounded', displayLength: 5000});
+        }
+
+    });
+    return false;
+}
+
+function excluirCurso(id) {
+    $.ajax({
+        url: 'PHPAjax/Request_AreaAdm.php',
+        type: 'POST',
+        data: "acao=Excluir&" + "CRUD=Curso&" + "id=" + id
+    }).done(function (data) {
+        if (data === "ok") {
+            renderizarTudo();
+            M.toast({html: "Curso Excluído!", classes: 'rounded', displayLength: 3000});
+        } else {
+            renderizarTudo();
+            M.toast({html: "Impossível excluir Curso!", classes: 'rounded', displayLength: 5000});
+        }
+
+    });
+    return false;
+}
+
+
+function excluirCidade(id) {
+    $.ajax({
+        url: 'PHPAjax/Request_AreaAdm.php',
+        type: 'POST',
+        data: "acao=Excluir&" + "CRUD=Cidade&" + "id=" + id
+    }).done(function (data) {
+        if (data === "ok") {
+            renderizarTudo();
+            M.toast({html: "Cidade Excluída!", classes: 'rounded', displayLength: 3000});
+        } else {
+            renderizarTudo();
+            M.toast({html: "Impossível excluir Cidade!", classes: 'rounded', displayLength: 5000});
         }
 
     });
