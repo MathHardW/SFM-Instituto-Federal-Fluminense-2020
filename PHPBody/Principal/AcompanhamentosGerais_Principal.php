@@ -87,9 +87,9 @@ $cursos = $cursoDAO->querySelect();
                             <td><?= $result[4] ?></td>
                             <td><?= $result[5] ?></td>
                             <td><?php if ($result['status'] == 1) {
-                        echo "<i class='material-icons green-text'>layers</i>";
+                        echo "<i class='material-icons red-text'>layers</i>";
                     } else {
-                        echo "<i class='material-icons red-text'>layers_clear</i>";
+                        echo "<i class='material-icons green-text'>layers_clear</i>";
                     } ?></td>
                             <td>
                                 <button class="btn tooltipped grey darken-3" onclick="FinalizarAcompanhamento('<?= $result[0] ?>')"  data-tooltip="Finalizar Acompanhamento" data-position="top" <?php if ($result['status'] == 1) {

@@ -111,7 +111,6 @@ if (!empty($_GET['sair']) == "sim") {
         <script type="text/javascript" src="JSAjax/ajaxAreaAdm.js"></script>
         <script>
                             $('.dropdown-trigger').dropdown();
-                            $('.tap-target').tapTarget('open');
         </script>
     </body>
 </html>

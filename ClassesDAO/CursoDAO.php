@@ -71,9 +71,9 @@ class CursoDAO {
             $retornoDB->bindParam(3, $id, PDO::PARAM_INT);
 
             if ($retornoDB->execute()) {
-                return 'ok'.' '.$id.' '.$nome.' '.$modalidade;
+                return 'ok';
             } else {
-                return 'erro'.' '.$id.' '.$nome.' '.$modalidade;
+                return 'erro';
             }
         } catch (PDOException $ex) {
             return 'error ' . $ex->getMessage();
