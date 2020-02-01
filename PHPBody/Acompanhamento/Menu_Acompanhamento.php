@@ -24,11 +24,21 @@
                     <li> <a class='dropdown-trigger' href='#' data-target='dropdown1'><i class="material-icons">account_circle</i></a></li>
                 </ul>
                 <ul class="right">
-                    <li><a href="AcompanhamentosGerais.php"><i class="material-icons prefix">arrow_back</i></a></li>                     
+                    <li><a class='dropdown-trigger' href='#' data-target='dropdown1'><i class="material-icons prefix">menu</i></a></li>                     
                 </ul> 
             </div>
         </nav>
     </div>
+
+    <!-- Dropdown Structure -->
+    <ul id='dropdown1' class='dropdown-content green-text text-darken-4'>
+        <li><a href="#!" class="center-align green-text text-darken-4"><b><?= $_SESSION['nomeUsuario'] ?></b></a></li>
+        <li class="divider"></li>
+        <li><a href="AreaAdministrativa.php" class="green-text text-darken-4"><i class="material-icons">security</i>Área Administrativa</a></li>
+        <li><a href="#!" class="green-text text-darken-4"><i class="material-icons">view_module</i>Meus Dados</a></li>
+        <li><a href="AcompanhamentosGerais.php" class="green-text text-darken-4"><i class="material-icons">arrow_back</i>Voltar</a></li>
+        <li><a href="?sair=sim" class="green-text text-darken-4"><i class="material-icons">exit_to_app</i>Sair</a></li>
+    </ul>
 
     <!-- Dropdown Structure -->
     <ul id='dropdown1' class='dropdown-content'>        
@@ -38,7 +48,7 @@
         <li><a href="AreaAdministrativa.php"><i class="material-icons center">view_compact</i>Administração</a></li>
         <li><a href="#!"><i class="material-icons center">backspace</i>Sair</a></li>
     </ul>
-    
+
     <ul id="slide-out" class="sidenav">
         <li><div class="user-view">
                 <!--<div class="background">

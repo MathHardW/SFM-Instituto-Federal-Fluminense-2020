@@ -8,6 +8,7 @@ function renderizarTudo() {
     renderizarNivel();
     renderizarModalidade();
     renderizarCurso();
+    renderizarUsuario();
 }
 
 function renderizarTipoAtividade() {
@@ -32,6 +33,11 @@ function renderizarModalidade() {
 
 function renderizarCurso() {
     $("#curso").load("PHPBody/AreaAdministrativa/Curso_AreaAdministrativa.php");
+    return false;
+}
+
+function renderizarUsuario() {
+    $("#usuario").load("PHPBody/AreaAdministrativa/Usuario_AreaAdministrativa.php");
     return false;
 }
 
@@ -172,6 +178,23 @@ function excluirModalidade(id) {
     return false;
 }
 
+function excluirUsuario(id) {
+    $.ajax({
+        url: 'PHPAjax/Request_AreaAdm.php',
+        type: 'POST',
+        data: "acao=Excluir&" + "CRUD=Usuario&" + "id=" + id
+    }).done(function (data) {
+        if (data === "ok") {
+            renderizarTudo();
+            M.toast({html: "Usuário Excluído!", classes: 'rounded', displayLength: 3000});
+        } else {
+            renderizarTudo();
+            M.toast({html: "Impossível excluir Usuário!", classes: 'rounded', displayLength: 5000});
+        }
+
+    });
+    return false;
+}
 
 //FRAMEWORK FUNCTIONS
 function materialize() {
@@ -181,4 +204,3 @@ function materialize() {
     $('.tabs').tabs();
     $('.tap-target').tapTarget();
 }
-

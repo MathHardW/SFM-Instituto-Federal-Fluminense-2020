@@ -20,7 +20,7 @@ class FichaDAO {
             $retornoDB->bindParam(1, $acompanhamentoId, PDO::PARAM_INT);
 
             $retornoDB->execute();
-
+            
             return $retornoDB->fetchAll();
         } catch (PDOException $ex) {
             return 'erro ' . $ex->getMessage();

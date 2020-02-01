@@ -6,6 +6,7 @@ require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/ClassesDAO/CidadeDAO.php';
 require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/ClassesDAO/NivelDAO.php';
 require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/ClassesDAO/ModalidadeDAO.php';
 require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/ClassesDAO/CursoDAO.php';
+require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/ClassesDAO/UsuarioDAO.php';
 
 //ESTANCIANDO A CLASSE
 
@@ -182,6 +183,25 @@ switch ($acao) {
 
                 echo $row;
                 break;
+            case 'Usuario':
+                $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+                $usuarioDAO = new UsuarioDAO();
+                $row = $usuarioDAO->queryDeleteId($id);
+
+                echo $row;
+                break;
         }
+        break;
+    case 'aprovarUsuario':
+        $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+        $usuarioDAO = new UsuarioDAO();
+        $row = $usuarioDAO->queryAprovarId($id);
+        echo $row;
+        break;
+    case 'darDireitos':
+        $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+        $usuarioDAO = new UsuarioDAO();
+        $row = $usuarioDAO->queryDarDireitosId($id);
+        echo $row;
         break;
 }

@@ -1,6 +1,25 @@
 <?php
 require_once 'PHPHeader/AcompanhamentosGeraisHeader.php';
 require_once 'PHPHeader/FichasHeader.php';
+
+//BUSCANDO A CLASSSE
+require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/ClassesDAO/UsuarioDAO.php';
+
+//ESTANCIANDO
+$usuarioDAO = new UsuarioDAO();
+
+//VALIDANDO O USUÁRIO
+session_start();
+if ($_SESSION['logado'] == "logado") {
+    $usuarioDAO->queryLogado($_SESSION['usuarioID']);
+} else {
+    header("location: http://localhost/PROJETO_VERSAO_3.0/index.php");
+}
+
+//DESLOGANDO
+if (!empty($_GET['sair']) == "sim") {
+    $usuarioDAO->querySair();
+}
 ?>
 
 <!DOCTYPE HTML>

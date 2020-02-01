@@ -1,3 +1,29 @@
+<?php
+//BUSCANDO A CLASSSE
+require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/ClassesDAO/UsuarioDAO.php';
+
+//ESTANCIANDO
+$usuarioDAO = new UsuarioDAO();
+
+//VALIDANDO O USUÁRIO
+session_start();
+if ($_SESSION['logado'] == "logado") {
+    $usuarioDAO->queryLogado($_SESSION['usuarioID']);
+} else {
+    header("location: http://localhost/PROJETO_VERSAO_3.0/index.php");
+}
+
+if ($_SESSION['permissao'] == 0) {
+    header("location: http://localhost/PROJETO_VERSAO_3.0/AcompanhamentosGerais.php");
+}
+
+//DESLOGANDO
+if (!empty($_GET['sair']) == "sim") {
+    $usuarioDAO->querySair();
+}
+
+?>
+
 <!DOCTYPE HTML>
 <html>
     <head>
@@ -12,13 +38,21 @@
                         <a class="brand-logo center"><img src="IMG/logo2.png" width="105px" id="tap" onclick="$('.tap-target').tapTarget('open');"></a>
 
                         <ul class="right">
-                            <li><a href="AcompanhamentosGerais.php"><i class="material-icons prefix">home</i></a></li>                     
+                            <li><a class='dropdown-trigger' href='#' data-target='dropdown1'><i class="material-icons prefix">menu</i></a></li>                     
                         </ul> 
                     </div>
                 </nav>
             </div>
 
-          <!--  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">account_circle</i></a>-->
+            <!-- Dropdown Structure -->
+            <ul id='dropdown1' class='dropdown-content green-text text-darken-4'>
+                <li><a href="#!" class="center-align green-text text-darken-4"><b><?= $_SESSION['nomeUsuario'] ?></b></a></li>
+                <li class="divider"></li>
+                <li><a href="AcompanhamentosGerais.php" class="green-text text-darken-4"><i class="material-icons">home</i>Ínicio</a></li>
+                <li><a href="#!" class="green-text text-darken-4"><i class="material-icons">view_module</i>Meus Dados</a></li>
+                <li><a href="?sair=sim" class="green-text text-darken-4"><i class="material-icons">exit_to_app</i>Sair</a></li>
+            </ul>
+
         </header>  
         </br>
         <main>
@@ -30,7 +64,7 @@
                         <li class="tab"><a class="green-text text-darken-4" href="#modalidade">Modalidade</a></li>
                         <li class="tab"><a class="green-text text-darken-4" href="#curso">Curso</a></li>
                         <li class="tab"><a class="green-text text-darken-4" href="#cidade">Cidade</a></li>
-                        <li class="tab disabled"><a class="green-text text-darken-4" href="#cidade">Usuário</a></li>
+                        <li class="tab"><a class="green-text text-darken-4" href="#usuario">Usuário</a></li>
                     </ul>
                 </div>
                 <div id="tipoAtividade" class="col s12"></div>
@@ -38,6 +72,7 @@
                 <div id="nivel" class="col s12"></div>
                 <div id="modalidade" class="col s12"></div>
                 <div id="curso" class="col s12"></div>
+                <div id="usuario" class="col s12"></div>
             </div>
         </main>
 
@@ -49,13 +84,18 @@
                 <p><h5><b>Bem-vindo à Área Admnistrativa.</b></h5></p>
                 <p><h6><b>Funcionalidades da Área: </b><u>Inserção, Edição e Exclusão.</u></h6></p>
                 <p><h6><u>Tipos de Atividades, Níveis, Modalidades, Cursos, Cidades e Usuários.</u></h6></p>
-   
+
             </div>
         </div>
 
 
         <script type="text/javascript" src="JS/materialize.js"></script>
         <script type="text/javascript" src="JSAjax/ajaxAreaAdm.js"></script>
-        <script>$('.tap-target').tapTarget('open');</script>
+        <script>
+                            $('.dropdown-trigger').dropdown();
+
+                            $('.tap-target').tapTarget('open');
+
+        </script>
     </body>
 </html>

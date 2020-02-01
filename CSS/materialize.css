@@ -2979,6 +2979,9 @@ ul.staggered-list li {
 
 table, th, td {
     border: none;
+    color: white;
+    font-size: 20px;
+    text-shadow: 1px 1px black;
 }
 
 table {
@@ -5554,7 +5557,7 @@ button.btn-floating {
     background-color: #fff;
     margin: 0;
     display: none;
-    min-width: 100px;
+    min-width: 250px;
     overflow-y: auto;
     opacity: 0;
     position: absolute;
@@ -6125,7 +6128,9 @@ label {
     color: black;
 }
 ::placeholder {
-    color: black;
+    color: white;
+    font-size: 20px;
+    text-shadow: 1px 1px black;
 }
 
 /* Text inputs */
@@ -6142,6 +6147,10 @@ input[type=tel]:not(.browser-default),
 input[type=number]:not(.browser-default),
 input[type=search]:not(.browser-default),
 textarea.materialize-textarea {
+    color: white;
+    font-size: 20px;
+    text-shadow: 1px 1px black;
+
     background-color: transparent;
     border: none;
     border-bottom: 1px solid #9e9e9e;
@@ -6149,7 +6158,6 @@ textarea.materialize-textarea {
     outline: none;
     height: 3rem;
     width: 100%;
-    font-size: 16px;
     margin: 0 0 8px 0;
     padding: 0;
     -webkit-box-shadow: none;
@@ -6506,6 +6514,9 @@ textarea.materialize-textarea + label:after, .select-wrapper + label:after {
     opacity: 0;
     -webkit-transition: .2s opacity ease-out, .2s color ease-out;
     transition: .2s opacity ease-out, .2s color ease-out;
+    color: white;
+    font-size: 25px;
+    text-shadow: 2px 2px black;
 }
 
 .input-field {
