@@ -116,6 +116,7 @@ function plotarCurso(id) {
         dataType: "JSON",
         data: "acao=plotarValores&" + "CRUD=Curso&" + "id=" + id
     }).done(function (data) {
+        $("#CursoID").val(data.id);
         $("#nomeCursoText").val(data.nome);
         $("#ModalidadeSelect").val(data.modalidade);
         $("#cadastrarCursoButton").val("Salvar Curso");

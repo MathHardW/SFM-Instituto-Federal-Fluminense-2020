@@ -107,7 +107,7 @@ $modalidades = $modalidadeDAO->querySelect();
             $.ajax({
                 url: 'PHPAjax/Request_AreaAdm.php',
                 type: 'POST',
-                data: "acao=Salvar&" + "CRUD=Curso&" + "id=" + id + "&nome=" + nome
+                data: "acao=Salvar&" + "CRUD=Curso&" + "id=" + id + "&nome=" + nome + "&modalidade=" + modalidade
             }).done(function (data) {
                 if (data === "ok") {
                     renderizarTudo();

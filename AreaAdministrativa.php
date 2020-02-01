@@ -33,7 +33,14 @@ if (!empty($_GET['sair']) == "sim") {
         <header>
             <div class="navbar-fixed green darken-4">
                 <nav>
-                    <div class="nav-wrapper green darken-4">                                 
+                    <div class="nav-wrapper green darken-4">  
+                        <ul class="left">
+                            <li>
+                                <img src="IMG/copyright.png" class="hide-on-small-only" height="60px">
+                                <img src="IMG/copyright.png" class="hide-on-med-and-up" height="50px">
+                            </li>                     
+                        </ul> 
+
                         <a class="brand-logo center"><img src="IMG/logo2.png" width="105px" id="tap" onclick="$('.tap-target').tapTarget('open');"></a>
 
                         <ul class="right">
@@ -80,6 +87,9 @@ if (!empty($_GET['sair']) == "sim") {
                 <div id="modalidade" class="col s12"></div>
                 <div id="curso" class="col s12"></div>
                 <div id="usuario" class="col s12"></div>
+                
+                <div class="col s12 l12 grey" style="border-radius: 0px 0px 20px 20px;border-style: solid; border-width: 1px 1px 0px 0px; height: 20px;"></div>
+
             </div>
         </main>
 

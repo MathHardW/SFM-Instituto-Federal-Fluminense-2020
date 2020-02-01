@@ -178,6 +178,16 @@ switch ($acao) {
                 $row = $cidadeDAO->queryUpdate($id);
                 echo $row;
                 break;
+            case 'Curso':
+                $id = filter_input(INPUT_POST, 'id', FILTER_SANITIZE_NUMBER_INT);
+
+                $cursoDAO = new CursoDAO();
+                $cursoDAO->getCurso()->setNome(filter_input(INPUT_POST, 'nome'));
+                $cursoDAO->getCurso()->setModalidade(filter_input(INPUT_POST, 'modalidade'));
+
+                $row = $cursoDAO->queryUpdate($id);
+                echo $row;
+                break;
         }
         break;
     case 'Excluir':

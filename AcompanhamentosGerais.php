@@ -58,13 +58,13 @@ if (!empty($_GET['sair']) == "sim") {
             <ul id='dropdown1' class='dropdown-content green-text text-darken-4'>
                 <li><a href="#!" class="center-align green-text text-darken-4"><b><?= $_SESSION['nomeUsuario'] ?></b></a></li>
                 <li class="divider"></li>
-                
-                <?php 
-                    if($_SESSION['permissao'] >= 1){
-                        echo "<li><a href='AreaAdministrativa.php' class='green-text text-darken-4'><i class='material-icons'>security</i>Área Administrativa</a></li>";
-                    }
+
+                <?php
+                if ($_SESSION['permissao'] >= 1) {
+                    echo "<li><a href='AreaAdministrativa.php' class='green-text text-darken-4'><i class='material-icons'>security</i>Área Administrativa</a></li>";
+                }
                 ?>
-                
+
                 <li><a href="#!" class="green-text text-darken-4"><i class="material-icons">view_module</i>Meus Dados</a></li>
                 <li><a href="?sair=sim" class="green-text text-darken-4"><i class="material-icons">exit_to_app</i>Sair</a></li>
             </ul>
@@ -73,27 +73,15 @@ if (!empty($_GET['sair']) == "sim") {
         <main>
             <!-- NESTA ÁREA SERÁ POSSIVEL CADASTRAR UM ACOMPANHAMENTO, PESQUISAR COM OS INDICES SIMPLES E SELECIONAR UM INDIVIDUAL-->
             <div class="row container center">
-                <div class="col s12 l12 green darken-2 z-depth-3" style="height: 100px;border-radius: 0px 0px 20px 20px; border-style: solid; border-width: 0px 1px 2px 1px;">
-                    <img src="IMG/acompanhamentos.png" class="hide-on-small-only"> 
-                    <img src="IMG/acompanhamentos_phone.png" class="hide-on-med-and-up"> 
+                <div class="row">
+                    <div class="col s12 l12 green darken-2 z-depth-3" style="height: 100px;border-radius: 0px 0px 20px 20px; border-style: solid; border-width: 0px 1px 2px 1px;">
+                        <img src="IMG/acompanhamentos.png" class="hide-on-small-only"> 
+                        <img src="IMG/acompanhamentos_phone.png" class="hide-on-med-and-up"> 
+                    </div>                
                 </div>
-                <div class="col s12 l12"><br/></div>
-
-                <div class="col s12 l12 green darken-2 z-depth-3" style="border-radius: 20px 20px 20px 20px;border-style: solid; border-width: 2px 1px 2px 1px;">
-                    <br/>
-                    <div class="row" >
-                        <div class="col s10 offset-s1">
-                            <form action="" method="POST"><?php require_once 'PHPBody/Principal/AcompanhamentosGeraisCadastroBody.php'; ?></form>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col s10 offset-s1">
-                            <form action="" method="POST">
-                                <?php require_once 'PHPBody/Principal/AcompanhamentosGeraisTableBody.php'; ?>
-                            </form>    
-                        </div>
-                    </div>
+                <div class="row"></div>
+                <div class="row green darken-2 z-depth-3" style="border-radius: 20px 20px 20px 20px;border-style: solid; border-width: 1px 1px 1px 1px;">
+                    <div id="acompanhamentosGerais"></div>
                 </div>
             </div>
         </main>
@@ -102,8 +90,8 @@ if (!empty($_GET['sair']) == "sim") {
         <div class="col s12 l12 green darken-4 left" style="border-width: 2px 0px 0px 0px; border-style: solid; height: 50px;"></div>
 
 
-        <script type="text/javascript" src="js/materialize.js"></script>
-        <script type="text/javascript" src="js/ajaxAcompanhamentosGerais.js"></script>
+        <script type="text/javascript" src="JS/materialize.js"></script>
+        <script type="text/javascript" src="JSAjax/ajaxAcompanhamentosGerais.js"></script>
 
         <script>
             $('.dropdown-button').dropdown({

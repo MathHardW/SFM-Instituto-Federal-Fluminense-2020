@@ -12,7 +12,6 @@ $cursoDAO = new CursoDAO();
 $tipoAtividadeDAO = new TipoAtividadeDAO();
 //------------------------------------------------------------------------------
 
-
 if (count($_GET) > 0) {
     if (isset($_GET['seleciona'])) {
         if($_GET['seleciona'] >= 0){

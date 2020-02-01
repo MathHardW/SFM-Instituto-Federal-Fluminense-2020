@@ -12,7 +12,7 @@ class Acompanhamento {
     private $dataFim;
     
     private $curso;
-    
+        
     function getTitulo() {
         return $this->titulo;
     }
