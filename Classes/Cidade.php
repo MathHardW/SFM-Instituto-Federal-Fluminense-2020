@@ -20,15 +20,15 @@ class Cidade {
     }
     
     function getNome() {
-        return $this->nomeCidade;
+        return $this->nome;
     }
 
     function getEstado() {
         return $this->estado;
     }
 
-    function setNome($nomeCidade) {
-        $this->nomeCidade = $nomeCidade;
+    function setNome($nome) {
+        $this->nome = $nome;
     }
 
     function setEstado($estado) {

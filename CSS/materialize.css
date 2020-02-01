@@ -5040,6 +5040,9 @@ small {
     background-color: #fff;
     margin: 0 auto;
     white-space: nowrap;
+    color: white;
+    font-size: 20px;
+    text-shadow: 1px 1px black;
 }
 
 .tabs.tabs-transparent {

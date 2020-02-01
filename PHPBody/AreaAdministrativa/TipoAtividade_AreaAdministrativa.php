@@ -10,18 +10,20 @@ $nomeTipoAtividade = "";
 $descricaoTipoAtividade = "";
 ?>
 
-<form action="" id="tipoAtividadeForm" method="post">
-    <input type="text" id="TipoAtividadeID" value="" hidden/>
-    <input type="text" id="nomeTipoAtividadeText" value="<?= $nomeTipoAtividade ?>" placeholder="Tipo de Atividade" required/>
-    <input type="text" id="descricaoTipoAtividadeText" value="<?= $descricaoTipoAtividade ?>" placeholder="Descrição" required/>
-    <p><input type="submit" class="btn right green darken-4" id="cadastrarTipoAtividadeButton" value="Cadastrar Tipo de Atividade"/></p>
-</form>
-<br/>
+
 
 <div class="col s12 l12 container"><br/>
-    <table cellpadding="1" cellspacing="1" class="responsive-table bordered striped centered highlight flow-text z-depth-3" id="tabelaTipoAtividade" style="border-style: solid;border-width: 1px;border-color: black;">
+    <form action="" id="tipoAtividadeForm" method="post">
+        <input type="text" id="TipoAtividadeID" value="" hidden/>
+        <input type="text" id="nomeTipoAtividadeText" value="<?= $nomeTipoAtividade ?>" placeholder="Tipo de Atividade" required/>
+        <input type="text" id="descricaoTipoAtividadeText" value="<?= $descricaoTipoAtividade ?>" placeholder="Descrição" required/>
+        <p><input type="submit" class="btn right grey darken-3" id="cadastrarTipoAtividadeButton" value="Cadastrar Tipo de Atividade"/></p>
+        <br/><br/><br/>
+    </form>
+
+    <table cellpadding="1" cellspacing="1" class="responsive-table bordered centered highlight z-depth-3 grey darken-1" id="tabelaTipoAtividade" style="border-style: solid;border-width: 1px;border-color: black;">
         <thead>                                    
-            <tr class="grey lighten-1 center-align">
+            <tr class="grey center-align">
                 <th>Nome</th>
                 <th>Descrição</th>
                 <th>Ação</th>
@@ -32,11 +34,11 @@ $descricaoTipoAtividade = "";
                 <tr>
                     <td><?= $result['nome'] ?></td>
                     <!--<td></td>-->
-                    <td><a class="waves-effect waves-light btn modal-trigger tooltipped green darken-4" data-position="bottom" data-tooltip="Descrição do Tipo de Atividade" href="#modalTipoAtividade<?= $result[0] ?>"><i class="material-icons">description</i></a></td>
+                    <td><a class="waves-effect waves-light btn modal-trigger tooltipped grey darken-3" data-position="bottom" data-tooltip="Descrição do Tipo de Atividade" href="#modalTipoAtividade<?= $result[0] ?>"><i class="material-icons">description</i></a></td>
 
                     <td>            
-                        <button class="btn tooltipped green modal-trigger darken-4" href="#modalExcluir<?= $result[0] ?>"  data-tooltip="Excluir Modalidade" data-position="bottom"> <i class="material-icons">delete</i> </button>
-                        <button class="btn tooltipped green darken-4" onclick="plotarTipoAtividade('<?= $result[0] ?>')"  data-tooltip="Editar Tipo de Atividade" data-position="bottom"> <i class="material-icons">edit</i> </button>
+                        <button class="btn tooltipped modal-trigger grey darken-3" href="#modalExcluir<?= $result[0] ?>"  data-tooltip="Excluir Modalidade" data-position="top"> <i class="material-icons">delete</i> </button>
+                        <button class="btn tooltipped grey darken-3" onclick="plotarTipoAtividade('<?= $result[0] ?>')"  data-tooltip="Editar Tipo de Atividade" data-position="bottom"> <i class="material-icons">edit</i> </button>
                     </td>
                 </tr>
 
@@ -65,13 +67,13 @@ $descricaoTipoAtividade = "";
         <?php } ?>
         </tbody>
     </table>
-    </br></br>
+
+    <div class="col-md-12 center text-center">
+        <span class="left" id="total_reg"></span>
+        <ul class="pagination pager" id="paginaTipoAtividade"></ul>
+    </div>
 </div>
-<br/>
-<div class="col-md-12 center text-center">
-    <span class="left" id="total_reg"></span>
-    <ul class="pagination pager" id="paginaTipoAtividade"></ul>
-</div>
+
 
 <script>
     $('.tooltipped').tooltip();

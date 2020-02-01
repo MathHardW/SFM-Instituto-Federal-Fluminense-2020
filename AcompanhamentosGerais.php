@@ -50,7 +50,6 @@ if (!empty($_GET['sair']) == "sim") {
                                 <a href="acompanhamentos.php" class="brand-logo center hide-on-med-and-up"><img src="IMG/logo2.png" width="100px" height="54px"></a>
                             </li>                     
                         </ul> 
-
                     </div>
                 </nav>
             </div> 

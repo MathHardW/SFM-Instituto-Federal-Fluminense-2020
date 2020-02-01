@@ -12,63 +12,63 @@ $nivelDAO = new NivelDAO();
 $niveis = $nivelDAO->querySelect();
 ?>
 
-<br/>
-<!-- CADASTRO E APRESENTAÇÃO DAS MODALIDADES ---------------------------------->
-<form action="" id="modalidadeForm" method="post">
-    <input type="text" id="ModalidadeID" value="" hidden/>
-    <input type="text" id="nomeModalidadeText" value="<?= $modalidadeNome ?>" placeholder="Modalidade" required/>
+<div class="col s12 l12 container"><br/>
+    <!-- CADASTRO E APRESENTAÇÃO DAS MODALIDADES ---------------------------------->
+    <form action="" id="modalidadeForm" method="post">
+        <input type="text" id="ModalidadeID" value="" hidden/>
+        <input type="text" id="nomeModalidadeText" value="<?= $modalidadeNome ?>" placeholder="Modalidade" required/>
 
-    <p>
-        <select class="browser-default z-depth-2" id="nivelSelect" required>
-            <option value="" disabled selected>Selecione um Nivel</option> 
-            <?php foreach ($niveis as $result) { ?>
-                <option value="<?= $result['id'] ?>"><?= $result['nome'] ?></option> 
-            <?php } ?> 
-        </select>
-        <br/>
-    </p>
+        <p>
+            <select class="browser-default z-depth-2" id="nivelSelect" required>
+                <option value="" disabled selected>Selecione um Nivel</option> 
+                <?php foreach ($niveis as $result) { ?>
+                    <option value="<?= $result['id'] ?>"><?= $result['nome'] ?></option> 
+                <?php } ?> 
+            </select>
+            <br/>
+        </p>
 
-    <p><input class="btn right green darken-4" type="submit" id="cadastrarModalidadeButton" value="Cadastrar Modalidade"/></br></br></p>
-</form>
-
-<table cellpadding="1" cellspacing="1" class="responsive-table bordered striped centered highlight flow-text z-depth-3" id="tabelaModalidade" style="border-style: solid;border-width: 1px;border-color: black;">
-    <thead>
-        <tr class="grey lighten-1 center-align">
-            <th>Nome</th>
-            <th>Nivel</th>
-            <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        <?php foreach ($modalidades as $result) { ?>
-            <tr>
-                <td><?= $result[1] ?></td>
-                <td><?= $result[2] ?></td>
-
-                <td>
-                    <button class="btn tooltipped green modal-trigger darken-4" href="#modalExcluir<?= $result[0] ?>"  data-tooltip="Excluir Modalidade" data-position="bottom"> <i class="material-icons">delete</i> </button>
-                    <button class="btn tooltipped green darken-4" onclick="plotarModalidade('<?= $result[0] ?>')"  data-tooltip="Editando Modalidade ..." data-position="bottom"> <i class="material-icons">edit</i> </button>
-                </td>
+        <p><input class="btn right grey darken-3" type="submit" id="cadastrarModalidadeButton" value="Cadastrar Modalidade"/></br></br></p>
+    </form>
+    <table cellpadding="1" cellspacing="1" class="responsive-table bordered centered highlight z-depth-3 grey darken-1" id="tabelaModalidade" style="border-style: solid;border-width: 1px;border-color: black;">
+        <thead>
+            <tr class="grey center-align">
+                <th>Nome</th>
+                <th>Nivel</th>
+                <th>Ações</th>
             </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($modalidades as $result) { ?>
+                <tr>
+                    <td><?= $result[1] ?></td>
+                    <td><?= $result[2] ?></td>
 
-            <!-- Modal Structure -->
-        <div id="modalExcluir<?= $result[0] ?>" class="modal bottom-sheet">
-            <div class="modal-content">
-                <h4>Deseja excluir a Modalidade <u><?= $result[1] ?></u>?
-                    <b><a onclick="excluirModalidade(<?= $result['id'] ?>);" class="modal-close black-text">Sim</a></b> ou
-                    <b><a href="#!" class="modal-close black-text">Não</a></b>
-                </h4>
-                <p></p>
+                    <td>
+                        <button class="btn tooltipped modal-trigger grey darken-3" href="#modalExcluir<?= $result[0] ?>"  data-tooltip="Excluir Modalidade" data-position="top"> <i class="material-icons">delete</i> </button>
+                        <button class="btn tooltipped grey darken-3" onclick="plotarModalidade('<?= $result[0] ?>')"  data-tooltip="Editando Modalidade ..." data-position="bottom"> <i class="material-icons">edit</i> </button>
+                    </td>
+                </tr>
+
+                <!-- Modal Structure -->
+            <div id="modalExcluir<?= $result[0] ?>" class="modal bottom-sheet">
+                <div class="modal-content">
+                    <h4>Deseja excluir a Modalidade <u><?= $result[1] ?></u>?
+                        <b><a onclick="excluirModalidade(<?= $result['id'] ?>);" class="modal-close black-text">Sim</a></b> ou
+                        <b><a href="#!" class="modal-close black-text">Não</a></b>
+                    </h4>
+                    <p></p>
+                </div>
             </div>
-        </div>
-    <?php } ?>
-</tbody>
-</table>
-</br></br>
-<div class="col-md-12 center text-center">
-    <span class="left" id="total_reg"></span>
-    <ul class="pagination pager" id="paginaModalidade"></ul>
+        <?php } ?>
+        </tbody>
+    </table>
+    <div class="col-md-12 center text-center">
+        <span class="left" id="total_reg"></span>
+        <ul class="pagination pager" id="paginaModalidade"></ul>
+    </div>
 </div>
+
 
 
 <script>
