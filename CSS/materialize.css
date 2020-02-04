@@ -8799,14 +8799,15 @@ input[type=range]::-ms-thumb {
 .datepicker-table td {
     border-radius: 50%;
     padding: 0;
+     color: black;
 }
 
 .datepicker-table td.is-today {
-    color: #26a69a;
+    color: #1b5e20;
 }
 
 .datepicker-table td.is-selected {
-    background-color: #26a69a;
+    background-color: #1b5e20;
     color: #fff;
 }
 

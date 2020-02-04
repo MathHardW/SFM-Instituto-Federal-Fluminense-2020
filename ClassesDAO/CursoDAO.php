@@ -15,11 +15,7 @@ class CursoDAO {
 
     public function querySelect() {
         try {
-            $retornoDB = $this->Connection->Conectar()->prepare("SELECT curso.id,
-                                                                        curso.nome,
-                                                                        modalidade.nome 
-                                                                FROM `curso` join modalidade
-                                                                on modalidade.id = curso.Modalidade_id;");
+            $retornoDB = $this->Connection->Conectar()->prepare("SELECT curso.id, curso.nome, modalidade.nome, nivel.nome FROM `curso` join modalidade join nivel on modalidade.id = curso.Modalidade_id and nivel.id = modalidade.Nivel_id;");
             $retornoDB->execute();
 
             return $retornoDB->fetchAll();

@@ -28,7 +28,7 @@ if (!empty($_GET['sair']) == "sim") {
         <?php require_once 'PHPHeader/Head.php'; ?>
         <title>Acompanhamento</title>
     </head>
-    <body class="grey lighten-5">
+    <body style="background-image: url('IMG/backgroundIFF.png');background-repeat: initial;">
         <input type="text" value="<?= $_GET['acompanhamento'] ?>" hidden name="acompanhamento" id="acompanhamento">
 
         <!-- BARRA DE MENU PRINCIPAL DA PAGÍNA ACOMPANHAMENTOS----------------->

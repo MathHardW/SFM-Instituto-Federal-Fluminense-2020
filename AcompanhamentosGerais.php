@@ -27,7 +27,7 @@ if (!empty($_GET['sair']) == "sim") {
         <?php require_once 'PHPHeader/Head.php'; ?>
         <title>Acompanhamentos</title>
     </head>
-    <body class="grey lighten-5">
+    <body style="background-image: url('IMG/backgroundIFF.png');background-repeat: initial;">
 
         <header>
             <div class="navbar-fixed green darken-4">
@@ -46,8 +46,8 @@ if (!empty($_GET['sair']) == "sim") {
 
                         <ul>
                             <li> 
-                                <a href="acompanhamentos.php" class="brand-logo center hide-on-small-only"><img src="IMG/logo2.png" width="105px" height="60px"></a>
-                                <a href="acompanhamentos.php" class="brand-logo center hide-on-med-and-up"><img src="IMG/logo2.png" width="100px" height="54px"></a>
+                                <a href="AcompanhamentosGerais.php" class="brand-logo center hide-on-small-only"><img src="IMG/logo2.png" width="105px" height="60px"></a>
+                                <a href="AcompanhamentosGerais.php" class="brand-logo center hide-on-med-and-up"><img src="IMG/logo2.png" width="100px" height="54px"></a>
                             </li>                     
                         </ul> 
                     </div>
@@ -87,8 +87,7 @@ if (!empty($_GET['sair']) == "sim") {
         </main>
 
 
-        <div class="col s12 l12 green darken-4 left" style="border-width: 2px 0px 0px 0px; border-style: solid; height: 50px;"></div>
-
+        <div class="col s12 l12 green darken-4 left" style="border-width: 2px 0px 0px 0px; border-style: solid; height: 50px;">           </div>
 
         <script type="text/javascript" src="JS/materialize.js"></script>
         <script type="text/javascript" src="JSAjax/ajaxAcompanhamentosGerais.js"></script>

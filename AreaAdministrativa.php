@@ -29,7 +29,7 @@ if (!empty($_GET['sair']) == "sim") {
         <?php require_once 'PHPHeader/Head.php'; ?>
         <title>Área Administrativa</title>
     </head>
-    <body>               
+    <body style="background-image: url('IMG/backgroundIFF.png');background-repeat: initial;">               
         <header>
             <div class="navbar-fixed green darken-4">
                 <nav>

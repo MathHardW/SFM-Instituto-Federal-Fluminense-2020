@@ -27,7 +27,7 @@ class ModalidadeDAO {
             return 'erro ' . $ex->getMessage();
         }
     }
-
+    
     public function querySelectId($id) {
         try {
             $retornoDB = $this->Connection->Conectar()->prepare("SELECT * FROM `modalidade` WHERE id=?;");
