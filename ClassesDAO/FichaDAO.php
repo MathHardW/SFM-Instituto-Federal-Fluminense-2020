@@ -26,7 +26,26 @@ class FichaDAO {
             return 'erro ' . $ex->getMessage();
         }
     }
+    
+    public function queryVerificaCodigo($codigo) {
+        try {
+            $acompanhamentoId = $this->Ficha->getAcompanhamento();
+            $retornoDB = $this->Connection->Conectar()->prepare("SELECT ficha.id, ficha.codigo FROM ficha WHERE Acompanhamento_id = ? AND ficha.codigo = ?;");
+            $retornoDB->bindParam(1, $acompanhamentoId, PDO::PARAM_INT);
+            $retornoDB->bindParam(2, $codigo, PDO::PARAM_STR);
 
+            $retornoDB->execute();
+            
+            if($retornoDB->rowCount() > 0){
+                return false;
+            }else{
+                return true;
+            }            
+        } catch (PDOException $ex) {
+            return 'erro ' . $ex->getMessage();
+        }
+    }
+    
     public function querySelectCodigo($codigo) {
         try {
             $retornoDB = $this->Connection->Conectar()->prepare("SELECT * FROM `ficha` WHERE codigo=? ORDER BY id DESC LIMIT 1");

@@ -89,7 +89,7 @@ $dataAtual = date("d/m/Y");
             </select>
             <br/><br/>
             <table cellpadding="1" cellspacing="1" class="responsive-table bordered highlight centered flow-text z-depth-3 grey darken-2" id="tabelaAcompanhamentosGerais" style="border-style: solid;border-width: 1px;border-color: black;">
-                <thead onclick="renderizarAcompanhamentosGerais();" title="Clique sobre para atualizar a tabela.">
+                <thead onclick="renderizarAcompanhamentosGerais();" title="Clique para atualizar a tabela.">
                     <tr class="grey darken-2 white-text">
                         <th>Título</th>
                         <th>Servidor</th>

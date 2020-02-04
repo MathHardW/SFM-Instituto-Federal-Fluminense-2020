@@ -41,11 +41,11 @@ if (!empty($_GET['sair']) == "sim") {
 
         <main>
             <!-- FORMULÁRIOS DE FICHA E DE ATIVIDADE DA PAGÍNA ACOMPANHAMENTOS----->
-            <div class="row container center">
-                <div class="col s12">
-                    <ul class="tabs grey lighten-2">                      
-                        <li class="tab left green-text text-darken-4"><a class="active green-text text-darken-4" href="#fichas" onclick="renderizarAtividades();">Incluir Ficha</a></li>
-                        <li class="tab right green-text text-darken-4"><a class="active green-text text-darken-4" href="#atividades" onclick="renderizarAtividades();">Incluir Atividade</a></li>
+            <div class="row container center green darken-2 z-depth-3" style="border-radius: 0px 0px 20px 20px;border-style: solid; border-width: 1px 1px 2px 1px;">
+                <div class="col s12 grey">
+                    <ul class="tabs tabs-fixed-width grey">                       
+                        <li class="tab"><a class="active white-text" href="#fichas" onclick="renderizarAtividades();">Incluir Ficha</a></li>
+                        <li class="tab"><a class="white-text" href="#atividades" onclick="renderizarAtividades();">Incluir Atividade</a></li>
                     </ul>
                 </div>
 
@@ -54,10 +54,13 @@ if (!empty($_GET['sair']) == "sim") {
 
                 <!--TABELA E FORMULARIO DE ATIVIDADES-->
                 <div id="atividades"></div>
+
+                <div class="col s12 l12 grey" style="border-radius: 0px 0px 20px 20px;border-style: solid; border-width: 1px 1px 0px 0px; height: 20px;"></div>
             </div>
         </main>
         <!-- RODAPÉ DA PAGÍNA ACOMPANHAMENTOS---------------------------------->
-        <?php require_once 'PHPBody/Acompanhamento/Rodape_Acompanhamento.php'; ?>
+        <div class="col s12 l12 green darken-4 left" style="border-width: 2px 0px 0px 0px; border-style: solid; height: 50px;"></div>
+
 
         <!-- JAVASCRIPT DA PAGÍNA ACOMPANHAMENTOS------------------------------>
         <script type="text/javascript" src="JS/materialize.js"></script>

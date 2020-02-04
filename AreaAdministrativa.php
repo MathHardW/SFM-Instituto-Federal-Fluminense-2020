@@ -74,11 +74,11 @@ if (!empty($_GET['sair']) == "sim") {
                 <div class="col s12 grey">
                     <ul class="tabs tabs-fixed-width grey">                       
                         <li class="tab"><a class="active white-text" href="#tipoAtividade">Tipo de Atividade</a></li>
-                        <li class="tab"><a class="white-text text-darken-4" href="#nivel">Nivel</a></li>
-                        <li class="tab"><a class="white-text text-darken-4" href="#modalidade">Modalidade</a></li>
-                        <li class="tab"><a class="white-text text-darken-4" href="#curso">Curso</a></li>
-                        <li class="tab"><a class="white-text text-darken-4" href="#cidade">Cidade</a></li>
-                        <li class="tab"><a class="white-text text-darken-4" href="#usuario">Usuário</a></li>
+                        <li class="tab"><a class="white-text" href="#nivel">Nivel</a></li>
+                        <li class="tab"><a class="white-text" href="#modalidade">Modalidade</a></li>
+                        <li class="tab"><a class="white-text" href="#curso">Curso</a></li>
+                        <li class="tab"><a class="white-text" href="#cidade">Cidade</a></li>
+                        <li class="tab"><a class="white-text" href="#usuario">Usuário</a></li>
                     </ul>
                 </div>
                 <div id="tipoAtividade" class="col s12"></div>

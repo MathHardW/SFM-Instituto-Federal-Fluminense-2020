@@ -22,9 +22,13 @@ $fichas = $fichaDAO->querySelect($pesquisa);
             <div class="col s12 l12">
                 <select class="browser-default js-example-basic-single" name="codigoFichaText" id="SelectFicha" onchange="plotarFicha(-1)">
                     <option value="" selected>Adicionar Ficha Existente</option>
-                    <?php foreach ($fichaDAO->querySelectCodigoExistente() as $result) { ?>
-                        <option value="<?= $result[1] ?>"><?= $result[1] ?></option>
-                    <?php } ?>
+                    <?php
+                        foreach ($fichaDAO->querySelectCodigoExistente() as $result) {
+                            if ($fichaDAO->queryVerificaCodigo($result[1]) == true) {
+                                echo "<option value='$result[1]'>$result[1]</option>";
+                            }
+                        }
+                    ?>
                 </select>
             </div>
         </div>
@@ -81,7 +85,7 @@ $fichas = $fichaDAO->querySelect($pesquisa);
                     <option value="" disabled selected>Cidade</option>
                     <?php foreach ($cidadeDAO->querySelect() as $result) { ?>
                         <option value="<?= $result['id'] ?>"><?= $result['nome'] ?></option> 
-                    <?php } ?>     
+<?php } ?>     
                 </select>
             </div>
 
@@ -90,66 +94,70 @@ $fichas = $fichaDAO->querySelect($pesquisa);
             </div>
         </div>
         </br>
-        <input type="submit" class="btn green darken-4 white-text" value="Incluir Ficha" id="incluirFicha"/><br/><br/><br/>
+        <input type="submit" class="btn grey darken-3 white-text right" value="Incluir Ficha" id="incluirFicha"/><br/><br/><br/>
     </form>
-</div>
 
-<!--PESQUISA DE FICHAS-->
-<select class="browser-default js-example-basic-single" id="pesquisaFicha">
-    <option value="" disabled selected="">Qual ficha você está procurando?</option>
-    <?php foreach ($fichaDAO->querySelect(null) as $result) { ?>
-        <option value="<?= $result[1] ?>"><?= $result[1] ?> | <?= $result[12] ?></option>
-    <?php } ?>
-</select>
-<br/><br/>
-<table cellpadding="1" cellspacing="1" class="responsive-table bordered striped centered highlight z-depth-3" id="tabelaFicha" style="border-style: solid;border-width: 1px;border-color: black;">
-    <tr class="grey lighten-1" onclick="renderizarTodos()">
-        <td><b>Código</b></td>
-        <td><b>Trabalha</b></td>
-        <td><b>Dependentes</b></td>
-        <td><b>Especial</b></td>
-        <td><b>Moradia</b></td>
-        <td><b>Sexo</b></td>
-        <td><b>Data</b></td>
-        <td><b>Cidade</b></td>
-        <td><b>Ações</b></td>
-    </tr>
-    <?php foreach ($fichas as $result) { ?>
-        <tr>
-            <td><h6><b><?= $result[1] ?></b></h6></td>
-            <td><?php if ($result[3] == 1) { ?> <img src="IMG/true.png" height="50px" width="40px"> <?php } else { ?> <img src="IMG/false.png" height="35px" width="35px"> <?php } ?></td>
-            <td><?php if ($result[4] == 1) { ?> <img src="IMG/true.png" height="50px" width="40px"> <?php } else { ?> <img src="IMG/false.png" height="35px" width="35px"> <?php } ?></td>
-            <td><?php if ($result[5] == 1) { ?> <img src="IMG/true.png" height="50px" width="40px"> <?php } else { ?> <img src="IMG/false.png" height="35px" width="35px"> <?php } ?></td>
-            <td><?php if ($result[6] == 1) { ?> <img src="IMG/true.png" height="50px" width="40px"> <?php } else { ?> <img src="IMG/false.png" height="35px" width="35px"> <?php } ?></td>
-            <td><?php if ($result[7] == "M") { ?> <img src="IMG/boy.png" height="40px" width="40px"> <?php } else { ?> <img src="IMG/woman.png" height="40px" width="40px"> <?php } ?></td>
-            <td><?= $result[8] ?></td>
-            <td><?= $result[12] ?></td>
 
-            <td>
-                <button class="btn tooltipped green darken-4 modal-trigger" href="#modalExcluir<?= $result[0] ?>" data-tooltip="Excluir Ficha" data-position="top"> <i class="material-icons">delete</i> </button>
-                <button class="btn tooltipped green darken-4" onclick="plotarFicha('<?= $result[1] ?>')"  data-tooltip="Editar Ficha" data-position="bottom"> <i class="material-icons">edit</i> </button>
-            </td>
-        </tr>
+    <!--PESQUISA DE FICHAS-->
+    <select class="browser-default js-example-basic-single" id="pesquisaFicha">
+        <option value="" disabled selected="">Qual ficha você está procurando?</option>
+        <?php foreach ($fichaDAO->querySelect(null) as $result) { ?>
+            <option value="<?= $result[1] ?>"><?= $result[1] ?> | <?= $result[12] ?></option>
+<?php } ?>
+    </select>
+    <br/><br/>
+    <table cellpadding="1" cellspacing="1" class="responsive-table bordered centered highlight z-depth-3 grey darken-1" id="tabelaFicha" style="border-style: solid;border-width: 1px;border-color: black;">
+        <thead>
+            <tr class="grey center-align" onclick="renderizarTodos()" title="Clique para atualizar a tabela.">
+                <th><b>Código</b></th>
+                <th><b>Trabalha</b></th>
+                <th><b>Dependentes</b></th>
+                <th><b>Especial</b></th>
+                <th><b>Moradia</b></th>
+                <th><b>Sexo</b></th>
+                <th><b>Data</b></th>
+                <th><b>Cidade</b></th>
+                <th><b>Ações</b></th>
+            </tr>
+        </thead>
+        <tbody>
+<?php foreach ($fichas as $result) { ?>
+                <tr>
+                    <td><h6><b><?= $result[1] ?></b></h6></td>
+                    <td><?php if ($result[3] == 1) { ?> <img src="IMG/true.png" height="50px" width="40px"> <?php } else { ?> <img src="IMG/false.png" height="35px" width="35px"> <?php } ?></td>
+                    <td><?php if ($result[4] == 1) { ?> <img src="IMG/true.png" height="50px" width="40px"> <?php } else { ?> <img src="IMG/false.png" height="35px" width="35px"> <?php } ?></td>
+                    <td><?php if ($result[5] == 1) { ?> <img src="IMG/true.png" height="50px" width="40px"> <?php } else { ?> <img src="IMG/false.png" height="35px" width="35px"> <?php } ?></td>
+                    <td><?php if ($result[6] == 1) { ?> <img src="IMG/true.png" height="50px" width="40px"> <?php } else { ?> <img src="IMG/false.png" height="35px" width="35px"> <?php } ?></td>
+                    <td><?php if ($result[7] == "M") { ?> <img src="IMG/boy.png" height="40px" width="40px"> <?php } else { ?> <img src="IMG/woman.png" height="40px" width="40px"> <?php } ?></td>
+                    <td><?= $result[8] ?></td>
+                    <td><?= $result[12] ?></td>
 
-        <!-- Modal Structure -->
-        <div id="modalExcluir<?= $result[0] ?>" class="modal bottom-sheet">
-            <div class="modal-content">
-                <h4>Deseja excluir a Ficha <u><?= $result['codigo'] ?></u>?
-                    <b><a onclick="deletarFicha(<?= $result[0] ?>);" class="modal-close black-text">Sim</a></b> ou
-                    <b><a href="#!" class="modal-close black-text">Não</a></b>
-                </h4>
-                <p></p>
+                    <td>
+                        <button class="btn tooltipped grey darken-3 modal-trigger" href="#modalExcluir<?= $result[0] ?>" data-tooltip="Excluir Ficha" data-position="top"> <i class="material-icons">delete</i> </button>
+                        <button class="btn tooltipped grey darken-3" onclick="plotarFicha('<?= $result[1] ?>')"  data-tooltip="Editar Ficha" data-position="bottom"> <i class="material-icons">edit</i> </button>
+                    </td>
+                </tr>
+
+                <!-- Modal Structure -->
+            <div id="modalExcluir<?= $result[0] ?>" class="modal bottom-sheet">
+                <div class="modal-content">
+                    <h4>Deseja excluir a Ficha <u><?= $result['codigo'] ?></u>?
+                        <b><a onclick="deletarFicha(<?= $result[0] ?>);" class="modal-close black-text">Sim</a></b> ou
+                        <b><a href="#!" class="modal-close black-text">Não</a></b>
+                    </h4>
+                    <p></p>
+                </div>
             </div>
-        </div>
-    <?php } ?>
-</table>
+<?php } ?>
+        </tbody>
+    </table>
 
-<br/>
-<div class="col-md-12 center text-center">
-    <span class="left" id="total_reg"></span>
-    <ul class="pagination pager" id="paginaFicha"></ul>
+    <br/>
+    <div class="col-md-12 center text-center">
+        <span class="left" id="total_reg"></span>
+        <ul class="pagination pager" id="paginaFicha"></ul>
+    </div>
 </div>
-
 <script>
     $('.tooltipped').tooltip();
     $('.modal').modal();
@@ -165,7 +173,7 @@ $fichas = $fichaDAO->querySelect($pesquisa);
         nextText: 'Avançar',
         showPrevNext: true,
         hidePageNumbers: false,
-        perPage: 5
+        perPage: 4
     });
 
     //Pesquisar as fichas
@@ -191,9 +199,8 @@ $fichas = $fichaDAO->querySelect($pesquisa);
                     data: "acao=salvarFicha&" + formFichaElement.serialize()
                 }).done(function (retorno) {
                     if (retorno === "ok") {
-                        limparFichas();
-                        M.toast({html: 'Ficha Editada', classes: 'rounded', displayLength: 3000});
                         renderizarTodos();
+                        M.toast({html: 'Ficha Editada', classes: 'rounded', displayLength: 3000});
                     }
                 });
                 break;
