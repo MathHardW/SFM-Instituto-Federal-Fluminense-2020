@@ -73,6 +73,3 @@ switch ($acao) {
         echo 'Erro de solicitação';
         break;
 }
-
-
-

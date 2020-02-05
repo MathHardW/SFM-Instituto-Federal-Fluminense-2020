@@ -72,7 +72,7 @@ $dataAtual = date("d/m/Y");
 
         <div class="row">
             <div class="col s12 l12">
-                <input type="submit" class="btn right grey darken-3" id="cadastrarAcompanhamentoButton" value="Cadastrar Acompanhamento"/>
+                <input type="submit" class="btn right grey darken-3" id="cadastrarAcompanhamentoButton" value="Cadastrar Acompanhamento" style="width:100%;"/>
             </div>
         </div>
     </form>

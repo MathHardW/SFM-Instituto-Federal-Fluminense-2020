@@ -55,7 +55,8 @@ class AcompanhamentoDAO {
                                                                         acompanhamento.servidor,
                                                                         curso.nome,
                                                                         acompanhamento.dataInicio,
-                                                                        acompanhamento.datafim
+                                                                        acompanhamento.datafim,
+                                                                        acompanhamento.status
                                                                 FROM `dbmad3`.`acompanhamento` join `dbmad3`.curso
                                                                 on curso.id = acompanhamento.Curso_id WHERE acompanhamento.id = ?;");
             $retornoDB->bindParam(1, $id, PDO::PARAM_INT);

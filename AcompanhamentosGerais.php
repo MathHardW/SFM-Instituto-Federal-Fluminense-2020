@@ -82,7 +82,9 @@ if (!empty($_GET['sair']) == "sim") {
                 </div>
                 <div class="row"></div>
                 <div class="row green darken-2 z-depth-3" style="border-radius: 20px 20px 20px 20px;border-style: solid; border-width: 1px 1px 1px 1px;">
-                    <div id="acompanhamentosGerais"></div>
+                    <div id="acompanhamentosGerais">
+                        
+                    </div>
                 </div>
             </div>
         </main>

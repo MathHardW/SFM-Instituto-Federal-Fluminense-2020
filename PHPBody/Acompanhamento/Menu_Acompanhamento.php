@@ -9,7 +9,7 @@
                     <div class="tap-target-content">
                         <?php foreach ($acompanhamentoDAO->querySelectId($_GET['acompanhamento']) as $result) { ?>
                             <h6 class="center flow-text">
-                                Olá usuário MAD! <br/><br/>Acompanhamento: <b><?= $result[1] ?></b>.<br/>
+                                Acompanhamento: <b><?= $result[1] ?></b>.<br/>
                                 Do curso de: <b><?= $result[3] ?></b>.<br/>
                                 Administrado pelo servidor (a): <b><?= $result[2] ?></b>.<br/><br/>
 
@@ -20,9 +20,6 @@
                     </div>
                 </div>
 
-                <ul class="left">                            
-                    <li> <a class='dropdown-trigger' href='#' data-target='dropdown1'><i class="material-icons">account_circle</i></a></li>
-                </ul>
                 <ul class="right">
                     <li><a class='dropdown-trigger' href='#' data-target='dropdown1'><i class="material-icons prefix">menu</i></a></li>                     
                 </ul> 

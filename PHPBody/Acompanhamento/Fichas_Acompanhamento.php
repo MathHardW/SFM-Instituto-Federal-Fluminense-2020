@@ -1,6 +1,6 @@
 <?php
 //IMPORTANDO A CLASSE
-require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/ClassesDAO/FichaDAO.php';
+require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/ClassesDAO/AcompanhamentoDAO.php';
 require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/ClassesDAO/FichaDAO.php';
 require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/ClassesDAO/CidadeDAO.php';
 
@@ -12,6 +12,16 @@ $cidadeDAO = new CidadeDAO();
 
 $pesquisa = filter_input(INPUT_POST, 'texto');
 $fichas = $fichaDAO->querySelect($pesquisa);
+
+
+$acompanhamentoDAO = new AcompanhamentoDAO();
+
+$status = $acompanhamentoDAO->querySelectiD(filter_input(INPUT_POST, 'acompanhamento'))[0]['status'];
+
+$block = 0;
+if ($status == 1) {
+    $block = "disabled";
+}
 ?>
 
 <div class="col s12 l12">
@@ -21,14 +31,14 @@ $fichas = $fichaDAO->querySelect($pesquisa);
 
         <div class="row"></br>
             <div class="col s12 l12">
-                <select class="browser-default js-example-basic-single" name="codigoFichaText" id="SelectFicha" onchange="plotarFicha(-1)">
+                <select class="browser-default js-example-basic-single" name="codigoFichaText" id="SelectFicha" onchange="plotarFicha(-1)" <?= $block ?>>
                     <option value="" selected>Adicionar Ficha Existente</option>
                     <?php
-                        foreach ($fichaDAO->querySelectCodigoExistente() as $result) {
-                            if ($fichaDAO->queryVerificaCodigo($result[1]) == true) {
-                                echo "<option value='$result[1]'>$result[1]</option>";
-                            }
+                    foreach ($fichaDAO->querySelectCodigoExistente() as $result) {
+                        if ($fichaDAO->queryVerificaCodigo($result[1]) == true) {
+                            echo "<option value='$result[1]'>$result[1]</option>";
                         }
+                    }
                     ?>
                 </select>
             </div>
@@ -36,7 +46,7 @@ $fichas = $fichaDAO->querySelect($pesquisa);
 
         <div class="row">
             <div class="col s12 l6">
-                <select class="browser-default z-depth-2" name="trabalhaText" id="SelectTrabalha" required>
+                <select class="browser-default z-depth-2" name="trabalhaText" id="SelectTrabalha" required <?= $block ?>>
                     <option value="" disabled selected>Situação Trabalhista</option>  
                     <option value="0" >Não-Trabalha</option>
                     <option value="1" >Trabalha</option> 
@@ -44,7 +54,7 @@ $fichas = $fichaDAO->querySelect($pesquisa);
             </div>
 
             <div class="col s12 l6">
-                <select class="browser-default z-depth-2" name="dependentesText" id="SelectDependentes" required>
+                <select class="browser-default z-depth-2" name="dependentesText" id="SelectDependentes" required <?= $block ?>>
                     <option value="" disabled selected>Situação Dependentes</option>
                     <option value="0" >Não-Possui Dependentes</option> 
                     <option value="1" >Possui Dependentes</option> 
@@ -54,7 +64,7 @@ $fichas = $fichaDAO->querySelect($pesquisa);
         </br>
         <div class="row">
             <div class="col s12 l12">
-                <select class="browser-default z-depth-2" name="atendimentoEspecialText" id="SelectAtendimento" required>
+                <select class="browser-default z-depth-2" name="atendimentoEspecialText" id="SelectAtendimento" required <?= $block ?>>
                     <option value="" disabled selected>Atendimento Especial</option>
                     <option value="0">Não-Precisa</option> 
                     <option value="1">Precisa</option> 
@@ -64,7 +74,7 @@ $fichas = $fichaDAO->querySelect($pesquisa);
         </br>
         <div class="row">
             <div class="col s12 l6">
-                <select class="browser-default z-depth-2" name="moradiaText" id="SelectMoradia" required>
+                <select class="browser-default z-depth-2" name="moradiaText" id="SelectMoradia" required <?= $block ?>>
                     <option value="" disabled selected>Situação Moradia</option>
                     <option value="0">Não-Mora Sozinho</option> 
                     <option value="1">Mora Sozinho</option> 
@@ -72,7 +82,7 @@ $fichas = $fichaDAO->querySelect($pesquisa);
             </div>
 
             <div class="col s12 l6">
-                <select class="browser-default z-depth-2" name="sexoText" id="SelectSexo" required>
+                <select class="browser-default z-depth-2" name="sexoText" id="SelectSexo" required <?= $block ?>>
                     <option value="" disabled selected>Sexo</option>
                     <option value="M">Masculino</option> 
                     <option value="F">Feminino</option> 
@@ -82,20 +92,20 @@ $fichas = $fichaDAO->querySelect($pesquisa);
         </br>
         <div class="row">
             <div class="col s12 l6">
-                <select class="browser-default z-depth-2" name="cidadeText" id="SelectCidade" required>
+                <select class="browser-default z-depth-2" name="cidadeText" id="SelectCidade" required <?= $block ?>>
                     <option value="" disabled selected>Cidade</option>
                     <?php foreach ($cidadeDAO->querySelect() as $result) { ?>
                         <option value="<?= $result['id'] ?>"><?= $result['nome'] ?></option> 
-<?php } ?>     
+                    <?php } ?>     
                 </select>
             </div>
 
             <div class="col s12 l6">
-                <input type="text" class="materialize-textarea datepicker" placeholder="Data Início do Aluno" name="dataText" id="TextData" required readonly>
+                <input type="text" class="materialize-textarea datepicker" placeholder="Data Início do Aluno" name="dataText" id="TextData" required readonly <?= $block ?>>
             </div>
         </div>
         </br>
-        <input type="submit" class="btn grey darken-3 white-text right" value="Incluir Ficha" id="incluirFicha"/><br/><br/><br/>
+        <input type="submit" class="btn grey darken-3 white-text right" value="Incluir Ficha" id="incluirFicha" <?= $block ?> style="width:100%;"/><br/><br/><br/>
     </form>
 
 
@@ -103,8 +113,8 @@ $fichas = $fichaDAO->querySelect($pesquisa);
     <select class="browser-default js-example-basic-single" id="pesquisaFicha">
         <option value="" disabled selected="">Qual ficha você está procurando?</option>
         <?php foreach ($fichaDAO->querySelect(null) as $result) { ?>
-            <option value="<?= $result[1] ?>"><?= $result[1] ?> | <?= $result[12] ?></option>
-<?php } ?>
+            <option value="<?= $result[0] ?>"><?= $result[0] ?> | <?= $result[7] ?></option>
+        <?php } ?>
     </select>
     <br/><br/>
     <table cellpadding="1" cellspacing="1" class="responsive-table bordered centered highlight z-depth-3 grey darken-1" id="tabelaFicha" style="border-style: solid;border-width: 1px;border-color: black;">
@@ -122,20 +132,20 @@ $fichas = $fichaDAO->querySelect($pesquisa);
             </tr>
         </thead>
         <tbody>
-<?php foreach ($fichas as $result) { ?>
+            <?php foreach ($fichas as $result) { ?>
                 <tr>
-                    <td><h6><b><?= $result[1] ?></b></h6></td>
+                    <td><h6><b><?= $result[0] ?></b></h6></td>
+                    <td><?php if ($result[1] == 1) { ?> <img src="IMG/true.png" height="50px" width="40px"> <?php } else { ?> <img src="IMG/false.png" height="35px" width="35px"> <?php } ?></td>
+                    <td><?php if ($result[2] == 1) { ?> <img src="IMG/true.png" height="50px" width="40px"> <?php } else { ?> <img src="IMG/false.png" height="35px" width="35px"> <?php } ?></td>
                     <td><?php if ($result[3] == 1) { ?> <img src="IMG/true.png" height="50px" width="40px"> <?php } else { ?> <img src="IMG/false.png" height="35px" width="35px"> <?php } ?></td>
                     <td><?php if ($result[4] == 1) { ?> <img src="IMG/true.png" height="50px" width="40px"> <?php } else { ?> <img src="IMG/false.png" height="35px" width="35px"> <?php } ?></td>
-                    <td><?php if ($result[5] == 1) { ?> <img src="IMG/true.png" height="50px" width="40px"> <?php } else { ?> <img src="IMG/false.png" height="35px" width="35px"> <?php } ?></td>
-                    <td><?php if ($result[6] == 1) { ?> <img src="IMG/true.png" height="50px" width="40px"> <?php } else { ?> <img src="IMG/false.png" height="35px" width="35px"> <?php } ?></td>
-                    <td><?php if ($result[7] == "M") { ?> <img src="IMG/boy.png" height="40px" width="40px"> <?php } else { ?> <img src="IMG/woman.png" height="40px" width="40px"> <?php } ?></td>
-                    <td><?= $result[8] ?></td>
-                    <td><?= $result[12] ?></td>
+                    <td><?php if ($result[5] == "M") { ?> <img src="IMG/boy.png" height="40px" width="40px"> <?php } else { ?> <img src="IMG/woman.png" height="40px" width="40px"> <?php } ?></td>
+                    <td><?= $result[6] ?></td>
+                    <td><?= $result[7] ?></td>
 
                     <td>
-                        <button class="btn tooltipped grey darken-3 modal-trigger" href="#modalExcluir<?= $result[0] ?>" data-tooltip="Excluir Ficha" data-position="top"> <i class="material-icons">delete</i> </button>
-                        <button class="btn tooltipped grey darken-3" onclick="plotarFicha('<?= $result[1] ?>')"  data-tooltip="Editar Ficha" data-position="bottom"> <i class="material-icons">edit</i> </button>
+                        <button class="btn tooltipped grey darken-3 modal-trigger" href="#modalExcluir<?= $result[0] ?>" data-tooltip="Excluir Ficha" data-position="top" <?= $block ?>> <i class="material-icons">delete</i> </button>
+                        <button class="btn tooltipped grey darken-3" onclick="plotarFicha('<?= $result[1] ?>')"  data-tooltip="Editar Ficha" data-position="bottom" <?= $block ?>> <i class="material-icons">edit</i> </button>
                     </td>
                 </tr>
 
@@ -149,7 +159,7 @@ $fichas = $fichaDAO->querySelect($pesquisa);
                     <p></p>
                 </div>
             </div>
-<?php } ?>
+        <?php } ?>
         </tbody>
     </table>
 

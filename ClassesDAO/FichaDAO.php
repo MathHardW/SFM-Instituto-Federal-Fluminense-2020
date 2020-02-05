@@ -104,7 +104,9 @@ class FichaDAO {
             $acompanhamentoId = $this->Ficha->getAcompanhamento();
 
             if ($texto == null) {
-                $retornoDB = $this->Connection->Conectar()->prepare("SELECT * FROM ficha, cidade WHERE Cidade_id = cidade.id AND Acompanhamento_id = ? ORDER BY ficha.id DESC;");
+                $retornoDB = $this->Connection->Conectar()->prepare("SELECT 
+                                                                    ficha.codigo, ficha.trabalha, ficha.dependentes, ficha.atendimentoEspecial, ficha.moraSozinho, ficha.sexo, DATE_FORMAT(ficha.data, '%d/%m/%Y'), cidade.nome 
+                                                                    FROM ficha, cidade WHERE Cidade_id = cidade.id AND Acompanhamento_id = ? ORDER BY ficha.id DESC;");
                 $retornoDB->bindParam(1, $acompanhamentoId, PDO::PARAM_INT);
 
                 if ($retornoDB->execute()) {
@@ -114,7 +116,9 @@ class FichaDAO {
                 }
             } else {
 
-                $sqlLike = "SELECT * FROM ficha, cidade WHERE Cidade_id = cidade.id AND Acompanhamento_id = ? AND (ficha.codigo LIKE '%" . $texto . "%')";
+                $sqlLike = "SELECT 
+                            ficha.codigo, ficha.trabalha, ficha.dependentes, ficha.atendimentoEspecial, ficha.moraSozinho, ficha.sexo, DATE_FORMAT(ficha.data, '%d/%m/%Y'), cidade.nome 
+                            FROM ficha, cidade WHERE Cidade_id = cidade.id AND Acompanhamento_id = ? AND (ficha.codigo LIKE '%" . $texto . "%')";
 
                 $retornoDB = $this->Connection->Conectar()->prepare($sqlLike);
                 $retornoDB->bindParam(1, $acompanhamentoId, PDO::PARAM_INT);

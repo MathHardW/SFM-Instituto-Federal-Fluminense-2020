@@ -5,14 +5,14 @@
                 <div class="row">
                     <div class="input-field col m12 s12">
                         <i class="material-icons iconis prefix green-text text-darken-4">account_box</i>
-                        <input id="login" type="text" class="validate">
+                        <input id="login" type="text" class="validate black-text">
                         <label for="icon_prefix">Usuário</label>
                     </div>
                 </div>
                 <div class="row">
                     <div class="input-field col m12 s12">
                         <i class="material-icons iconis prefix green-text text-darken-4">enhanced_encryption</i>
-                        <input id="senha" type="password" class="validate">
+                        <input id="senha" type="password" class="validate black-text">
                         <label for="password">Senha</label>
                     </div>
                 </div>

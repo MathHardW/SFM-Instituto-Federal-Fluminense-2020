@@ -72,8 +72,8 @@ if (!empty($_GET['sair']) == "sim") {
                         <li class="tab"><a class="white-text" href="#graficos">Análises Grafícas</a></li>
                     </ul>
                 </div>
-                <div id="historico" class="col s12"></div>
-                <div id="graficos" class="col s12"></div>
+                <div id="historico"></div>
+                <div id="graficos"></div>
                 
                 <div class="col s12 l12 grey" style="border-radius: 0px 0px 20px 20px;border-style: solid; border-width: 1px 1px 0px 0px; height: 20px;"></div>
 
