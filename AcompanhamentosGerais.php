@@ -65,7 +65,8 @@ if (!empty($_GET['sair']) == "sim") {
                 }
                 ?>
 
-                <li><a href="#!" class="green-text text-darken-4"><i class="material-icons">view_module</i>Meus Dados</a></li>
+                <li><a href='Analises.php' class='green-text text-darken-4'><i class='material-icons'>call_missed</i>Análises de Dados</a></li>
+
                 <li><a href="?sair=sim" class="green-text text-darken-4"><i class="material-icons">exit_to_app</i>Sair</a></li>
             </ul>
         </header>  

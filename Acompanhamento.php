@@ -34,11 +34,15 @@ if (!empty($_GET['sair']) == "sim") {
         <!-- BARRA DE MENU PRINCIPAL DA PAGÍNA ACOMPANHAMENTOS----------------->
         <?php require_once 'PHPBody/Acompanhamento/Menu_Acompanhamento.php'; ?>
 
-        <!-- GRÁFICOS DA PAGÍNA ACOMPANHAMENTOS-------------------------------->
-        <div class="row container center" hidden>
-            <?php require_once 'PHPBody/Acompanhamento/Graficos_Acompanhamento.php'; ?>
+        <div class="row container center">
+            <div class="col s12 l12 green darken-2 z-depth-3" style="height: 100px;border-radius: 0px 0px 20px 20px; border-style: solid; border-width: 0px 1px 2px 1px;">
+                <img src="IMG/acompanhamento.png" class="hide-on-small-only"> 
+                <img src="IMG/acompanhamento.png" class="hide-on-med-and-up"> 
+            </div>
         </div>
 
+        </br>
+        
         <main>
             <!-- FORMULÁRIOS DE FICHA E DE ATIVIDADE DA PAGÍNA ACOMPANHAMENTOS----->
             <div class="row container center green darken-2 z-depth-3" style="border-radius: 0px 0px 20px 20px;border-style: solid; border-width: 1px 1px 2px 1px;">

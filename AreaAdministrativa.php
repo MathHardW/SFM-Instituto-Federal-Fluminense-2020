@@ -54,8 +54,7 @@ if (!empty($_GET['sair']) == "sim") {
             <ul id='dropdown1' class='dropdown-content green-text text-darken-4'>
                 <li><a href="#!" class="center-align green-text text-darken-4"><b><?= $_SESSION['nomeUsuario'] ?></b></a></li>
                 <li class="divider"></li>
-                <li><a href="AcompanhamentosGerais.php" class="green-text text-darken-4"><i class="material-icons">home</i>Ínicio</a></li>
-                <li><a href="#!" class="green-text text-darken-4"><i class="material-icons">view_module</i>Meus Dados</a></li>
+                <li><a href="AcompanhamentosGerais.php" class="green-text text-darken-4"><i class="material-icons">subdirectory_arrow_right</i>Voltar</a></li>
                 <li><a href="?sair=sim" class="green-text text-darken-4"><i class="material-icons">exit_to_app</i>Sair</a></li>
             </ul>
 

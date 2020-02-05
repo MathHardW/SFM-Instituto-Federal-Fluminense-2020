@@ -197,7 +197,6 @@ $dataAtual = date("d/m/Y");
             type: 'POST',
             data: "acao=finalizarAcompanhamento&" + "id=" + id
         }).done(function (data) {
-            alert("Alunos Finais :" + data);
 
             if (data === "ok") {
                 renderizarAcompanhamentosGerais();
@@ -215,8 +214,6 @@ $dataAtual = date("d/m/Y");
         var id = document.getElementById('acompanhamentoID').value;
         var cadastrarAcompanhamentoElement = document.getElementById('cadastrarAcompanhamentoButton').value;
         var formAcompanhamentosGerais = $(this);
-
-        alert(id + " " + formAcompanhamentosGerais.serialize());
 
         switch (cadastrarAcompanhamentoElement) {
             case "Cadastrar Acompanhamento":
