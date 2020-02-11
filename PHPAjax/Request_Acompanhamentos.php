@@ -26,7 +26,6 @@ switch ($acao) {
         $acompanhamentoDAO->getAcompanhamento()->setDataFim($dataFim);
         $acompanhamentoDAO->getAcompanhamento()->setCurso(filter_input(INPUT_POST, 'cursoText'));
 
-
         $row = $acompanhamentoDAO->queryInsert();
         echo $row;
         break;
@@ -38,17 +37,16 @@ switch ($acao) {
         
         $dataFimInput = filter_input(INPUT_POST, 'dataFimText');
         $dataFim = date('Y/m/d', strtotime($dataFimInput));
-
+        
         $acompanhamentoDAO->getAcompanhamento()->setTitulo(filter_input(INPUT_POST, 'tituloText'));
         $acompanhamentoDAO->getAcompanhamento()->setServidor(filter_input(INPUT_POST, 'servidorText'));
         $acompanhamentoDAO->getAcompanhamento()->setAlunosIniciais(filter_input(INPUT_POST, 'alunosIniciaisText'));
+        $acompanhamentoDAO->getAcompanhamento()->setPeriodoDeIngresso(filter_input(INPUT_POST, 'periodoText'));
         $acompanhamentoDAO->getAcompanhamento()->setDataInicio($dataIni);
         $acompanhamentoDAO->getAcompanhamento()->setDataFim($dataFim);
-        $acompanhamentoDAO->getAcompanhamento()->setPeriodoDeIngresso(filter_input(INPUT_POST, 'periodoText'));
         $acompanhamentoDAO->getAcompanhamento()->setCurso(filter_input(INPUT_POST, 'cursoText'));
 
         $row = $acompanhamentoDAO->queryUpdate($id);
-
         echo $row;
         break;
     case 'Excluir':

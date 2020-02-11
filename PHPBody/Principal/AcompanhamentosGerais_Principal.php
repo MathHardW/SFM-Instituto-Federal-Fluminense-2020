@@ -43,7 +43,7 @@ $dataAtual = date("d/m/Y");
         <div class="row">
             <div class="input-field col s6 l6">
                 <input type="text" name="dataInicioText" id="dataInicioText" class="datepicker" required readonly>
-                <label class="active" for="dataInicioText" style="color: white; font-size: 20px; text-shadow: 1px 1px black;">Data Início</label>
+                <label class="active" style="color: white; font-size: 20px; text-shadow: 1px 1px black;">Data Início</label>
             </div>
             <div class="input-field col s6 l6">
                 <input type="text" name="dataFimText" id="dataFimText" class="datepicker" required readonly>
