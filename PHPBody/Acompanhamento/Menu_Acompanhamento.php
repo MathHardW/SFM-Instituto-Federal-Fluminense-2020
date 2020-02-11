@@ -31,35 +31,14 @@
     <ul id='dropdown1' class='dropdown-content green-text text-darken-4'>
         <li><a href="#!" class="center-align green-text text-darken-4"><b><?= $_SESSION['nomeUsuario'] ?></b></a></li>
         <li class="divider"></li>
-        <li><a href="AcompanhamentosGerais.php" class="green-text text-darken-4"><i class="material-icons">subdirectory_arrow_left</i>Voltar</a></li>
+        <li><a href="AcompanhamentosGerais.php" class="green-text text-darken-4"><i class="material-icons">home</i>Página Principal</a></li>
+        <?php
+        if ($_SESSION['permissao'] >= 1) {
+            echo "<li><a href='AreaAdministrativa.php' class='green-text text-darken-4'><i class='material-icons'>security</i>Área Administrativa</a></li>";
+        }
+        ?>
+        <li><a href='Analises.php' class='green-text text-darken-4'><i class='material-icons'>call_missed</i>Análises de Dados</a></li>
+
         <li><a href="?sair=sim" class="green-text text-darken-4"><i class="material-icons">exit_to_app</i>Sair</a></li>
     </ul>
-
-    <!-- Dropdown Structure -->
-    <ul id='dropdown1' class='dropdown-content'>        
-        </br>
-        <li><a href="#usuario"><i class="material-icons">account_circle</i><span class=" name"><b>Lucas Soares</b></span></a></li>
-        <li class="divider" tabindex="-1"></li>
-        <li><a href="AreaAdministrativa.php"><i class="material-icons center">view_compact</i>Administração</a></li>
-        <li><a href="#!"><i class="material-icons center">backspace</i>Sair</a></li>
-    </ul>
-
-    <ul id="slide-out" class="sidenav">
-        <li><div class="user-view">
-                <!--<div class="background">
-                    <img src="images/office.jpg">
-                </div>-->
-                <a href="#user"></a>
-                <a href="#usuario"><span class=" name">Nome: Lucas Soares</span></a>
-                <a href="#email"><span class=" email">Email: lucassoaresgranja@yahoo.com.br</span></a>
-            </div></li>
-        <li><a href="#!" class="waves-effect"><i class="material-icons">home</i>Inicio</a></li>
-        <li><a href="#!" class="waves-effect"><i class="material-icons">home</i>Acompanhamentos</a></li>
-        <li><a href="#!" class="waves-effect"><i class="material-icons">home</i>Administração</a></li>
-
-        <li><div class="divider"></div></li>
-        <li><a class="subheader">Informações</a></li>
-        <li><a class="waves-effect" href="#!">Link</a></li>
-    </ul>
-  <!--  <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">account_circle</i></a>-->
 </header>  

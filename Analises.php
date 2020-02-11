@@ -62,7 +62,14 @@ $qtdAlunos = 0;
             <ul id='dropdown1' class='dropdown-content green-text text-darken-4'>
                 <li><a href="#!" class="center-align green-text text-darken-4"><b><?= $_SESSION['nomeUsuario'] ?></b></a></li>
                 <li class="divider"></li>
-                <li><a href="AcompanhamentosGerais.php" class="green-text text-darken-4"><i class="material-icons">subdirectory_arrow_left</i>Voltar</a></li>
+                <li><a href="AcompanhamentosGerais.php" class="green-text text-darken-4"><i class="material-icons">home</i>Página Principal</a></li>
+
+                <?php
+                if ($_SESSION['permissao'] >= 1) {
+                    echo "<li><a href='AreaAdministrativa.php' class='green-text text-darken-4'><i class='material-icons'>security</i>Área Administrativa</a></li>";
+                }
+                ?>
+
                 <li><a href="?sair=sim" class="green-text text-darken-4"><i class="material-icons">exit_to_app</i>Sair</a></li>
             </ul>
 
@@ -89,7 +96,7 @@ $qtdAlunos = 0;
 
                     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
                 </div>
-               
+
                 <div class="col s12 l12 grey" style="border-radius: 0px 0px 20px 20px;border-style: solid; border-width: 1px 1px 0px 0px; height: 20px;"></div>
 
             </div>

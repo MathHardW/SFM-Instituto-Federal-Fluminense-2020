@@ -128,7 +128,7 @@ $dataAtual = date("d/m/Y");
                                 }
                                 ?>> <i class="material-icons">edit</i> </button>
 
-                                <button class="btn tooltipped grey darken-3" onclick="FinalizarAcompanhamento('<?= $result[0] ?>')"  data-tooltip="Finalizar Acompanhamento" data-position="top" <?php
+                                <button class="btn tooltipped modal-trigger grey darken-3" href="#modalFinalizar<?= $result[0] ?>"  data-tooltip="Excluir Acompanhamento" data-position="top" <?php
                                 if ($result['status'] == 1) {
                                     echo "disabled";
                                 }
@@ -145,6 +145,16 @@ $dataAtual = date("d/m/Y");
                         <div class="modal-content">
                             <h4>Deseja excluir o Acompanhamento <u><?= $result['titulo'] ?></u>?
                                 <b><a onclick="excluirAcompanhamento(<?= $result['id'] ?>);" class="modal-close black-text">Sim</a></b> ou
+                                <b><a href="#!" class="modal-close black-text">Não</a></b>
+                            </h4>
+                            <p></p>
+                        </div>
+                    </div>
+
+                    <div id="modalFinalizar<?= $result[0] ?>" class="modal bottom-sheet">
+                        <div class="modal-content">
+                            <h4>Deseja Finalizar o Acompanhamento <u><?= $result['titulo'] ?></u>?
+                                <b><a onclick="FinalizarAcompanhamento(<?= $result['id'] ?>);" class="modal-close black-text">Sim</a></b> ou
                                 <b><a href="#!" class="modal-close black-text">Não</a></b>
                             </h4>
                             <p></p>
