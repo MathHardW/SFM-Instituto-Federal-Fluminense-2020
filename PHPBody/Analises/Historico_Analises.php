@@ -23,14 +23,14 @@ $fichas = $fichaDAO->querySelectAll($pesquisa);
         <thead>
             <tr class="grey center-align" onclick="renderizarHistorico()" title="Clique para atualizar a tabela.">
                 <th>Código</th>
-                <th>Acompanhamento</th>
-                <th>Data</th>
                 <th>Trabalha</th>
                 <th>Dependentes</th>
                 <th>Atendimento Especial</th>
                 <th>Mora Sozinho</th>
                 <th>Sexo</th>
                 <th>Cidade</th>
+                <th>Data</th>
+
             </tr>
         </thead>
         <tbody>
@@ -38,14 +38,13 @@ $fichas = $fichaDAO->querySelectAll($pesquisa);
 
                 <tr>
                     <td><h6><b><?= $result[0] ?></b></h6></td>
-                    <td><?= $result[1] ?></td>
-                    <td><?= $result[2] ?></td>
                     <td><?php if ($result[3] == 1) { ?> <img src="IMG/true.png" height="50px" width="40px"> <?php } else { ?> <img src="IMG/false.png" height="35px" width="35px"> <?php } ?></td>
                     <td><?php if ($result[4] == 1) { ?> <img src="IMG/true.png" height="50px" width="40px"> <?php } else { ?> <img src="IMG/false.png" height="35px" width="35px"> <?php } ?></td>
                     <td><?php if ($result[5] == 1) { ?> <img src="IMG/true.png" height="50px" width="40px"> <?php } else { ?> <img src="IMG/false.png" height="35px" width="35px"> <?php } ?></td>
                     <td><?php if ($result[6] == 1) { ?> <img src="IMG/true.png" height="50px" width="40px"> <?php } else { ?> <img src="IMG/false.png" height="35px" width="35px"> <?php } ?></td>
                     <td><?php if ($result[7] == "M") { ?> <img src="IMG/boy.png" height="40px" width="40px"> <?php } else { ?> <img src="IMG/woman.png" height="40px" width="40px"> <?php } ?></td>
                     <td><?= $result[8] ?></td>
+                    <td><?= $result[2] ?></td>
                 </tr>
             <?php } ?>
         </tbody>
