@@ -29,28 +29,36 @@ $dataAtual = date("d/m/Y");
 
         <!---------------------------------------------------------------------------------------------------------------------------->
         <div class="row">
-            <div class="col s12 l6">
-                <input type="text" name="tituloText" id="tituloText" placeholder="Titulo" class="" required/>
+            <div class="input-field col s12 l6">
+                <input type="text" name="tituloText" id="tituloText" class="" required/>
+                <label class="active" for="tituloText" style="color: white; font-size: 20px; text-shadow: 1px 1px black;">Título</label>
             </div>
-            <div class="col s12 l6">
-                <input type="text" name="servidorText" id="servidorText" placeholder="Servidor" class="" required>
-            </div>
-        </div>
-        <!---------------------------------------------------------------------------------------------------------------------------->
-        <div class="row">
-            <div class="col s6 l6">
-                <input type="text" name="dataInicioText" id="dataInicioText" placeholder="Data Inicio" class="datepicker" required readonly>
-            </div>
-            <div class="col s6 l6">
-                <input type="text" name="dataFimText" id="dataFimText" placeholder="Data Fim" class="datepicker" required readonly>
+
+            <div class="input-field col s12 l6">
+                <input type="text" name="servidorText" id="servidorText" class="" required>
+                <label class="active" for="servidorText" style="color: white; font-size: 20px; text-shadow: 1px 1px black;">Servidor</label>
             </div>
         </div>
         <!---------------------------------------------------------------------------------------------------------------------------->
         <div class="row">
-            <div class="col s12 l6">
-                <input type="number" min='0' name="alunosIniciaisText" id="alunosIniciaisText" placeholder="Alunos Iniciais" class="" required>
+            <div class="input-field col s6 l6">
+                <input type="text" name="dataInicioText" id="dataInicioText" class="datepicker" required readonly>
+                <label class="active" for="dataInicioText" style="color: white; font-size: 20px; text-shadow: 1px 1px black;">Data Início</label>
             </div>
+            <div class="input-field col s6 l6">
+                <input type="text" name="dataFimText" id="dataFimText" class="datepicker" required readonly>
+                <label class="active" for="dataFimText" style="color: white; font-size: 20px; text-shadow: 1px 1px black;">Data Fim</label>
+            </div>
+        </div>
+        <!---------------------------------------------------------------------------------------------------------------------------->
+        <div class="row">
+            <div class="input-field col s12 l6">
+                <input type="number" min='0' name="alunosIniciaisText" id="alunosIniciaisText" class="" required>
+                <label class="active" for="alunosIniciaisText" style="color: white; font-size: 20px; text-shadow: 1px 1px black;">Alunos Iniciais</label>
+            </div>
+
             <div class="hide-on-med-and-up"><br/><br/><br/><br/></div>
+
             <div class="col s6 l3">
                 <select class="browser-default white z-depth-3" name="periodoText" id="periodoText" class="" required>
                     <option value="" disabled selected>Escolha um Semestre.</option>
@@ -175,11 +183,12 @@ $dataAtual = date("d/m/Y");
 
 
 <script>
+
     $('.tooltipped').tooltip();
     $('.modal').modal();
     $('.js-example-basic-single').select2();
     $('.datepicker').datepicker({
-        format: 'yyyy-mm-dd'
+        format: 'dd-mm-yyyy'
     });
 
     $('#tabelaAcompanhamentosGerais').pageMe({
