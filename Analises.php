@@ -1,6 +1,7 @@
 <?php
 //BUSCANDO A CLASSSE
 require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/ClassesDAO/UsuarioDAO.php';
+require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/ClassesDAO/FichaDAO.php';
 
 //ESTANCIANDO
 $usuarioDAO = new UsuarioDAO();
@@ -17,6 +18,17 @@ if ($_SESSION['logado'] == "logado") {
 if (!empty($_GET['sair']) == "sim") {
     $usuarioDAO->querySair();
 }
+
+
+$fichaDAO = new FichaDAO();
+
+$trabalham = 0;
+$dependentes = 0;
+$atendimentoEspecial = 0;
+$moraSozinho = 0;
+$mulheres = 0;
+$homens = 0;
+$qtdAlunos = 0;
 ?>
 
 <!DOCTYPE HTML>
@@ -68,13 +80,16 @@ if (!empty($_GET['sair']) == "sim") {
             <div class="row container center green darken-2 z-depth-3" style="border-radius: 0px 0px 20px 20px;border-style: solid; border-width: 1px 1px 2px 1px;">
                 <div class="col s12 grey">
                     <ul class="tabs tabs-fixed-width grey">                       
-                        <li class="tab"><a class="active white-text" href="#historico">Histórico de Fichas</a></li>
-                        <li class="tab"><a class="white-text" href="#graficos">Análises Grafícas</a></li>
+                        <li class="tab"><a class="white-text active" href="#graficos" onclick="renderizarGraficos();">Análises Grafícas</a></li>
+                        <li class="tab"><a class="white-text" href="#historico" onclick="renderizarHistorico();">Histórico de Fichas</a></li>
                     </ul>
                 </div>
                 <div id="historico"></div>
-                <div id="graficos"></div>
-                
+                <div id="graficos">
+
+                    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
+                </div>
+               
                 <div class="col s12 l12 grey" style="border-radius: 0px 0px 20px 20px;border-style: solid; border-width: 1px 1px 0px 0px; height: 20px;"></div>
 
             </div>
@@ -93,11 +108,8 @@ if (!empty($_GET['sair']) == "sim") {
             </div>
         </div>
 
-
         <script type="text/javascript" src="JS/materialize.js"></script>
         <script type="text/javascript" src="JSAjax/ajaxAnalises.js"></script>
-        <script>
-                            $('.dropdown-trigger').dropdown();
-        </script>
+        <script>$('.dropdown-trigger').dropdown();</script>
     </body>
 </html>

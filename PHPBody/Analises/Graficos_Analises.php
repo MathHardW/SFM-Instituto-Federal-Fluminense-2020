@@ -1,108 +1,134 @@
+<?php
+require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/ClassesDAO/FichaDAO.php';
+require_once 'C:/xampp/htdocs/PROJETO_VERSAO_3.0/ClassesDAO/AcompanhamentoDAO.php';
+
+$acompanhamentoDAO = new AcompanhamentoDAO();
+$fichaDAO = new FichaDAO();
+
+$trabalham = 0;
+$dependentes = 0;
+$atendimentoEspecial = 0;
+$moraSozinho = 0;
+$mulheres = 0;
+$homens = 0;
+$qtdAlunos = 0;
+
+if (filter_input(INPUT_POST, 'acompanhamento') != null) {
+    $fichaDAO->getFicha()->setAcompanhamento(filter_input(INPUT_POST, 'acompanhamento'));
+
+    foreach ($fichaDAO->querySelect(null) as $result) {
+        if ($result[1] == 1) {
+            $trabalham += 1;
+        }
+        if ($result[2] == 1) {
+            $dependentes += 1;
+        }
+        if ($result[3] == 1) {
+            $atendimentoEspecial += 1;
+        }
+        if ($result[4] == 1) {
+            $moraSozinho += 1;
+        }
+        if ($result[5] == 'M') {
+            $homens += 1;
+        } else {
+            $mulheres += 1;
+        }
+
+        $qtdAlunos += 1;
+    }
+} else {
+    foreach ($fichaDAO->querySelectAll(null) as $result) {
+        if ($result[3] == 1) {
+            $trabalham += 1;
+        }
+        if ($result[4] == 1) {
+            $dependentes += 1;
+        }
+        if ($result[5] == 1) {
+            $atendimentoEspecial += 1;
+        }
+        if ($result[6] == 1) {
+            $moraSozinho += 1;
+        }
+        if ($result[7] == 'M') {
+            $homens += 1;
+        } else {
+            $mulheres += 1;
+        }
+
+        $qtdAlunos += 1;
+    }
+}
+?>
 
 <div class="row">
-    <div class="col s12 l12 container center">
-        <button id="change-chart">Change to Classic</button>
-        <br><br>
-        <div id="chart_div"></div>
-    </div>    
+    <!--PESQUISA DE FICHAS-->
+    <select class="browser-default js-example-basic-single" id="pesquisaAcomp">
+        <option value="" disabled selected="">Qual acompanhamento você está procurando?</option>
+        <?php foreach ($acompanhamentoDAO->querySelect() as $result) { ?>
+            <option value="<?= $result[0] ?>"><?= $result[1] ?> | <?= $result[2] ?> | <?= $result[3] ?> | <?= $result[4] ?> | <?= $result[5] ?> | <?= $result[6] ?></option>
+        <?php } ?>
+    </select>
+
+    <div class="col s12 white">
+        <canvas id="myChart" width="400" height="150"></canvas>
+    </div>
+    
+    <button class="center btn grey darken-4" style="width: 100%;" onclick="renderizarGraficos();">Situação Geral do Sistema</button>
 </div>
 
-
-
-
-<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.js"></script>
 <script>
-    google.charts.load('current', {'packages': ['line', 'corechart']});
-    google.charts.setOnLoadCallback(drawChart);
+    $('.js-example-basic-single').select2();
 
-    function drawChart() {
+    //Pesquisar as fichas
+    $("#pesquisaAcomp").change(function () {
+        M.toast({html: "Pesquisando ...", classes: 'rounded', displayLength: 3000});
+        var id = $(this).val();
 
-        var button = document.getElementById('change-chart');
-        var chartDiv = document.getElementById('chart_div');
+        $("#graficos").load("PHPBody/Analises/Graficos_Analises.php", {acompanhamento: id});
 
-        var data = new google.visualization.DataTable();
-        data.addColumn('date', 'Month');
-        data.addColumn('number', "Average Temperature");
-        data.addColumn('number', "Average Hours of Daylight");
+        return false;
+    });
 
-        data.addRows([
-            [new Date(2014, 0), -.5, 5.7],
-            [new Date(2014, 1), .4, 8.7],
-            [new Date(2014, 2), .5, 12],
-            [new Date(2014, 3), 2.9, 15.3],
-            [new Date(2014, 4), 6.3, 18.6],
-            [new Date(2014, 5), 9, 20.9],
-            [new Date(2014, 6), 10.6, 19.8],
-            [new Date(2014, 7), 10.3, 16.6],
-            [new Date(2014, 8), 7.4, 13.3],
-            [new Date(2014, 9), 4.4, 9.9],
-            [new Date(2014, 10), 1.1, 6.6],
-            [new Date(2014, 11), -.2, 4.5]
-        ]);
-
-        var materialOptions = {
-            chart: {
-                title: 'Average Temperatures and Daylight in Iceland Throughout the Year'
-            },
-            width: 1255,
-            height: 500,
-            series: {
-                // Gives each series an axis name that matches the Y-axis below.
-                0: {axis: 'Temps'},
-                1: {axis: 'Daylight'}
-            },
-            axes: {
-                // Adds labels to each axis; they don't have to match the axis names.
-                y: {
-                    Temps: {label: 'Temps (Celsius)'},
-                    Daylight: {label: 'Daylight'}
-                }
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'bar',
+        data: {
+            labels: ['Alunos', 'Mulheres', 'Homens', 'Possuem Emprego', 'Possuem Dependentes', 'Atendimento Especial', 'Moram Sozinho'],
+            datasets: [{
+                    label: '# Quantidade',
+                    data: [<?= $qtdAlunos ?>,<?= $mulheres ?>,<?= $homens ?>,<?= $trabalham ?>,<?= $dependentes ?>,<?= $atendimentoEspecial ?>,<?= $moraSozinho ?>],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1,
+                }]
+        },
+        options: {
+            scales: {
+                yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
             }
-        };
-
-        var classicOptions = {
-            title: 'Average Temperatures and Daylight in Iceland Throughout the Year',
-            width: 900,
-            height: 500,
-            // Gives each series an axis that matches the vAxes number below.
-            series: {
-                0: {targetAxisIndex: 0},
-                1: {targetAxisIndex: 1}
-            },
-            vAxes: {
-                // Adds titles to each axis.
-                0: {title: 'Temps (Celsius)'},
-                1: {title: 'Daylight'}
-            },
-            hAxis: {
-                ticks: [new Date(2014, 0), new Date(2014, 1), new Date(2014, 2), new Date(2014, 3),
-                    new Date(2014, 4), new Date(2014, 5), new Date(2014, 6), new Date(2014, 7),
-                    new Date(2014, 8), new Date(2014, 9), new Date(2014, 10), new Date(2014, 11)
-                ]
-            },
-            vAxis: {
-                viewWindow: {
-                    max: 30
-                }
-            }
-        };
-
-        function drawMaterialChart() {
-            var materialChart = new google.charts.Line(chartDiv);
-            materialChart.draw(data, materialOptions);
-            button.innerText = 'Change to Classic';
-            button.onclick = drawClassicChart;
         }
-
-        function drawClassicChart() {
-            var classicChart = new google.visualization.LineChart(chartDiv);
-            classicChart.draw(data, classicOptions);
-            button.innerText = 'Change to Material';
-            button.onclick = drawMaterialChart;
-        }
-
-        drawMaterialChart();
-
-    }
+    });
 </script>
