@@ -145,7 +145,7 @@ if ($status == 1) {
 
                     <td>
                         <button class="btn tooltipped grey darken-3 modal-trigger" href="#modalExcluir<?= $result[0] ?>" data-tooltip="Excluir Ficha" data-position="top" <?= $block ?>> <i class="material-icons">delete</i> </button>
-                        <button class="btn tooltipped grey darken-3" onclick="plotarFicha('<?= $result[1] ?>')"  data-tooltip="Editar Ficha" data-position="bottom" <?= $block ?>> <i class="material-icons">edit</i> </button>
+                        <button class="btn tooltipped grey darken-3" onclick="plotarFicha('<?= $result[0] ?>')"  data-tooltip="Editar Ficha" data-position="bottom" <?= $block ?>> <i class="material-icons">edit</i> </button>
                     </td>
                 </tr>
 
@@ -153,7 +153,7 @@ if ($status == 1) {
             <div id="modalExcluir<?= $result[0] ?>" class="modal bottom-sheet">
                 <div class="modal-content">
                     <h4>Deseja excluir a Ficha <u><?= $result['codigo'] ?></u>?
-                        <b><a onclick="deletarFicha(<?= $result[0] ?>);" class="modal-close black-text">Sim</a></b> ou
+                        <b><a onclick="deletarFicha(<?= $result['id'] ?>);" class="modal-close black-text">Sim</a></b> ou
                         <b><a href="#!" class="modal-close black-text">Não</a></b>
                     </h4>
                     <p></p>

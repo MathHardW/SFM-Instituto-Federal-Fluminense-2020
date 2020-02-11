@@ -25,12 +25,11 @@ $fichas = $fichaDAO->querySelectAll($pesquisa);
                 <th>Código</th>
                 <th>Trabalha</th>
                 <th>Dependentes</th>
-                <th>Atendimento Especial</th>
+                <th>Atendimento<br/>Especial</th>
                 <th>Mora Sozinho</th>
                 <th>Sexo</th>
                 <th>Cidade</th>
                 <th>Data</th>
-
             </tr>
         </thead>
         <tbody>
