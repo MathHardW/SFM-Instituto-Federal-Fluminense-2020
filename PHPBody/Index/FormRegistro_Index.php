@@ -3,27 +3,27 @@
         <div class="col s12 l12">
             <div class="input-field">
                 <i class="material-icons iconis prefix white-text">person</i>
-                <input id="nomeCompleto" type="text" class="validate">
+                <input id="nomeCompleto" type="text" class="validate" required>
                 <label for="icon_prefix">Nome Completo</label>
             </div>
             <div class="input-field">
                 <i class="material-icons iconis prefix white-text">email</i>
-                <input id="email" type="text" class="validate">
+                <input id="email" type="text" class="validate" required>
                 <label for="icon_prefix">Email</label>
             </div>
             <div class="input-field">
                 <i class="material-icons iconis prefix white-text">fiber_pin</i>
-                <input id="matricula" type="text" class="validate">
+                <input id="matricula" type="text" class="validate" required>
                 <label for="icon_prefix">Matrícula</label>
             </div>
             <div class="input-field">
                 <i class="material-icons iconis prefix white-text">account_box</i>
-                <input id="login_reg" type="text" class="validate">
+                <input id="login_reg" type="text" class="validate" required>
                 <label for="icon_prefix">Usuário</label>
             </div>
             <div class="input-field">
                 <i class="material-icons iconis prefix white-text">enhanced_encryption</i>
-                <input id="senha_reg" type="password" class="validate">
+                <input id="senha_reg" type="password" class="validate" required>
                 <label for="password">Senha</label>
             </div>
         </div>
@@ -52,7 +52,6 @@
                 renderizarFormularioDeLogin();
                 M.toast({html: 'Usuário Cadastrado com Sucesso! \n Esperando Aprovação ...', classes: 'rounded', displayLength: 3000});
             } else {
-                alert(data);
                 renderizarFormularioDeLogin();
                 M.toast({html: 'Erro ao cadastrar Usuário!', classes: 'rounded', displayLength: 3000});
             }

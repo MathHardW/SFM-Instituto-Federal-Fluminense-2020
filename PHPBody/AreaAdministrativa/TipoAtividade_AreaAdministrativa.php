@@ -37,7 +37,7 @@ $descricaoTipoAtividade = "";
                     <td><a class="waves-effect waves-light btn modal-trigger tooltipped grey darken-3" data-position="bottom" data-tooltip="Descrição do Tipo de Atividade" href="#modalTipoAtividade<?= $result[0] ?>"><i class="material-icons">description</i></a></td>
 
                     <td>            
-                        <button class="btn tooltipped modal-trigger grey darken-3" href="#modalExcluir<?= $result[0] ?>"  data-tooltip="Excluir Modalidade" data-position="top"> <i class="material-icons">delete</i> </button>
+                        <button class="btn tooltipped modal-trigger grey darken-3" href="#modalExcluirTipo<?= $result[0] ?>"  data-tooltip="Excluir Modalidade" data-position="top"> <i class="material-icons">delete</i> </button>
                         <button class="btn tooltipped grey darken-3" onclick="plotarTipoAtividade('<?= $result[0] ?>')"  data-tooltip="Editar Tipo de Atividade" data-position="bottom"> <i class="material-icons">edit</i> </button>
                     </td>
                 </tr>
@@ -55,7 +55,7 @@ $descricaoTipoAtividade = "";
             </div>
 
             <!-- Modal Structure -->
-            <div id="modalExcluir<?= $result[0] ?>" class="modal bottom-sheet">
+            <div id="modalExcluirTipo<?= $result[0] ?>" class="modal bottom-sheet">
                 <div class="modal-content">
                     <h4>Deseja excluir o Tipo de Atividade <u><?= $result['nome'] ?></u>?
                         <b><a onclick="excluirTipoAtividade(<?= $result['id'] ?>);" class="modal-close black-text">Sim</a></b> ou

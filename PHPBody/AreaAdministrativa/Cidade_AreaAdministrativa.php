@@ -37,12 +37,12 @@ $estadoCidadeText = "";
                     <td><?= $result['estado'] ?></td>
 
                     <td>
-                        <button class="btn tooltipped modal-trigger grey darken-3" href="#modalExcluir<?= $result[0] ?>"  data-tooltip="Excluir Cidade" data-position="top"> <i class="material-icons">delete</i> </button>
+                        <button class="btn tooltipped modal-trigger grey darken-3" href="#modalExcluirCid<?= $result[0] ?>"  data-tooltip="Excluir Cidade" data-position="top"> <i class="material-icons">delete</i> </button>
                         <button class="btn tooltipped grey darken-3" onclick="plotarCidade('<?= $result[0] ?>')"  data-tooltip="Editar Cidade" data-position="bottom"> <i class="material-icons">edit</i> </button>
                     </td>
                 </tr>
 
-            <div id="modalExcluir<?= $result[0] ?>" class="modal bottom-sheet">
+            <div id="modalExcluirCid<?= $result[0] ?>" class="modal bottom-sheet">
                 <div class="modal-content">
                     <h4>Deseja excluir a Cidade <u><?= $result['nome'] ?></u>?
                         <b><a onclick="excluirCidade(<?= $result['id'] ?>);" class="modal-close black-text">Sim</a></b> ou

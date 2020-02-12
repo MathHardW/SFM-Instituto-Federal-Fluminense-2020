@@ -34,14 +34,14 @@ $nomeNivelText = "";
                     <td><?= $result['nome'] ?></td>
 
                     <td>
-                        <button class="btn tooltipped modal-trigger grey darken-3" href="#modalExcluir<?= $result[0] ?>"  data-tooltip="Excluir Nível" data-position="top"> <i class="material-icons">delete</i> </button>
+                        <button class="btn tooltipped modal-trigger grey darken-3" href="#modalExcluirNivel<?= $result[0] ?>"  data-tooltip="Excluir Nível" data-position="top"> <i class="material-icons">delete</i> </button>
                         <button class="btn tooltipped grey darken-3" onclick="plotarNivel('<?= $result[0] ?>')"  data-tooltip="Editar Nível" data-position="bottom"> <i class="material-icons">edit</i> </button>
                     </td>
                 </tr>
 
 
                 <!-- Modal Structure -->
-            <div id="modalExcluir<?= $result[0] ?>" class="modal bottom-sheet">
+            <div id="modalExcluirNivel<?= $result[0] ?>" class="modal bottom-sheet">
                 <div class="modal-content">
                     <h4>Deseja excluir o Nível <u><?= $result['nome'] ?></u>?
                         <b><a onclick="excluirNivel(<?= $result['id'] ?>);" class="modal-close black-text">Sim</a></b> ou

@@ -44,7 +44,7 @@ session_start();
                         ?></td>
 
                     <td>
-                        <button class="btn tooltipped modal-trigger grey darken-3" href="#modalExcluir<?= $result[0] ?>"  data-tooltip="Excluir Usuário" data-position="bottom" <?php
+                        <button class="btn tooltipped modal-trigger grey darken-3" href="#modalExcluirUser<?= $result[0] ?>"  data-tooltip="Excluir Usuário" data-position="bottom" <?php
                         if ($_SESSION['permissao'] == 2) {
                             if ($result['id'] == 1) {
                                 echo "disabled";
@@ -78,7 +78,7 @@ session_start();
                 </tr>
 
                 <!-- Modal Structure -->
-            <div id="modalExcluir<?= $result[0] ?>" class="modal bottom-sheet">
+            <div id="modalExcluirUser<?= $result[0] ?>" class="modal bottom-sheet">
                 <div class="modal-content">
                     <h4>Deseja excluir o <u><?= $result['nomeCompleto'] ?></u>?
                         <b><a onclick="excluirUsuario(<?= $result['id'] ?>);" class="modal-close black-text">Sim</a></b> ou
